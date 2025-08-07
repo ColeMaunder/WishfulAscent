@@ -7,7 +7,12 @@ public class FPController : MonoBehaviour
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
     public float runSpeed = 8f;
+    public float crouchSpeed = 3f;
+    public float crouchMod = 0.5f;
+    public Vector3 crouchHight;
+    private Vector3 standHight;
     public float gravity = -9.81f;
+    public float jumpHight = 1.5f;
 
     [Header("Look Settings")]
     public Transform cameraTransform;
@@ -17,12 +22,12 @@ public class FPController : MonoBehaviour
     public float pickupRange = 3f;
     public Transform holdPoint;
     private GameObject heldObject;
-    private bool holding;
     private CharacterController controller;
     private Vector2 moveInput;
     private Vector2 lookInput;
-    private float holdInput;
-    private float runInput;
+    private bool holdInput;
+    private bool runInput;
+    private bool crouchInput;
     private Vector3 velocity;
     private float verticalRotation = 0f;
 
@@ -31,6 +36,9 @@ public class FPController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        standHight = cameraTransform.localPosition;
+        crouchHight = new Vector3(cameraTransform.localPosition.x, cameraTransform.localPosition.y * crouchMod, cameraTransform.localPosition.z);
+
     }
 
     private void Update()
@@ -48,21 +56,41 @@ public class FPController : MonoBehaviour
     {
         lookInput = context.ReadValue<Vector2>();
     }
-    public void OnHold(InputAction.CallbackContext context)
-    {
-        holdInput = context.ReadValue<float>();
-    }
     public void OnRun(InputAction.CallbackContext context)
     {
-        runInput = context.ReadValue<float>();
+        runInput = context.performed;
     }
-
+     public void OnCrouch(InputAction.CallbackContext context)
+    {
+        crouchInput = context.performed;
+    }
+    public void OnHold(InputAction.CallbackContext context)
+    {
+        holdInput = context.performed;
+    }
+   
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if(context.performed && controller.isGrounded){
+            velocity.y = Mathf.Sqrt(jumpHight * -2f * gravity);
+        }
+    }
 
     public void HandleMovement()
     {
         float speed = moveSpeed;
-        if(runInput > 0){
-            speed = runSpeed;
+        if (crouchInput)
+        {
+            speed = crouchSpeed;
+            cameraTransform.localPosition = crouchHight;
+        }
+        else
+        {
+            cameraTransform.localPosition = standHight;
+            if (runInput)
+            {
+                speed = runSpeed;
+            }
         }
         Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
         controller.Move(move * speed * Time.deltaTime);
@@ -72,6 +100,37 @@ public class FPController : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+    }
+    public void HandleHold(){
+        if (holdInput){
+            RaycastHit hit;
+            if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, pickupRange)){
+                if (hit.collider.CompareTag("Object")){
+                    heldObject = hit.collider.gameObject;
+                    Rigidbody rb = heldObject.GetComponent<Rigidbody>();
+                    if (rb != null){
+                        Object hitObject = heldObject.GetComponent<Object>();
+                        hitObject.SetHoolding(true);
+                    }
+                    heldObject.transform.SetParent(holdPoint);
+                    //heldObject.transform.localPosition = Vector3.zero;
+                    //heldObject.transform.localRotation = Quaternion.identity;
+                }
+            }
+        }
+        else{
+            if (heldObject != null){
+                Rigidbody rb = heldObject.GetComponent<Rigidbody>();
+                if (rb != null){
+                    heldObject.GetComponent<Object>().SetHoolding(false);
+                }
+                heldObject.transform.SetParent(null);
+                heldObject = null;
+            }
+        }
+    }
+    public void wipeHeldObject(){
+        heldObject = null;
     }
 
     public void HandleLook()
@@ -84,35 +143,6 @@ public class FPController : MonoBehaviour
 
         cameraTransform.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
-    }
-    public void HandleHold()
-    {
-        if(holdInput>0){
-            RaycastHit hit;
-            if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, pickupRange)){
-                if (hit.collider.CompareTag("Object")){
-                    heldObject = hit.collider.gameObject;
-                        Rigidbody rb = heldObject.GetComponent<Rigidbody>();
-                        if (rb != null){
-                            rb.isKinematic = true;
-                            heldObject.GetComponent<Object>().SetHoolding(true);   
-                        }
-                        heldObject.transform.SetParent(holdPoint);
-                        //heldObject.transform.localPosition = Vector3.zero;
-                        //heldObject.transform.localRotation = Quaternion.identity;
-                }
-            } 
-        }else {
-            if(heldObject != null) {
-                Rigidbody rb = heldObject.GetComponent<Rigidbody>();
-                if (rb != null) {
-                    rb.isKinematic = false;
-                    heldObject.GetComponent<Object>().SetHoolding(false);
-                }
-                heldObject.transform.SetParent(null);
-                heldObject = null;
-            }
-        }
     }
 }
 
