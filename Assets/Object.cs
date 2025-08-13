@@ -18,7 +18,7 @@ public class Object : MonoBehaviour
                 SetHoolding(false);
                 transform.SetParent(null);          
             }else if (distance > 0.5){
-                //rb.AddForce(20*(Vector3.zero - transform.localPosition));
+                rb.AddForce(20*(Vector3.zero - transform.localPosition));
             }else{
                 rb.angularVelocity = Vector3.zero;
             } 

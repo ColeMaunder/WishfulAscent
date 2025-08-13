@@ -4,6 +4,9 @@ using UnityEngine.InputSystem;
 
 public class FPController : MonoBehaviour
 {
+    public int baseCharacter = 0;
+    public Transform[] characters;
+    public Transform character;
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
     public float runSpeed = 8f;
@@ -33,7 +36,9 @@ public class FPController : MonoBehaviour
 
     private void Awake()
     {
-        controller = GetComponent<CharacterController>();
+        character = characters[baseCharacter];
+        cameraTransform.SetParent(character);
+        controller = character.GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         standHight = cameraTransform.localPosition;
@@ -75,6 +80,20 @@ public class FPController : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHight * -2f * gravity);
         }
     }
+    public void OnSwap(InputAction.CallbackContext context)
+    {
+        if(context.performed){
+            if (character == characters[0]){
+                character = characters[1];
+            }else{
+                character = characters[0];
+            }
+            cameraTransform.SetParent(character);
+            controller.Move(Vector3.zero);
+            controller = character.GetComponent<CharacterController>();
+            
+        }
+    }
 
     public void HandleMovement()
     {
@@ -92,7 +111,7 @@ public class FPController : MonoBehaviour
                 speed = runSpeed;
             }
         }
-        Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
+        Vector3 move = character.right * moveInput.x + character.forward * moveInput.y;
         controller.Move(move * speed * Time.deltaTime);
 
         if (controller.isGrounded && velocity.y < 0)
@@ -142,7 +161,7 @@ public class FPController : MonoBehaviour
         verticalRotation = Mathf.Clamp(verticalRotation, -verticalLookLimit, verticalLookLimit);
 
         cameraTransform.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
-        transform.Rotate(Vector3.up * mouseX);
+        character.Rotate(Vector3.up * mouseX);
     }
 }
 
