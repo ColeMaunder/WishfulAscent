@@ -88,7 +88,9 @@ public class FPController : MonoBehaviour
             }else{
                 character = characters[0];
             }
-            cameraTransform.SetParent(character);
+            cameraTransform.gameObject.GetComponent<Camera>().enabled = false;
+            cameraTransform = character.GetChild(0);
+            cameraTransform.gameObject.GetComponent<Camera>().enabled = true;
             controller.Move(Vector3.zero);
             controller = character.GetComponent<CharacterController>();
             
