@@ -20,8 +20,8 @@ public class Hael : MonoBehaviour
     void Update()
     {
         if(gravOrb.transform.parent != null && Vector3.Distance(gravOrb.transform.localPosition, orbHold) > dropVeriance){
-            //gravOrb.transform.SetParent(null);
-            //orbBody.Sleep();
+            gravOrb.transform.SetParent(null);
+            orbBody.Sleep();
         }
     }
     public void GravOrbControll(InputAction.CallbackContext context){
@@ -31,23 +31,23 @@ public class Hael : MonoBehaviour
                     gravOrb.transform.SetParent(null);
                     orbBody.AddForce(camra.forward * trowForce);
                 } else {
-                    while(context.performed){
-                        Vector3 direction = Vector3.Normalize(camra.position - gravOrb.transform.position);
-                        orbBody.AddForce(direction  *  trowForce);
-                    }
+                    //Vector3 direction = Vector3.Normalize(camra.position - gravOrb.transform.position);
+                    //orbBody.AddForce(direction  *  trowForce);
                     gravOrb.transform.SetParent(camra);
-                    //gravOrb.transform.localPosition = orbHold;
-                }
-            }else{
-                if (gravOrb.transform.parent != null) {
                     gravOrb.transform.localPosition = orbHold;
                 }
+            }else{
+                //if (gravOrb.transform.parent != null) {
+                    //gravOrb.transform.localPosition = orbHold;
+                //}
                     orbBody.Sleep();
             }
         }
         
     }
     public void ToggleActive(InputAction.CallbackContext context){
-        gravOrb.transform.GetChild(0).gameObject.SetActive(context.performed);
+        if(transform == controller.GetActiveCharicter()){
+            gravOrb.transform.GetChild(0).gameObject.SetActive(context.performed);
+        }
     }
 }
