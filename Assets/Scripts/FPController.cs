@@ -50,7 +50,6 @@ public class FPController : MonoBehaviour
     {
         HandleMovement();
         HandleLook();
-        HandleHold();
     }
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -122,7 +121,7 @@ public class FPController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
-    public void HandleHold(){
+    /*public void HandleHold(){
         if (holdInput){
             RaycastHit hit;
             if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, pickupRange)){
@@ -149,7 +148,7 @@ public class FPController : MonoBehaviour
                 heldObject = null;
             }
         }
-    }
+    }*/
     public void wipeHeldObject(){
         heldObject = null;
     }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Object
   - Ground
+  - GravityOrb
   layers:
   - Default
   - TransparentFX
