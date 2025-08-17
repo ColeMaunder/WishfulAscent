@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GravityOrb : MonoBehaviour
 {
-    public bool holding = false;
+    public bool active = false;
     
     Rigidbody rb;
 
@@ -10,14 +10,16 @@ public class GravityOrb : MonoBehaviour
         rb = transform.gameObject.GetComponent<Rigidbody>();
     }
     void Update() {
-    }
-    public void SetHoolding(bool state) {
-        if(state != holding){
-            rb.useGravity = !state;
+        if (active){
+            
         }
-        holding = state;
+    }
+    public void ToggleActive(bool state) {
+        active = state;
     }
     void OnCollisionEnter(Collision collision) {
-        rb.Sleep();
+        if(collision.gameObject.tag != "Object"){
+            rb.Sleep();
+        }
     } 
 }
