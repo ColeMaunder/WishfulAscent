@@ -18,6 +18,6 @@ public class GravityOrb : MonoBehaviour
         holding = state;
     }
     void OnCollisionEnter(Collision collision) {
-        rb.linearVelocity = Vector3.zero;
+        rb.Sleep();
     } 
 }

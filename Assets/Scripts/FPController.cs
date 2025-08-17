@@ -64,7 +64,7 @@ public class FPController : MonoBehaviour
     {
         runInput = context.performed;
     }
-     public void OnCrouch(InputAction.CallbackContext context)
+    public void OnCrouch(InputAction.CallbackContext context)
     {
         crouchInput = context.performed;
     }
@@ -72,19 +72,24 @@ public class FPController : MonoBehaviour
     {
         holdInput = context.performed;
     }
-   
+
     public void OnJump(InputAction.CallbackContext context)
     {
-        if(context.performed && controller.isGrounded){
+        if (context.performed && controller.isGrounded)
+        {
             velocity.y = Mathf.Sqrt(jumpHight * -2f * gravity);
         }
     }
     public void OnSwap(InputAction.CallbackContext context)
     {
-        if(context.performed){
-            if (character == characters[0]){
+        if (context.performed)
+        {
+            if (character == characters[0])
+            {
                 character = characters[1];
-            }else{
+            }
+            else
+            {
                 character = characters[0];
             }
             cameraTransform.gameObject.GetComponent<Camera>().enabled = false;
@@ -92,7 +97,7 @@ public class FPController : MonoBehaviour
             cameraTransform.gameObject.GetComponent<Camera>().enabled = true;
             controller.Move(Vector3.zero);
             controller = character.GetComponent<CharacterController>();
-            
+
         }
     }
 
@@ -149,7 +154,8 @@ public class FPController : MonoBehaviour
             }
         }
     }*/
-    public void wipeHeldObject(){
+    public void wipeHeldObject()
+    {
         heldObject = null;
     }
 
@@ -163,6 +169,9 @@ public class FPController : MonoBehaviour
 
         cameraTransform.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
         character.Rotate(Vector3.up * mouseX);
+    }
+    public Transform GetActiveCharicter(){
+        return character;
     }
 }
 

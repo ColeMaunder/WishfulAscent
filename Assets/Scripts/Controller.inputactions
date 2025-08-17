@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Hold",
+                    "name": "Ability",
                     "type": "Button",
                     "id": "82424922-f34c-46d9-9150-b4df63b45293",
                     "expectedControlType": "",
@@ -63,6 +63,15 @@
                     "name": "Swap",
                     "type": "Button",
                     "id": "a81ec665-292f-4c68-9b88-05a00ec70784",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Ability Toggle",
+                    "type": "Button",
+                    "id": "73df13f4-7e92-4b22-b1b8-05fe170f832d",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -209,7 +218,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
-                    "action": "Hold",
+                    "action": "Ability",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -220,7 +229,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Hold",
+                    "action": "Ability",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -282,7 +291,7 @@
                 {
                     "name": "",
                     "id": "416b4f67-20af-4ad2-bca6-c003c2960083",
-                    "path": "<Gamepad>/leftShoulder",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -309,6 +318,28 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "Swap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "790d43a2-70f2-4dbb-a1b8-1c93a5b4fef8",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Ability Toggle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ea6a8362-1f12-47c1-8779-b8bf4484bd8a",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Ability Toggle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
