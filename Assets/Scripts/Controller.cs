@@ -180,6 +180,15 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""e8155d11-34b9-4511-8354-99a1bc8a8a48"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -523,6 +532,28 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""action"": ""Ability scroll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9577dfd0-9c26-4072-b05f-4ab77347da99"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cc88ba3c-07a9-4115-ac93-db045e5ff86e"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -569,6 +600,7 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         m_Player_AbilityMod1 = m_Player.FindAction("Ability Mod 1", throwIfNotFound: true);
         m_Player_AbilityMod2 = m_Player.FindAction("Ability Mod 2", throwIfNotFound: true);
         m_Player_Abilityscroll = m_Player.FindAction("Ability scroll", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
     }
 
     ~@Controller()
@@ -659,6 +691,7 @@ public partial class @Controller: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_AbilityMod1;
     private readonly InputAction m_Player_AbilityMod2;
     private readonly InputAction m_Player_Abilityscroll;
+    private readonly InputAction m_Player_Pause;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -710,6 +743,10 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Abilityscroll".
         /// </summary>
         public InputAction @Abilityscroll => m_Wrapper.m_Player_Abilityscroll;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Pause".
+        /// </summary>
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -766,6 +803,9 @@ public partial class @Controller: IInputActionCollection2, IDisposable
             @Abilityscroll.started += instance.OnAbilityscroll;
             @Abilityscroll.performed += instance.OnAbilityscroll;
             @Abilityscroll.canceled += instance.OnAbilityscroll;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         /// <summary>
@@ -807,6 +847,9 @@ public partial class @Controller: IInputActionCollection2, IDisposable
             @Abilityscroll.started -= instance.OnAbilityscroll;
             @Abilityscroll.performed -= instance.OnAbilityscroll;
             @Abilityscroll.canceled -= instance.OnAbilityscroll;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         /// <summary>
@@ -943,5 +986,12 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnAbilityscroll(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Pause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPause(InputAction.CallbackContext context);
     }
 }

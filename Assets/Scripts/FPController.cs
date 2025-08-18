@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class FPController : MonoBehaviour
 {
-    public int baseCharacter = 0;
+    public int currentCharacter = 0;
     public Transform[] characters;
     public Transform character;
     [Header("Movement Settings")]
@@ -33,11 +33,11 @@ public class FPController : MonoBehaviour
     private bool crouchInput;
     private Vector3 velocity;
     private float verticalRotation = 0f;
+    private bool paused = false;
 
     private void Awake()
     {
-        character = characters[baseCharacter];
-        cameraTransform.SetParent(character);
+        character = characters[currentCharacter];
         controller = character.GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -48,8 +48,10 @@ public class FPController : MonoBehaviour
 
     private void Update()
     {
-        HandleMovement();
-        HandleLook();
+        if(!paused){
+            HandleMovement();
+            HandleLook();
+        }
     }
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -75,26 +77,30 @@ public class FPController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.performed && controller.isGrounded)
+        if (context.performed && controller.isGrounded && !paused)
         {
             velocity.y = Mathf.Sqrt(jumpHight * -2f * gravity);
         }
     }
     public void OnSwap(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && !paused)
         {
             if (character == characters[0])
             {
                 character = characters[1];
+                currentCharacter = 1;
             }
             else
             {
                 character = characters[0];
+                currentCharacter = 0;
             }
             cameraTransform.gameObject.GetComponent<Camera>().enabled = false;
+            cameraTransform.gameObject.GetComponent<AudioListener>().enabled = false;
             cameraTransform = character.GetChild(0);
             cameraTransform.gameObject.GetComponent<Camera>().enabled = true;
+            cameraTransform.gameObject.GetComponent<AudioListener>().enabled = true;
             controller.Move(Vector3.zero);
             controller = character.GetComponent<CharacterController>();
 
@@ -126,39 +132,6 @@ public class FPController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
-    /*public void HandleHold(){
-        if (holdInput){
-            RaycastHit hit;
-            if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, pickupRange)){
-                if (hit.collider.CompareTag("Object")){
-                    heldObject = hit.collider.gameObject;
-                    Rigidbody rb = heldObject.GetComponent<Rigidbody>();
-                    if (rb != null){
-                        Object hitObject = heldObject.GetComponent<Object>();
-                        hitObject.SetHoolding(true);
-                    }
-                    heldObject.transform.SetParent(holdPoint);
-                    //heldObject.transform.localPosition = Vector3.zero;
-                    //heldObject.transform.localRotation = Quaternion.identity;
-                }
-            }
-        }
-        else{
-            if (heldObject != null){
-                Rigidbody rb = heldObject.GetComponent<Rigidbody>();
-                if (rb != null){
-                    heldObject.GetComponent<Object>().SetHoolding(false);
-                }
-                heldObject.transform.SetParent(null);
-                heldObject = null;
-            }
-        }
-    }*/
-    public void wipeHeldObject()
-    {
-        heldObject = null;
-    }
-
     public void HandleLook()
     {
         float mouseX = lookInput.x * lookSensitivity;
@@ -172,6 +145,17 @@ public class FPController : MonoBehaviour
     }
     public Transform GetActiveCharicter(){
         return character;
+    }
+    public void DisableChricters(bool on){
+        if(on){
+            paused = true;
+            character = characters[2];
+            //controller.enabled = false;
+        } else {
+            character = characters[currentCharacter];
+            //controller.enabled = true;
+            paused = false;
+        }
     }
 }
 
