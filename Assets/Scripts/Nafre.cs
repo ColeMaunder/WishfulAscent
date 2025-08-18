@@ -78,7 +78,7 @@ public class Nafre : MonoBehaviour
         //timeFeald.transform.localPosition = fealdHold;
         while (Vector3.Distance(timeFeald.transform.localPosition, fealdHold) != 0) {
             yield return new WaitForSeconds(0.01f);
-            timeFeald.transform.localPosition = Vector3.MoveTowards(timeFeald.transform.localPosition, fealdHold, 20 * Time.deltaTime);
+            timeFeald.transform.localPosition = Vector3.MoveTowards(timeFeald.transform.localPosition, fealdHold, 40 * Time.deltaTime);
         }
      }
     public void ScrollTime(InputAction.CallbackContext context) {
@@ -89,6 +89,13 @@ public class Nafre : MonoBehaviour
                     print(value);
                     timeFeald.GetComponent<TimeFeald>().Scroll(value);
                 }
+            }
+        }
+    }
+    public void TimeNoraml(InputAction.CallbackContext context) {
+        if (transform == controller.GetActiveCharicter()) {
+            if (context.performed) {
+                timeFeald.GetComponent<TimeFeald>().Scroll(2);
             }
         }
     }
