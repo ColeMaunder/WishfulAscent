@@ -1,9 +1,10 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TimeForce : MonoBehaviour
 {
     [SerializeField] bool gravity = true;
-    private Vector3 gravityForce = new Vector3(0, -9.81f, 0);
+    private Vector3 gravityForce = new Vector3(0, -1.62f, 0);
     float timeMod = 1;
     Rigidbody rb;
     void Start()
@@ -36,5 +37,8 @@ public class TimeForce : MonoBehaviour
     public void Sleep()
     {
         rb.Sleep();
+    }
+    public void Gravity(bool sinState){
+        gravity = sinState;
     }
 }

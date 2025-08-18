@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class TimeFeald : MonoBehaviour
 {
@@ -17,19 +18,27 @@ public class TimeFeald : MonoBehaviour
     {
 
     }
-    public void Scroll(float inVal){
-        if (inVal > 0){
-            if (forceMods.Length > timeMode +1){
+    public void Scroll(float inVal)
+    {
+        if (inVal > 0)
+        {
+            if (3 >= timeMode + 1)
+            {
                 timeMode++;
             }
-        }else{
-            if (0 <= timeMode -1){
+        }
+        else
+        {
+            if (0 <= timeMode - 1)
+            {
                 timeMode--;
             }
         }
     }
-    void OnTriggerStay(Collider collision) {
-        if (collision.gameObject.GetComponent<TimeForce>() != null) {
+    void OnTriggerStay(Collider collision)
+    {
+        if (collision.gameObject.GetComponent<TimeForce>() != null)
+        {
             TimeForce tf = collision.gameObject.GetComponent<TimeForce>();
             tf.SetTimeMod(forceMods[timeMode]);
 
@@ -39,12 +48,14 @@ public class TimeFeald : MonoBehaviour
             //rb.angularVelocity = rb.angularVelocity * 0;
             //rb.Sleep();
         }
-    } 
-    void OnTriggerExit(Collider collision) {
-        if (collision.gameObject.GetComponent<TimeForce>() != null) {
+    }
+    void OnTriggerExit(Collider collision)
+    {
+        if (collision.gameObject.GetComponent<TimeForce>() != null)
+        {
             TimeForce tf = collision.gameObject.GetComponent<TimeForce>();
-            tf.SetTimeMod(1);
+            tf.SetTimeMod(2);
         }
-    } 
+    }
 }
 
