@@ -155,9 +155,27 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Ability Toggle"",
+                    ""name"": ""Ability Mod 1"",
                     ""type"": ""Button"",
                     ""id"": ""73df13f4-7e92-4b22-b1b8-05fe170f832d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Ability Mod 2"",
+                    ""type"": ""Button"",
+                    ""id"": ""0ef90a3b-e9b3-4b9d-90f7-7b53bf567b55"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Ability scroll"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""f56b8d94-56a6-4406-8c41-adbf9ca01317"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -311,7 +329,18 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""1561a097-8485-4e22-8c5a-62c9d697415d"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Ability"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9ecd380e-70a8-4494-b028-4123ff5bbc30"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
@@ -333,7 +362,7 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""7fdc01be-e233-4a5a-91dd-d0d053f0de22"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/leftStickPress"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
@@ -377,7 +406,7 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""416b4f67-20af-4ad2-bca6-c003c2960083"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/rightStickPress"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
@@ -399,7 +428,7 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""fce7b6bf-4245-426c-a197-670b0c7ea46b"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
@@ -414,18 +443,84 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Ability Toggle"",
+                    ""action"": ""Ability Mod 1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""ea6a8362-1f12-47c1-8779-b8bf4484bd8a"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Ability Mod 1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4e05a3e3-9ab4-459c-8b85-1514116a9927"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Ability Mod 2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6248cfdc-cdc3-44ce-b77c-dd818b850d3f"",
                     ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Ability Toggle"",
+                    ""action"": ""Ability Mod 2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Sholder Buttons"",
+                    ""id"": ""72c92713-9418-4d02-81eb-0685aee3f068"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability scroll"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""15ea3461-593b-44f4-ad0c-88b82bcd0d3b"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Ability scroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""15086374-b747-4729-8ca8-74231cb33f79"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Ability scroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""43675341-68e4-4bb2-8554-12ceaf522edf"",
+                    ""path"": ""<Mouse>/scroll/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability scroll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -471,7 +566,9 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
         m_Player_Swap = m_Player.FindAction("Swap", throwIfNotFound: true);
-        m_Player_AbilityToggle = m_Player.FindAction("Ability Toggle", throwIfNotFound: true);
+        m_Player_AbilityMod1 = m_Player.FindAction("Ability Mod 1", throwIfNotFound: true);
+        m_Player_AbilityMod2 = m_Player.FindAction("Ability Mod 2", throwIfNotFound: true);
+        m_Player_Abilityscroll = m_Player.FindAction("Ability scroll", throwIfNotFound: true);
     }
 
     ~@Controller()
@@ -559,7 +656,9 @@ public partial class @Controller: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Crouch;
     private readonly InputAction m_Player_Swap;
-    private readonly InputAction m_Player_AbilityToggle;
+    private readonly InputAction m_Player_AbilityMod1;
+    private readonly InputAction m_Player_AbilityMod2;
+    private readonly InputAction m_Player_Abilityscroll;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -600,9 +699,17 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Swap => m_Wrapper.m_Player_Swap;
         /// <summary>
-        /// Provides access to the underlying input action "Player/AbilityToggle".
+        /// Provides access to the underlying input action "Player/AbilityMod1".
         /// </summary>
-        public InputAction @AbilityToggle => m_Wrapper.m_Player_AbilityToggle;
+        public InputAction @AbilityMod1 => m_Wrapper.m_Player_AbilityMod1;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/AbilityMod2".
+        /// </summary>
+        public InputAction @AbilityMod2 => m_Wrapper.m_Player_AbilityMod2;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Abilityscroll".
+        /// </summary>
+        public InputAction @Abilityscroll => m_Wrapper.m_Player_Abilityscroll;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -650,9 +757,15 @@ public partial class @Controller: IInputActionCollection2, IDisposable
             @Swap.started += instance.OnSwap;
             @Swap.performed += instance.OnSwap;
             @Swap.canceled += instance.OnSwap;
-            @AbilityToggle.started += instance.OnAbilityToggle;
-            @AbilityToggle.performed += instance.OnAbilityToggle;
-            @AbilityToggle.canceled += instance.OnAbilityToggle;
+            @AbilityMod1.started += instance.OnAbilityMod1;
+            @AbilityMod1.performed += instance.OnAbilityMod1;
+            @AbilityMod1.canceled += instance.OnAbilityMod1;
+            @AbilityMod2.started += instance.OnAbilityMod2;
+            @AbilityMod2.performed += instance.OnAbilityMod2;
+            @AbilityMod2.canceled += instance.OnAbilityMod2;
+            @Abilityscroll.started += instance.OnAbilityscroll;
+            @Abilityscroll.performed += instance.OnAbilityscroll;
+            @Abilityscroll.canceled += instance.OnAbilityscroll;
         }
 
         /// <summary>
@@ -685,9 +798,15 @@ public partial class @Controller: IInputActionCollection2, IDisposable
             @Swap.started -= instance.OnSwap;
             @Swap.performed -= instance.OnSwap;
             @Swap.canceled -= instance.OnSwap;
-            @AbilityToggle.started -= instance.OnAbilityToggle;
-            @AbilityToggle.performed -= instance.OnAbilityToggle;
-            @AbilityToggle.canceled -= instance.OnAbilityToggle;
+            @AbilityMod1.started -= instance.OnAbilityMod1;
+            @AbilityMod1.performed -= instance.OnAbilityMod1;
+            @AbilityMod1.canceled -= instance.OnAbilityMod1;
+            @AbilityMod2.started -= instance.OnAbilityMod2;
+            @AbilityMod2.performed -= instance.OnAbilityMod2;
+            @AbilityMod2.canceled -= instance.OnAbilityMod2;
+            @Abilityscroll.started -= instance.OnAbilityscroll;
+            @Abilityscroll.performed -= instance.OnAbilityscroll;
+            @Abilityscroll.canceled -= instance.OnAbilityscroll;
         }
 
         /// <summary>
@@ -804,11 +923,25 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSwap(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Ability Toggle" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Ability Mod 1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnAbilityToggle(InputAction.CallbackContext context);
+        void OnAbilityMod1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Ability Mod 2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnAbilityMod2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Ability scroll" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnAbilityscroll(InputAction.CallbackContext context);
     }
 }
