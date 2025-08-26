@@ -9,13 +9,12 @@ public class GravityOrb : MonoBehaviour
     void Start() {
         rb = transform.gameObject.GetComponent<Rigidbody>();
     }
-    void Update() {
-        if (active){
-            
-        }
-    }
     public void ToggleActive(bool state) {
         active = state;
+    }
+    public bool isActive()
+    {
+        return active;
     }
     void OnCollisionEnter(Collision collision) {
         if(collision.gameObject.tag != "Object"){

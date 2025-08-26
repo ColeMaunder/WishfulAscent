@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Hael : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class Hael : MonoBehaviour
     private Coroutine scaleUp, scaleDown;
     Transform gravFeald;
     bool orbReturning = false;
-    Coroutine orbReturnProsess;
+    private List<Coroutine> orbReturnProsess = new List<Coroutine>();
     void Start()
     {
         controller = transform.parent.gameObject.GetComponent<FPController>();
@@ -57,17 +58,15 @@ public class Hael : MonoBehaviour
                     float distance = Vector3.Distance(orbPosition , orbHoldWorld);
                     RaycastHit hit;
 
-                    if (Physics.Raycast(orbPosition, direction, out hit, distance)  /*&& hit.collider.gameObject.GetComponent<TimeForce>() == null*/){
+                    if (Physics.Raycast(orbPosition, direction, out hit, distance)  && hit.collider.gameObject.GetComponent<TimeForce>() == null){
                         Debug.Log("Orb return blocked by : " + hit.collider.gameObject.name);
-                        if (orbReturnProsess != null)
-                        {
-                            StopCoroutine(orbReturnProsess);
-                            orbReturning = false;
-                        }
+
+                        wipeCorutene(orbReturnProsess);
+                        orbReturning = false;
                         gravOrb.transform.SetParent(camra);
                         gravOrb.transform.localPosition = orbHold;
                     }else{
-                        orbReturnProsess = StartCoroutine(OrbBack(rb));
+                        orbReturnProsess.Add(StartCoroutine(OrbBack(rb)));
                         Debug.Log("Orb Going to  : " + orbHoldWorld);
                     }
                     Debug.DrawRay(orbPosition, direction * distance, Color.red);
@@ -88,7 +87,15 @@ public class Hael : MonoBehaviour
         }
 
     }
-
+    private void wipeCorutene(List<Coroutine> list)
+    {
+        foreach (Coroutine c in list){
+            if (c != null){
+                StopCoroutine(c);
+            }
+        }
+        list.Clear();
+    }
     public void ToggleActive(InputAction.CallbackContext context)
     {
         if (transform == controller.GetActiveCharicter())
@@ -166,12 +173,15 @@ public class Hael : MonoBehaviour
         if(!orbReturning){
             orbReturning = true;
             Vector3 orbHoldWorld = transform.TransformPoint(orbHold);
-            //while (Vector3.Distance(orbBody.transform.position, orbHoldWorld) >1){
-                yield return new WaitForSeconds(0.01f);
-            //    rb.MovePosition(orbHoldWorld * 0.001f);
-            //}
+            while (Vector3.Distance(orbBody.transform.position, orbHoldWorld)> 0.5){
+                orbHoldWorld = transform.TransformPoint(orbHold);
+                yield return new WaitForSeconds(0.0f);
+                //rb.MovePosition(orbHoldWorld * 0.001f * 10 * Time.deltaTime);
+                orbBody.transform.position = Vector3.MoveTowards(orbBody.transform.position, orbHoldWorld, 5 * Time.deltaTime);
+                print(gravOrb.transform.position);
+            }
             gravOrb.transform.SetParent(camra);
-            //gravOrb.transform.localPosition = orbHold;
+            gravOrb.transform.localPosition = orbHold;
             orbReturning = false;
         }
      }
