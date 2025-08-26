@@ -1052,17 +1052,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 887087773099904205, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
-    - target: {fileID: 887087773099904205, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1523289487886150124, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+    - target: {fileID: 3036002893733569064, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
+      propertyPath: maxReturnDistance
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3897011187206546861, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
       propertyPath: m_ActionEvents.Array.data[10].m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1116,10 +1108,6 @@ PrefabInstance:
       propertyPath: 'm_Cameras.Array.data[1]'
       value: 
       objectReference: {fileID: 420319395}
-    - target: {fileID: 5297646644242331794, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6498258459874054695, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
       propertyPath: 'm_Cameras.Array.data[0]'
       value: 
@@ -1148,6 +1136,10 @@ PrefabInstance:
     - target: {fileID: 4956283268335211947, guid: 762279a9837ba4c4193810f04f3c0501, type: 3}
       propertyPath: m_Name
       value: UI camras
+      objectReference: {fileID: 0}
+    - target: {fileID: 4956283268335211947, guid: 762279a9837ba4c4193810f04f3c0501, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5935819270849151470, guid: 762279a9837ba4c4193810f04f3c0501, type: 3}
       propertyPath: m_LocalPosition.x

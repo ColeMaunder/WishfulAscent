@@ -11,7 +11,6 @@ public class Hael : MonoBehaviour
     public float dropVeriance = 0.5f;
     private FPController controller;
     private TimeForce orbBody;
-    private Vector3 orbHold;
     private bool hasChecked = false;
     private bool holding = false;
     private bool holdLocked = false;
@@ -21,19 +20,20 @@ public class Hael : MonoBehaviour
     public float fealdScaleMax = 25f;
     private Coroutine scaleUp, scaleDown;
     Transform gravFeald;
+    Transform holdPoint;
     bool orbReturning = false;
     private List<Coroutine> orbReturnProsess = new List<Coroutine>();
     void Start()
     {
+        holdPoint = camra.GetChild(0);
         controller = transform.parent.gameObject.GetComponent<FPController>();
         //orbHold = new Vector3(0, -0.15f, 0.7f);
-        orbHold = gravOrb.transform.localPosition;
         orbBody = gravOrb.GetComponent<TimeForce>();
         gravFeald = gravOrb.transform.GetChild(0).GetComponent<Transform>();
     }
     void FixedUpdate()
     {
-        if (gravOrb.transform.parent != null && Vector3.Distance(gravOrb.transform.localPosition, orbHold) > dropVeriance)
+        if (gravOrb.transform.parent != null && Vector3.Distance(gravOrb.transform.position, holdPoint.position) > dropVeriance)
         {
             gravOrb.transform.SetParent(null);
             orbBody.Sleep();
@@ -52,22 +52,22 @@ public class Hael : MonoBehaviour
                     gravOrb.transform.SetParent(null);
                     orbBody.AddForce(camra.forward * trowForce);
                 } else {
-                    Vector3 orbHoldWorld = transform.TransformPoint(orbHold);
+
                     Vector3 orbPosition = orbBody.transform.position;
-                    Vector3 direction = (orbHoldWorld - orbPosition).normalized;
-                    float distance = Vector3.Distance(orbPosition , orbHoldWorld);
+                    Vector3 direction = (holdPoint.position - orbPosition).normalized;
+                    float distance = Vector3.Distance(orbPosition , holdPoint.position);
                     RaycastHit hit;
 
                     if (Physics.Raycast(orbPosition, direction, out hit, distance)  && hit.collider.gameObject.GetComponent<TimeForce>() == null){
                         Debug.Log("Orb return blocked by : " + hit.collider.gameObject.name);
-
                         wipeCorutene(orbReturnProsess);
                         orbReturning = false;
                         gravOrb.transform.SetParent(camra);
-                        gravOrb.transform.localPosition = orbHold;
+                        gravOrb.transform.position = holdPoint.position;
+                        FealdOff();
                     }else{
                         orbReturnProsess.Add(StartCoroutine(OrbBack(rb)));
-                        Debug.Log("Orb Going to  : " + orbHoldWorld);
+                        Debug.Log("Orb Going to  : " + holdPoint.position);
                     }
                     Debug.DrawRay(orbPosition, direction * distance, Color.red);
 
@@ -153,6 +153,20 @@ public class Hael : MonoBehaviour
             gravFeald.transform.localScale = new Vector3(fealdScale, fealdScale, fealdScale);
         }
     }
+    private void FealdOff()
+    {
+        if (scaleUp != null)
+        {
+            StopCoroutine(scaleUp);
+        }
+        if (scaleDown != null)
+        {
+            StopCoroutine(scaleDown);
+        }
+        holdLocked = false;
+        fealdScale = fealdScaleBase;
+        gravFeald.gameObject.SetActive(false);
+    }
     private IEnumerator ScaleDownFeald()
     {
         if (scaleUp != null)
@@ -172,16 +186,14 @@ public class Hael : MonoBehaviour
     {
         if(!orbReturning){
             orbReturning = true;
-            Vector3 orbHoldWorld = transform.TransformPoint(orbHold);
-            while (Vector3.Distance(orbBody.transform.position, orbHoldWorld)> 0.5){
-                orbHoldWorld = transform.TransformPoint(orbHold);
+            while (Vector3.Distance(orbBody.transform.position, holdPoint.position) != 0){
                 yield return new WaitForSeconds(0.0f);
                 //rb.MovePosition(orbHoldWorld * 0.001f * 10 * Time.deltaTime);
-                orbBody.transform.position = Vector3.MoveTowards(orbBody.transform.position, orbHoldWorld, 5 * Time.deltaTime);
+                orbBody.transform.position = Vector3.MoveTowards(orbBody.transform.position, holdPoint.position, 5 * Time.deltaTime);
                 print(gravOrb.transform.position);
             }
             gravOrb.transform.SetParent(camra);
-            gravOrb.transform.localPosition = orbHold;
+            //gravOrb.transform.localPosition = orbHold;
             orbReturning = false;
         }
      }
