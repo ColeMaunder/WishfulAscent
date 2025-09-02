@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class Nafre : MonoBehaviour
 {
+    public bool flight = false;
     private FPController controller;
     public GameObject timeFeald;
     public Transform camra;
@@ -15,6 +17,9 @@ public class Nafre : MonoBehaviour
     //Vector3 fealdHold;
     Transform holdPoint;
     private Coroutine scaleUp;
+    public bool GetFlight(){
+        return flight;
+    }
 
     void Start()
     {
@@ -24,6 +29,7 @@ public class Nafre : MonoBehaviour
     }
     void Update(){
 
+        flight = timeFeald.transform.parent != null;
     }
     public void TemporalContoll(InputAction.CallbackContext context){
         if(transform == controller.GetActiveCharicter()){

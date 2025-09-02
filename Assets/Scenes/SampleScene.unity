@@ -518,7 +518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec1990f5f5e3b143a01616954b05532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: 1
+  gravityAfected: 1
 --- !u!114 &820854549 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3799712737627688053, guid: 762279a9837ba4c4193810f04f3c0501, type: 3}
@@ -749,7 +749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec1990f5f5e3b143a01616954b05532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: 1
+  gravityAfected: 1
 --- !u!20 &1835491604 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 6933312019327467435, guid: 762279a9837ba4c4193810f04f3c0501, type: 3}
@@ -921,7 +921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec1990f5f5e3b143a01616954b05532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: 0
+  gravityAfected: 1
 --- !u!114 &1839358594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1052,9 +1052,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 545718517155089107, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
+      propertyPath: timeMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 545718517155089107, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
+      propertyPath: 'gravMods.Array.data[0]'
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 545718517155089107, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
+      propertyPath: 'gravMods.Array.data[1]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564626071858772815, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
+      propertyPath: flySpeed.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564626071858772815, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
+      propertyPath: flyLookVeriance
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 3036002893733569064, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
       propertyPath: maxReturnDistance
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3881217152183672106, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3897011187206546861, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
       propertyPath: m_ActionEvents.Array.data[10].m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1108,6 +1132,10 @@ PrefabInstance:
       propertyPath: 'm_Cameras.Array.data[1]'
       value: 
       objectReference: {fileID: 420319395}
+    - target: {fileID: 5872296097106557605, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
+      propertyPath: gravityAfected
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6498258459874054695, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
       propertyPath: 'm_Cameras.Array.data[0]'
       value: 
@@ -1120,7 +1148,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Players
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6450180099975132800, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
+    - {fileID: 3881217152183672106, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

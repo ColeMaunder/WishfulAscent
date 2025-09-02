@@ -9,6 +9,7 @@ public class FPController : MonoBehaviour
     public Transform character;
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
+    public float flySpeed = 2f;
     public float runSpeed = 8f;
     public float crouchSpeed = 3f;
     public float crouchMod = 0.5f;
@@ -16,24 +17,24 @@ public class FPController : MonoBehaviour
     private Vector3 standHight;
     public float gravity = -9.81f;
     public float jumpHight = 1.5f;
+    public float flyLookVeriance = 25f;
 
     [Header("Look Settings")]
     public Transform cameraTransform;
     public float lookSensitivity = 2f;
     public float verticalLookLimit = 90f;
-    [Header("Pick UP Settings")]
-    public float pickupRange = 3f;
-    public Transform holdPoint;
-    private GameObject heldObject;
     private CharacterController controller;
     private Vector2 moveInput;
     private Vector2 lookInput;
-    private bool holdInput;
     private bool runInput;
     private bool crouchInput;
+    private bool jumpInput;
     private Vector3 velocity;
-    private float verticalRotation = 0f;
+    [SerializeField]private float verticalRotation = 0f;
     private bool paused = false;
+    private float flyLook = 0;
+    private float moveY;
+    
 
     private void Awake()
     {
@@ -70,17 +71,9 @@ public class FPController : MonoBehaviour
     {
         crouchInput = context.performed;
     }
-    public void OnHold(InputAction.CallbackContext context)
-    {
-        holdInput = context.performed;
-    }
-
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.performed && controller.isGrounded && !paused)
-        {
-            velocity.y = Mathf.Sqrt(jumpHight * -2f * gravity);
-        }
+        jumpInput = context.performed;
     }
     public void OnSwap(InputAction.CallbackContext context)
     {
@@ -110,26 +103,52 @@ public class FPController : MonoBehaviour
     public void HandleMovement()
     {
         float speed = moveSpeed;
-        if (crouchInput)
-        {
-            speed = crouchSpeed;
-            cameraTransform.localPosition = crouchHight;
-        }
-        else
-        {
-            cameraTransform.localPosition = standHight;
-            if (runInput)
-            {
-                speed = runSpeed;
+        if (character.GetComponent<Nafre>() != null && character.GetComponent<Nafre>().GetFlight() && !controller.isGrounded) {
+            if (jumpInput) {
+                moveY = flySpeed;
+            } else if (crouchInput) {
+                moveY = -flySpeed;
+            }else{
+                moveY = 0;
+            }
+            
+            if(verticalRotation > verticalLookLimit - flyLookVeriance || verticalRotation < -verticalLookLimit + flyLookVeriance){
+                flyLook = flySpeed * -verticalRotation/90;
+            } else {
+                flyLook = 0;
+                if (!jumpInput && !crouchInput)
+                {
+                    velocity.y = 0;
+                }
+            }
+        } else{
+            moveY = 0;
+            velocity.y += gravity * Time.deltaTime;
+            if (controller.isGrounded && jumpInput) {
+                velocity.y = Mathf.Sqrt(jumpHight * -2f * gravity);
+            }
+            
+            if (crouchInput) {
+                speed = crouchSpeed;
+                cameraTransform.localPosition = crouchHight;
+            } else {
+                cameraTransform.localPosition = standHight;
             }
         }
-        Vector3 move = character.right * moveInput.x + character.forward * moveInput.y;
+        
+        if (runInput) {
+            speed = runSpeed;
+        }
+        Vector3 move = character.right * moveInput.x + character.forward * moveInput.y + character.up * moveY;
+        if(flyLook != 0 && (moveInput.x != 0 || moveInput.y != 0)){
+            move += character.up * flyLook; 
+        }
+        
         controller.Move(move * speed * Time.deltaTime);
 
         if (controller.isGrounded && velocity.y < 0)
             velocity.y = -2f;
 
-        velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
     public void HandleLook()
