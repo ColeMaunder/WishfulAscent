@@ -3,35 +3,52 @@ using UnityEngine;
 
 public class TimeForce : MonoBehaviour
 {
-    [SerializeField] bool gravity = true;
-    private Vector3 gravityForce = new Vector3(0, -1.62f, 0);
-    float timeMod = 1;
+    [SerializeField] bool gravityAfected = true;
+    bool gravity = true;
+    private Vector3 baseGravityForce = new Vector3(0, -9.8f, 0);
+    private Vector3 gravityForce;
+    float gravMod = 1;
     Rigidbody rb;
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
+        gravityForce = baseGravityForce;
     }
 
     void Update()
-    {
-        if( timeMod== 0){
-            rb.linearVelocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-        }
-                
-        if(gravity){
-            rb.AddForce(gravityForce * timeMod, ForceMode.Acceleration);
+    {    
+        if(gravity && gravMod == 0){
+            rb.Sleep();
+        }   
+        if(gravityAfected && gravity){
+            rb.AddForce(gravityForce * gravMod, ForceMode.Acceleration);
         }
     }
-    public void SetTimeMod(float newMod) {
-        timeMod = newMod;
+    public void SetGravMod(float newMod) {
+        if (newMod == -1) {
+            Gravity(false);
+            rb.WakeUp();
+        } else {
+            Gravity(true);
+            gravMod = newMod;  
+        }
     }
     
     public void AddForce(Vector3 force, ForceMode mode = ForceMode.Force){
-        rb.AddForce(force * timeMod, mode);
+        //rb.AddForce(force * timeMod, mode);
+        rb.AddForce(force, mode);
     }
     public void AddTorque(Vector3 force, ForceMode mode = ForceMode.Force){
-        rb.AddTorque(force * timeMod, mode);
+        //rb.AddTorque(force * timeMod, mode);
+        rb.AddTorque(force , mode);
+    }
+    public void AddAValocity(Vector3 force){
+        //rb.angularVelocity = force * mode;
+        rb.angularVelocity = force;
+    }
+    public void AddLValocoty(Vector3 force){
+        //rb.linearVelocity = force * mode;
+        rb.linearVelocity = force;
     }
     
     public void Sleep()

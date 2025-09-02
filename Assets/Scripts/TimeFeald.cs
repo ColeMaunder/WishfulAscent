@@ -4,7 +4,7 @@ using System.Collections;
 public class TimeFeald : MonoBehaviour
 {
     [SerializeField]
-    float[] forceMods = { 0, 0.5f, 1, 2f };
+    float[] gravMods = {-1, 0, 1, 2f };
     [SerializeField]
     int timeMode = 2;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -40,7 +40,7 @@ public class TimeFeald : MonoBehaviour
         if (collision.gameObject.GetComponent<TimeForce>() != null)
         {
             TimeForce tf = collision.gameObject.GetComponent<TimeForce>();
-            tf.SetTimeMod(forceMods[timeMode]);
+            tf.SetGravMod(gravMods[timeMode]);
 
             //Item item = collision.gameObject.GetComponent<Item>();
             //item.SetTimeMod(forceMods[timeMode]);
@@ -54,7 +54,7 @@ public class TimeFeald : MonoBehaviour
         if (collision.gameObject.GetComponent<TimeForce>() != null)
         {
             TimeForce tf = collision.gameObject.GetComponent<TimeForce>();
-            tf.SetTimeMod(2);
+            tf.SetGravMod(1);
         }
     }
 }
