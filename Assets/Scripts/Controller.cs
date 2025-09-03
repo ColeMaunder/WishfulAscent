@@ -261,7 +261,7 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""up"",
                     ""id"": ""227c3a32-cf4c-4e54-a950-8656887175e8"",
-                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
