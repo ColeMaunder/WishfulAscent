@@ -9,6 +9,7 @@ TagManager:
   - GravityOrb
   - Key
   - Door
+  - SoundManager
   layers:
   - Default
   - TransparentFX
@@ -16,8 +17,8 @@ TagManager:
   - 
   - Water
   - UI
-  - Player
-  - 
+  - Character 1
+  - Character 2
   - 
   - 
   - 
