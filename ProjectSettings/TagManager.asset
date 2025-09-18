@@ -7,9 +7,10 @@ TagManager:
   - Object
   - Ground
   - GravityOrb
-  - Key
   - Door
   - SoundManager
+  - SoundManger
+  - Save
   layers:
   - Default
   - TransparentFX
