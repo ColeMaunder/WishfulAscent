@@ -28,8 +28,11 @@ public class Hael : MonoBehaviour
         holdPoint = camra.GetChild(0);
         controller = transform.parent.gameObject.GetComponent<FPController>();
         //orbHold = new Vector3(0, -0.15f, 0.7f);
+
+        gravOrb.transform.localPosition = holdPoint.localPosition;
         orbBody = gravOrb.GetComponent<TimeForce>();
         gravFeald = gravOrb.transform.GetChild(0).GetComponent<Transform>();
+        //StartCoroutine(OrbBack(gravOrb.transform.GetComponent<Rigidbody>()));
     }
     void FixedUpdate()
     {
@@ -57,7 +60,6 @@ public class Hael : MonoBehaviour
                     Vector3 direction = (holdPoint.position - orbPosition).normalized;
                     float distance = Vector3.Distance(orbPosition , holdPoint.position);
                     RaycastHit hit;
-
                     if (Physics.Raycast(orbPosition, direction, out hit, distance)  && hit.collider.gameObject.GetComponent<TimeForce>() == null){
                         Debug.Log("Orb return blocked by : " + hit.collider.gameObject.name);
                         wipeCorutene(orbReturnProsess);

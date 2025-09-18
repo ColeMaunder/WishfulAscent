@@ -141,8 +141,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2364581937419768629}
-  - {fileID: 3777885189932593080}
   - {fileID: 6119621510832192211}
+  - {fileID: 3777885189932593080}
   m_Father: {fileID: 9093487886537628523}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &2116047673948523084
@@ -514,11 +514,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f134886f1b64b14fa9df6753190900d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceMods:
+  gravMods:
+  - -1
   - 0
-  - 0.2
   - 1
-  - 4
+  - 2
   timeMode: 1
 --- !u!1 &2865530861621647803
 GameObject:
@@ -684,7 +684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec1990f5f5e3b143a01616954b05532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: 0
+  gravityAfected: 1
 --- !u!1 &3127144679100899620
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,6 +1295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ec348e0bcd11a84e8b17d65ab948d68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flight: 0
   timeFeald: {fileID: 1905050184200850247}
   camra: {fileID: 4186843533250187275}
   scaleMod: 15
@@ -1507,17 +1508,18 @@ MonoBehaviour:
   - {fileID: 4061592738594121470}
   character: {fileID: 0}
   moveSpeed: 4
+  flySpeed: 2
   runSpeed: 7
   crouchSpeed: 3
   crouchMod: 0
   crouchHight: {x: 0, y: 0, z: 0}
   gravity: -9.81
   jumpHight: 1.5
+  flyLookVeriance: 25
   cameraTransform: {fileID: 6682093785383168258}
   lookSensitivity: 1
   verticalLookLimit: 90
-  pickupRange: 3
-  holdPoint: {fileID: 0}
+  verticalRotation: 0
 --- !u!114 &3897011187206546861
 MonoBehaviour:
   m_ObjectHideFlags: 0

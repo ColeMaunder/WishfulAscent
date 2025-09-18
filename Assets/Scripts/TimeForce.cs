@@ -51,11 +51,10 @@ public class TimeForce : MonoBehaviour
         rb.linearVelocity = force;
     }
     
-    public void Sleep()
-    {
+    public void Sleep() {
         rb.Sleep();
     }
-    public void Gravity(bool sinState){
+    public void Gravity(bool sinState) {
         gravity = sinState;
     }
 }
