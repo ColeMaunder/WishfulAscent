@@ -1,22 +1,24 @@
 using UnityEngine;
 using System.Collections;
+using TreeEditor;
 
-public class TimeFeald : MonoBehaviour
+public class GravityFeald : MonoBehaviour
 {
     [SerializeField]
     float[] gravMods = {-1, 0, 1, 2f };
     [SerializeField]
+    Material[] materials;
+    [SerializeField]
     int timeMode = 2;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    MeshRenderer materialRenderer;
     void Start()
     {
-
+        materialRenderer = gameObject.GetComponent<MeshRenderer>();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void SetGravMode(int neweMode)
     {
-
+        timeMode = neweMode;
+        materialRenderer.material = materials[timeMode];
     }
     public void Scroll(float inVal)
     {
@@ -25,6 +27,7 @@ public class TimeFeald : MonoBehaviour
             if (3 >= timeMode + 1)
             {
                 timeMode++;
+                materialRenderer.material = materials[timeMode];
             }
         }
         else
@@ -32,6 +35,7 @@ public class TimeFeald : MonoBehaviour
             if (0 <= timeMode - 1)
             {
                 timeMode--;
+                materialRenderer.material = materials[timeMode];
             }
         }
     }

@@ -3,11 +3,13 @@ using UnityEngine.InputSystem;
 using System.Collections;
 using Unity.VisualScripting;
 
-public class Nafre : MonoBehaviour
+public class Luna : MonoBehaviour
 {
+    [SerializeField]
+    bool hasPowerControll = true;
     public bool flight = false;
     private FPController controller;
-    public GameObject timeFeald;
+    private GameObject gravFeald;
     public Transform camra;
     private float fealdScale = 0.2f;
     public float scaleMod = 10;
@@ -23,35 +25,26 @@ public class Nafre : MonoBehaviour
 
     void Start()
     {
+        gravFeald = GameObject.FindWithTag("GravityFeald").gameObject;
         holdPoint = camra.GetChild(0);
         controller = transform.parent.gameObject.GetComponent<FPController>();
-        fealdScale = fealdScaleBase;
     }
     void Update(){
 
-        flight = timeFeald.transform.parent != null;
+        flight = gravFeald.transform.parent == camra;
     }
     public void TemporalContoll(InputAction.CallbackContext context){
-        if(transform == controller.GetActiveCharicter()){
+        if(transform == controller.GetActiveCharicter() && hasPowerControll){
             if (context.performed) {
-                if (fealdScale <= fealdScaleBase){
+                if (fealdScale <= fealdScaleBase) {
                     scaleUp = StartCoroutine(ScaleUpFeald());
-                }else{
-                    Vector3 fealdPosition = timeFeald.transform.position;
-                    Vector3 direction = (holdPoint.position - fealdPosition).normalized;
-                    float distance = Vector3.Distance(fealdPosition , holdPoint.position);
-                    RaycastHit hit;
-                    if (distance > maxReturnDistance && Physics.Raycast(fealdPosition, direction, out hit, distance) && hit.collider.gameObject.GetComponent<TimeForce>() == null){
-                        Debug.Log("Orb return blocked by : " + hit.collider.gameObject.name);
-                        FealdRreset();
-                    } else {
-                        StartCoroutine(ScaleDownFeald());
-                    }
+                } else {
+                    returnFeald();
                 }
             } else {
                 if( fealdScale > fealdScaleBase && scaleUp != null){
                     StopCoroutine(scaleUp);
-                    timeFeald.transform.SetParent(null);
+                    gravFeald.transform.SetParent(null);
                 }
             }
         }
@@ -59,24 +52,36 @@ public class Nafre : MonoBehaviour
     /*public void ToggleActive(InputAction.CallbackContext context){
         if(transform == controller.GetActiveCharicter()){
             if(context.performed){
-                if(timeFeald.transform.parent != null){
-                    //timeFeald.transform.SetParent(null);
+                if(gravFeald.transform.parent != null){
+                    //gravFeald.transform.SetParent(null);
                 }else{
-                    timeFeald.transform.SetParent(camra);
-                    timeFeald.transform.localPosition = fealdHold;
-                    timeFeald.transform.localScale = new Vector3(fealdScaleBase, fealdScaleBase, fealdScaleBase);
+                    gravFeald.transform.SetParent(camra);
+                    gravFeald.transform.localPosition = fealdHold;
+                    gravFeald.transform.localScale = new Vector3(fealdScaleBase, fealdScaleBase, fealdScaleBase);
                     fealdScale = fealdScaleBase;
                 }
             }
         }
     }*/
+    private void returnFeald() {
+        Vector3 fealdPosition = gravFeald.transform.position;
+        Vector3 direction = (holdPoint.position - fealdPosition).normalized;
+        float distance = Vector3.Distance(fealdPosition , holdPoint.position);
+        RaycastHit hit;
+        if (distance > maxReturnDistance && Physics.Raycast(fealdPosition, direction, out hit, distance) && hit.collider.gameObject.GetComponent<TimeForce>() == null){
+            Debug.Log("Orb return blocked by : " + hit.collider.gameObject.name);
+            FealdRreset();
+        } else {
+            StartCoroutine(ScaleDownFeald());
+        }
+    }
     private IEnumerator ScaleUpFeald() {
         while(fealdScale < fealdScaleMax) {
             yield return new WaitForSeconds(0.01f);
             fealdScale += fealdScale/scaleMod;
-            timeFeald.transform.localScale = new Vector3(fealdScale, fealdScale, fealdScale);
+            gravFeald.transform.localScale = new Vector3(fealdScale, fealdScale, fealdScale);
         }
-        timeFeald.transform.SetParent(null);
+        gravFeald.transform.SetParent(null);
      }
     private IEnumerator ScaleDownFeald()
     {
@@ -86,33 +91,34 @@ public class Nafre : MonoBehaviour
         }
         while (fealdScale > fealdScaleBase)
         {
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.5f);
             fealdScale -= fealdScale / (scaleMod / 5);
-            timeFeald.transform.localScale = new Vector3(fealdScale, fealdScale, fealdScale);
+            gravFeald.transform.localScale = new Vector3(fealdScale, fealdScale, fealdScale);
         }
-        //timeFeald.transform.localPosition = fealdHold;
-        while (Vector3.Distance(timeFeald.transform.position, holdPoint.position) != 0)
+        //gravFeald.transform.localPosition = fealdHold;
+        while (Vector3.Distance(gravFeald.transform.position, holdPoint.position) != 0)
         {
             yield return null;
-            timeFeald.transform.position = Vector3.MoveTowards(timeFeald.transform.position, holdPoint.position, 40 * Time.deltaTime);
+            gravFeald.transform.position = Vector3.MoveTowards(gravFeald.transform.position, holdPoint.position, 40 * Time.deltaTime);
         }
-        timeFeald.transform.SetParent(camra);
+        gravFeald.transform.SetParent(camra);
+        
      }
     public void ScrollTime(InputAction.CallbackContext context) {
-        if (transform == controller.GetActiveCharicter()) {
+        if (transform == controller.GetActiveCharicter() && hasPowerControll) {
             if (context.performed) {
                 float value = context.ReadValue<float>();
                 if (value != 0) {
                     print(value);
-                    timeFeald.GetComponent<TimeFeald>().Scroll(value);
+                    gravFeald.GetComponent<GravityFeald>().Scroll(value);
                 }
             }
         }
     }
     public void TimeNoraml(InputAction.CallbackContext context) {
-        if (transform == controller.GetActiveCharicter()) {
+        if (transform == controller.GetActiveCharicter()  && hasPowerControll) {
             if (context.performed) {
-                timeFeald.GetComponent<TimeFeald>().Scroll(2);
+                gravFeald.GetComponent<GravityFeald>().Scroll(2);
             }
         }
     }
@@ -123,10 +129,16 @@ public class Nafre : MonoBehaviour
             StopCoroutine(scaleUp);
             scaleUp = null;
         }
-        timeFeald.transform.SetParent(camra);
-        timeFeald.transform.position = holdPoint.position;
+        gravFeald.transform.SetParent(camra);
+        gravFeald.transform.position = holdPoint.position;
         fealdScale = fealdScaleBase;
-        timeFeald.transform.localScale = new Vector3(fealdScaleBase, fealdScaleBase, fealdScaleBase);
+        gravFeald.transform.localScale = new Vector3(fealdScaleBase, fealdScaleBase, fealdScaleBase);
     }
 
+    public void ActivetAbility()
+    {
+        hasPowerControll = true;
+        fealdScale = 25;
+        returnFeald();
+    }
 }

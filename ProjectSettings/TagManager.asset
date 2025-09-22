@@ -11,6 +11,7 @@ TagManager:
   - SoundManager
   - SoundManger
   - Save
+  - GravityFeald
   layers:
   - Default
   - TransparentFX
