@@ -34,11 +34,18 @@ public class FPController : MonoBehaviour
     private bool paused = false;
     private float flyLook = 0;
     private float moveY;
+    private GameObject Camera3P;
     
 
     private void Awake()
     {
+        Camera3P = transform.GetChild(2).gameObject;
+        Camera3P.gameObject.GetComponent<Camera>().enabled = false;
+        Camera3P.gameObject.GetComponent<AudioListener>().enabled = false;
         character = characters[currentCharacter];
+        cameraTransform = character.GetChild(0);
+        cameraTransform.gameObject.GetComponent<Camera>().enabled = true;
+        cameraTransform.gameObject.GetComponent<AudioListener>().enabled = true;
         controller = character.GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -103,7 +110,7 @@ public class FPController : MonoBehaviour
     public void HandleMovement()
     {
         float speed = moveSpeed;
-        if (character.GetComponent<Nafre>() != null && character.GetComponent<Nafre>().GetFlight() && !controller.isGrounded) {
+        if (character.GetComponent<Luna>() != null && character.GetComponent<Luna>().GetFlight()) {
             if (jumpInput) {
                 moveY = flySpeed;
             } else if (crouchInput) {
@@ -111,7 +118,7 @@ public class FPController : MonoBehaviour
             }else{
                 moveY = 0;
             }
-            
+            velocity.y = 0;
             if(verticalRotation > verticalLookLimit - flyLookVeriance || verticalRotation < -verticalLookLimit + flyLookVeriance){
                 flyLook = flySpeed * -verticalRotation/90;
             } else {
@@ -145,10 +152,14 @@ public class FPController : MonoBehaviour
         }
         
         controller.Move(move * speed * Time.deltaTime);
-
-        if (controller.isGrounded && velocity.y < 0)
-            velocity.y = -2f;
-
+        
+        if(moveY == 0){
+            if (controller.isGrounded && velocity.y <= 0){
+                velocity.y = -2f;
+            }
+        }else {
+            velocity.y = 0;
+        }
         controller.Move(velocity * Time.deltaTime);
     }
     public void HandleLook()

@@ -142,7 +142,6 @@ Transform:
   m_Children:
   - {fileID: 2364581937419768629}
   - {fileID: 6119621510832192211}
-  - {fileID: 3777885189932593080}
   m_Father: {fileID: 9093487886537628523}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &2116047673948523084
@@ -283,7 +282,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 352117087838380566}
-  - {fileID: 4435835751471760865}
   - {fileID: 255180828683399276}
   - {fileID: 413896650721146074}
   m_Father: {fileID: 2528662240341519658}
@@ -422,11 +420,11 @@ Transform:
   m_GameObject: {fileID: 1905050184200850247}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.15, z: 0.7}
+  m_LocalPosition: {x: -0.41, y: 0.76, z: 0.7}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4186843533250187275}
+  m_Father: {fileID: 4061592738594121470}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3661709733135809332
 MeshFilter:
@@ -550,13 +548,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2865530861621647803}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.15, z: 0.7}
-  m_LocalScale: {x: 0.14999998, y: 0.15, z: 0.14999998}
+  m_LocalRotation: {x: -0, y: -0.013089582, z: -0, w: 0.99991435}
+  m_LocalPosition: {x: 6.171676, y: 1.8900001, z: 0.80976015}
+  m_LocalScale: {x: 0.14999999, y: 0.15, z: 0.14999999}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6122674989768106910}
-  m_Father: {fileID: 6682093785383168258}
+  m_Father: {fileID: 4061592738594121470}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7506891891899606936
 MeshFilter:
@@ -835,6 +833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c2bda385266314fbb9cfe728cf28b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasPowerControll: 1
   gravOrb: {fileID: 2865530861621647803}
   camra: {fileID: 6682093785383168258}
   trowForce: 10000
@@ -1239,6 +1238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ec348e0bcd11a84e8b17d65ab948d68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasPowerControll: 1
   flight: 0
   timeFeald: {fileID: 1905050184200850247}
   camra: {fileID: 4186843533250187275}
@@ -6234,6 +6234,8 @@ Transform:
   m_Children:
   - {fileID: 9093487886537628523}
   - {fileID: 2528662240341519658}
+  - {fileID: 4435835751471760865}
+  - {fileID: 3777885189932593080}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1564626071858772815

@@ -5,6 +5,7 @@ public class TimeForce : MonoBehaviour
 {
     [SerializeField] bool gravityAfected = true;
     bool gravity = true;
+    [SerializeField]
     private Vector3 baseGravityForce = new Vector3(0, -9.8f, 0);
     private Vector3 gravityForce;
     float gravMod = 1;
@@ -17,7 +18,7 @@ public class TimeForce : MonoBehaviour
 
     void Update()
     {    
-        if(gravity && gravMod == 0){
+        if(gravMod == 0){
             rb.Sleep();
         }   
         if(gravityAfected && gravity){
