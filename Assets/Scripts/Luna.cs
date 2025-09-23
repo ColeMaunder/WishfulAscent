@@ -79,6 +79,9 @@ public class Luna : MonoBehaviour
         while(fealdScale < fealdScaleMax) {
             yield return new WaitForSeconds(0.01f);
             fealdScale += fealdScale/scaleMod;
+            if(fealdScale > fealdScaleMax){
+                fealdScale = fealdScaleMax;
+            }
             gravFeald.transform.localScale = new Vector3(fealdScale, fealdScale, fealdScale);
         }
         gravFeald.transform.SetParent(null);
@@ -91,8 +94,11 @@ public class Luna : MonoBehaviour
         }
         while (fealdScale > fealdScaleBase)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.01f);
             fealdScale -= fealdScale / (scaleMod / 5);
+            if (fealdScale < fealdScaleBase){
+                fealdScale = fealdScaleBase;
+            }
             gravFeald.transform.localScale = new Vector3(fealdScale, fealdScale, fealdScale);
         }
         //gravFeald.transform.localPosition = fealdHold;
@@ -101,6 +107,7 @@ public class Luna : MonoBehaviour
             yield return null;
             gravFeald.transform.position = Vector3.MoveTowards(gravFeald.transform.position, holdPoint.position, 40 * Time.deltaTime);
         }
+        yield return  new WaitForSeconds(0.01f);
         gravFeald.transform.SetParent(camra);
         
      }
@@ -134,11 +141,27 @@ public class Luna : MonoBehaviour
         fealdScale = fealdScaleBase;
         gravFeald.transform.localScale = new Vector3(fealdScaleBase, fealdScaleBase, fealdScaleBase);
     }
-
+    private IEnumerator ObtainOrb(){
+        fealdScale = 25;
+        while (fealdScale > fealdScaleBase) {
+            yield return new WaitForSeconds(0.01f);
+            fealdScale -= fealdScale / (scaleMod / 5);
+            if (fealdScale < fealdScaleBase){
+                fealdScale = fealdScaleBase;
+            }
+            gravFeald.transform.localScale = new Vector3(fealdScale, fealdScale, fealdScale);
+        }
+        yield return  new WaitForSeconds(0.5f);
+        while (Vector3.Distance(gravFeald.transform.position, holdPoint.position) >0.001)
+        {
+            yield return new WaitForSeconds(0.0f);
+            gravFeald.transform.position = Vector3.MoveTowards(gravFeald.transform.position, holdPoint.position, 30* Time.deltaTime);
+        }
+        gravFeald.transform.SetParent(camra);
+    }
     public void ActivetAbility()
     {
         hasPowerControll = true;
-        fealdScale = 25;
-        returnFeald();
+        StartCoroutine(ObtainOrb());
     }
 }

@@ -8,10 +8,9 @@ TagManager:
   - Ground
   - GravityOrb
   - Door
-  - SoundManager
-  - SoundManger
-  - Save
   - GravityFeald
+  - Managers
+  - Dialouge
   layers:
   - Default
   - TransparentFX
