@@ -17,7 +17,7 @@ public class SceneConfiger : MonoBehaviour
         foreach(DoNotDistroy i in allDoNotDistroy){
             i.OnSceneLoaded();
         }
-        AudioHandler sound = GameObject.FindWithTag("SoundManager").GetComponent<AudioHandler>();
+        AudioHandler sound = GameObject.FindWithTag("Managers").GetComponent<AudioHandler>();
         //GameObject.FindWithTag("SceneChainger").GetComponent<SceneChanger>().SetCahingID(sceneCahngeID);
         sound.FaidBetweenWorldSound(seaneMusic,musicVolume,8f,0);
         sound.GetComponent<AudioSource>().Play();

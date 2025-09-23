@@ -4,6 +4,8 @@ using System.Collections;
 public class FealdTutorial : MonoBehaviour
 {
     TimeForce platform;
+    [SerializeField]
+    GameObject orb;
     public GravityFeald gravFeald;
     [SerializeField]
     private float bounceForce;
@@ -29,6 +31,7 @@ public class FealdTutorial : MonoBehaviour
             yield return new WaitForSeconds(timings[1]);
             gravFeald.SetGravMode(2);
             yield return new WaitForSeconds(timings[2]);
-        } 
+        }
+        orb.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
     }
 }

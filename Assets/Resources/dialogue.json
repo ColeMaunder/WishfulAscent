@@ -1,0 +1,57 @@
+{
+  "scenes": [
+    {
+      "scene": "Tutorial",
+      "characters": [
+        {
+            "name": "Luna",
+            "lines": [
+                { "id": 1, "icon": "LunaIcon.png", "voiceOver": "Luna_11.mp3", "text": "Welcome to the game!" },
+                { "id": 2, "icon": "LunaIcon.png", "voiceOver": "Luna_12.mp3", "text": "Welcome to the game!" }
+            ]
+        },
+        {
+            "name": "Sol",
+            "lines": [
+                { "id": 1, "icon": "SolIcon.png", "voiceOver": "Sol_11.mp3", "text": "Welcome to the game!" },
+                { "id": 2, "icon": "SolIcon.png", "voiceOver": "Sol_12.mp3", "text": "Welcome to the game!" }
+            ]
+        },
+        {
+            "name": "Stella",
+            "lines": [
+                { "id": 1, "icon": "StellaIcon.png", "voiceOver": "Stella_11.mp3", "text": "Welcome to the game!" },
+                { "id": 2, "icon": "StellaIcon.png", "voiceOver": "Stella_12.mp3", "text": "Welcome to the game!" }
+            ]
+        }
+      ]
+      
+    },
+    {
+      "scene": "Battle",
+      "characters": [
+        {
+            "name": "Luna",
+            "lines": [
+                { "id": 1, "icon": "LunaIcon.png", "voiceOver": "Luna_21.mp3", "text": "Welcome to the game!" },
+                { "id": 2, "icon": "LunaIcon.png", "voiceOver": "Luna_22.mp3", "text": "Welcome to the game!" }
+            ]
+        },
+        {
+            "name": "Sol",
+            "lines": [
+                { "id": 1, "icon": "SolIcon.png", "voiceOver": "Sol_21.mp3", "text": "Welcome to the game!" },
+                { "id": 2, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "Welcome to the game!" }
+            ]
+        },
+        {
+            "name": "Stella",
+            "lines": [
+                { "id": 3, "icon": "StellaIcon.png", "voiceOver": "Stella_21.mp3", "text": "Welcome to the game!" }
+            ]
+        }
+      ]
+    }
+  ]
+}
+

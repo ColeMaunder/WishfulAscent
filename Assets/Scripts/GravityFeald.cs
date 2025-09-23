@@ -24,7 +24,7 @@ public class GravityFeald : MonoBehaviour
     {
         if (inVal > 0)
         {
-            if (3 >= timeMode + 1)
+            if (2 >= timeMode + 1)
             {
                 timeMode++;
                 materialRenderer.material = materials[timeMode];
