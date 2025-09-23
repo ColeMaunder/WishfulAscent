@@ -7,6 +7,10 @@ TagManager:
   - Object
   - Ground
   - GravityOrb
+  - Door
+  - GravityFeald
+  - Managers
+  - Dialouge
   layers:
   - Default
   - TransparentFX
@@ -14,8 +18,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Character 1
+  - Character 2
   - 
   - 
   - 
