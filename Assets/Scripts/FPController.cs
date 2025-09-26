@@ -30,12 +30,12 @@ public class FPController : MonoBehaviour
     private bool crouchInput;
     private bool jumpInput;
     private Vector3 velocity;
-    [SerializeField]private float verticalRotation = 0f;
+    [SerializeField] private float verticalRotation = 0f;
     private bool paused = false;
     private float flyLook = 0;
     private float moveY;
     private GameObject Camera3P;
-    
+
 
     private void Awake()
     {
@@ -56,7 +56,8 @@ public class FPController : MonoBehaviour
 
     private void Update()
     {
-        if(!paused){
+        if (!paused)
+        {
             HandleMovement();
             HandleLook();
         }
@@ -110,54 +111,75 @@ public class FPController : MonoBehaviour
     public void HandleMovement()
     {
         float speed = moveSpeed;
-        if (character.GetComponent<Luna>() != null && character.GetComponent<Luna>().GetFlight()) {
-            if (jumpInput) {
+        if (character.GetComponent<Luna>() != null && character.GetComponent<Luna>().GetFlight())
+        {
+            if (jumpInput)
+            {
                 moveY = flySpeed;
-            } else if (crouchInput) {
+            }
+            else if (crouchInput)
+            {
                 moveY = -flySpeed;
-            }else{
+            }
+            else
+            {
                 moveY = 0;
             }
             velocity.y = 0;
-            if(verticalRotation > verticalLookLimit - flyLookVeriance || verticalRotation < -verticalLookLimit + flyLookVeriance){
-                flyLook = flySpeed * -verticalRotation/90;
-            } else {
+            if (verticalRotation > verticalLookLimit - flyLookVeriance || verticalRotation < -verticalLookLimit + flyLookVeriance)
+            {
+                flyLook = flySpeed * -verticalRotation / 90;
+            }
+            else
+            {
                 flyLook = 0;
                 if (!jumpInput && !crouchInput)
                 {
                     velocity.y = 0;
                 }
             }
-        } else{
+        }
+        else
+        {
             moveY = 0;
             velocity.y += gravity * Time.deltaTime;
-            if (controller.isGrounded && jumpInput) {
+            if (controller.isGrounded && jumpInput)
+            {
                 velocity.y = Mathf.Sqrt(jumpHight * -2f * gravity);
             }
-            
-            if (crouchInput) {
+
+            if (crouchInput)
+            {
                 speed = crouchSpeed;
                 cameraTransform.localPosition = crouchHight;
-            } else {
+            }
+            else
+            {
                 cameraTransform.localPosition = standHight;
             }
         }
-        
-        if (runInput) {
+
+        if (runInput)
+        {
             speed = runSpeed;
         }
         Vector3 move = character.right * moveInput.x + character.forward * moveInput.y + character.up * moveY;
-        if(flyLook != 0 && (moveInput.x != 0 || moveInput.y != 0)){
-            move += character.up * flyLook; 
+        if (flyLook != 0 && (moveInput.x != 0 || moveInput.y != 0))
+        {
+            move += character.up * flyLook;
         }
-        
+
         controller.Move(move * speed * Time.deltaTime);
-        
-        if(moveY == 0){
-            if (controller.isGrounded && velocity.y <= 0){
+
+        if (moveY == 0)
+        {
+            if (controller.isGrounded && velocity.y <= 0)
+            {
                 velocity.y = -2f;
             }
-        }else {
+        }
+        else
+        {
             velocity.y = 0;
         }
         controller.Move(velocity * Time.deltaTime);
@@ -173,19 +195,29 @@ public class FPController : MonoBehaviour
         cameraTransform.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
         character.Rotate(Vector3.up * mouseX);
     }
-    public Transform GetActiveCharicter(){
+    public Transform GetActiveCharicter()
+    {
         return character;
     }
-    public void DisableChricters(bool on){
-        if(on){
+    public void DisableChricters(bool on)
+    {
+        if (on)
+        {
             paused = true;
             character = characters[2];
             //controller.enabled = false;
-        } else {
+        }
+        else
+        {
             character = characters[currentCharacter];
             //controller.enabled = true;
             paused = false;
         }
+    }
+    
+    public String GetControlScheme(){
+        PlayerInput input = gameObject.GetComponent<PlayerInput>();
+        return input.currentControlScheme;
     }
 }
 

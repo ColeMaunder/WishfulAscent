@@ -1,9 +1,11 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Pause : MonoBehaviour
 {
     [SerializeField] GameObject [] pauseScreen;
+    [SerializeField] Sprite [] controllsScreens;
     FPController controller;
     void Start()
     {
@@ -41,5 +43,19 @@ public class Pause : MonoBehaviour
     public void controllesScrean(bool state){
         pauseScreen[1].SetActive(!state);
         pauseScreen[2].SetActive(state);
+        if(state){
+            //Image controllsDisplay = pauseScreen[2].GetComponent<Image>();
+            switch (controller.GetControlScheme())
+            {
+                case "Keyboard":
+                    //pauseScreen[2].GetComponent<Image>().sou
+                    print("Keyboard");
+                    break;
+                case "Gamepad":
+                    print("Gamepad");
+                    break;
+            }
+            
+        }
     }
 }

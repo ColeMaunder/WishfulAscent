@@ -16,7 +16,7 @@ public class TimeForce : MonoBehaviour
         gravityForce = baseGravityForce;
     }
 
-    void Update()
+    void FixedUpdate()
     {    
         if(gravMod == 0){
             rb.Sleep();

@@ -1050,6 +1050,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527254966}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1647642247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6171919911551087553, guid: 762279a9837ba4c4193810f04f3c0501, type: 3}
+  m_PrefabInstance: {fileID: 7325410640054402466}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1647642251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647642247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 5e6789e17582b2e4688a2d7b7b562dd6, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!20 &1835491604 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 6933312019327467435, guid: 762279a9837ba4c4193810f04f3c0501, type: 3}
@@ -2137,7 +2172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6709298682687109237, guid: 762279a9837ba4c4193810f04f3c0501, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -200
+      value: -383
       objectReference: {fileID: 0}
     - target: {fileID: 8244852424329389126, guid: 762279a9837ba4c4193810f04f3c0501, type: 3}
       propertyPath: m_Pivot.x
@@ -2195,7 +2230,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sol UI
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9191171817349617804, guid: 762279a9837ba4c4193810f04f3c0501, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5e6789e17582b2e4688a2d7b7b562dd6, type: 3}
+    - target: {fileID: 9191171817349617804, guid: 762279a9837ba4c4193810f04f3c0501, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9191171817349617804, guid: 762279a9837ba4c4193810f04f3c0501, type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9191171817349617804, guid: 762279a9837ba4c4193810f04f3c0501, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 9191171817349617804, guid: 762279a9837ba4c4193810f04f3c0501, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8244852424329389126, guid: 762279a9837ba4c4193810f04f3c0501, type: 3}
@@ -2205,6 +2257,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4482721748762816098, guid: 762279a9837ba4c4193810f04f3c0501, type: 3}
       insertIndex: -1
       addedObject: {fileID: 820854554}
+    - targetCorrespondingSourceObject: {fileID: 6171919911551087553, guid: 762279a9837ba4c4193810f04f3c0501, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1647642251}
   m_SourcePrefab: {fileID: 100100000, guid: 762279a9837ba4c4193810f04f3c0501, type: 3}
 --- !u!1001 &8582060163477319774
 PrefabInstance:
@@ -2253,6 +2308,22 @@ PrefabInstance:
     - target: {fileID: 2730135960145734290, guid: 70e964d1de952e24a9d79bdf53df0eaf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5823292179261763442, guid: 70e964d1de952e24a9d79bdf53df0eaf, type: 3}
+      propertyPath: bounceForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5823292179261763442, guid: 70e964d1de952e24a9d79bdf53df0eaf, type: 3}
+      propertyPath: 'timings.Array.data[0]'
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5823292179261763442, guid: 70e964d1de952e24a9d79bdf53df0eaf, type: 3}
+      propertyPath: 'timings.Array.data[1]'
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5823292179261763442, guid: 70e964d1de952e24a9d79bdf53df0eaf, type: 3}
+      propertyPath: 'timings.Array.data[2]'
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 6474646571258535343, guid: 70e964d1de952e24a9d79bdf53df0eaf, type: 3}
       propertyPath: m_Name
