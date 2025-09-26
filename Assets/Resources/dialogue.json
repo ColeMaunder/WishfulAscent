@@ -6,29 +6,59 @@
         {
             "name": "Luna",
             "lines": [
-                { "id": 1, "icon": "LunaIcon.png", "voiceOver": "Luna_11.mp3", "text": "Welcome to the game!" },
-                { "id": 2, "icon": "LunaIcon.png", "voiceOver": "Luna_12.mp3", "text": "Welcome to the game!" }
+                { "id": 6, "icon": "LunaIcon.png", "voiceOver": "Luna_11.mp3", "text": "oo what is theis gowuwye orb" },
+                { "id": 7, "icon": "LunaIcon.png", "voiceOver": "Luna_11.mp3", "text": "whats going on thers a gonden orb thsing boiuncing around" },
+                { "id": 2, "icon": "LunaIcon.png", "voiceOver": "Luna_11.mp3", "text": "What whao are you" },
+                { "id": 3, "icon": "LunaIcon.png", "voiceOver": "Luna_12.mp3", "text": "Whare is muy bother" },
+                { "id": 3, "icon": "LunaIcon.png", "voiceOver": "Luna_12.mp3", "text": "Welcome to the game!" },
+                { "id": 3, "icon": "LunaIcon.png", "voiceOver": "Luna_12.mp3", "text": "Welcome to the game!" }
+                
             ]
         },
         {
             "name": "Sol",
             "lines": [
-                { "id": 1, "icon": "SolIcon.png", "voiceOver": "Sol_11.mp3", "text": "Welcome to the game!" },
-                { "id": 2, "icon": "SolIcon.png", "voiceOver": "Sol_12.mp3", "text": "Welcome to the game!" }
+                { "id": 6, "icon": "SolIcon.png", "voiceOver": "Sol_11.mp3", "text": "theres a thing foiting in heere" },
+                { "id": 7, "icon": "SolIcon.png", "voiceOver": "Sol_12.mp3", "text": "oh thers sonting her to" }
             ]
         },
         {
             "name": "Stella",
             "lines": [
-                { "id": 1, "icon": "StellaIcon.png", "voiceOver": "Stella_11.mp3", "text": "Welcome to the game!" },
-                { "id": 2, "icon": "StellaIcon.png", "voiceOver": "Stella_12.mp3", "text": "Welcome to the game!" }
+                { "id": 1, "icon": "StellaIcon.png", "voiceOver": "Stella_11.mp3", "text": "Wake up" },
+                { "id": 4, "icon": "StellaIcon.png", "voiceOver": "Stella_12.mp3", "text": "oh you dont remaerver" }
             ]
         }
       ]
       
     },
     {
-      "scene": "Battle",
+      "scene": "Cutsene",
+      "characters": [
+        {
+            "name": "Luna",
+            "lines": [
+                { "id": 1, "icon": "LunaIcon.png", "voiceOver": "Luna_21.mp3", "text": "Welcome to the game!" },
+                { "id": 2, "icon": "LunaIcon.png", "voiceOver": "Luna_22.mp3", "text": "Welcome to the game!" }
+            ]
+        },
+        {
+            "name": "Sol",
+            "lines": [
+                { "id": 1, "icon": "SolIcon.png", "voiceOver": "Sol_21.mp3", "text": "Welcome to the game!" },
+                { "id": 2, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "Welcome to the game!" }
+            ]
+        },
+        {
+            "name": "Stella",
+            "lines": [
+                { "id": 3, "icon": "StellaIcon.png", "voiceOver": "Stella_21.mp3", "text": "Welcome to the game!" }
+            ]
+        }
+      ]
+    },
+    {
+      "scene": "level_1",
       "characters": [
         {
             "name": "Luna",
