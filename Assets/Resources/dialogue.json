@@ -78,16 +78,16 @@
             "name": "Stella",
             "lines": [
                 { "id": 0, "icon": "SolIcon.png", "voiceOver": "Sol_21.mp3", "text": "You tried to fix the world, one step at a time." },
-                { "id": 1, "icon": "SolIcon.png", "voiceOver": "Sol_21.mp3", "text": "Found no path of leat resistance, as you took on the climb" },
-                { "id": 2, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "You mended the broken pieces, bit by bit." },
-                { "id": 3, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "" },
-                { "id": 4, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "But the cracks grew larger without ever teking a hit..." },
+                { "id": 1, "icon": "SolIcon.png", "voiceOver": "Sol_21.mp3", "text": "Found no path of least resistance, as you took on this climb." },
+                { "id": 2, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "You mended the broken pieces..." },
+                { "id": 3, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "Bit by bit." },
+                { "id": 4, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "But the cracks grew larger without ever taking a hit..." },
                 { "id": 5, "icon": "SolIcon.png", "voiceOver": "Sol_21.mp3", "text": "A wish to fix the world?" },
-                { "id": 6, "icon": "SolIcon.png", "voiceOver": "Sol_21.mp3", "text": "Why would you take it." },
-                { "id": 7, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "But how did your wish to save the world brake it..." },
-                { "id": 8, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "As you approched the tower." },
-                { "id": 9, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "Not knowing whant it meant." },
-                { "id": 10, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "I wish you listerned and stopped our..." },
+                { "id": 6, "icon": "SolIcon.png", "voiceOver": "Sol_21.mp3", "text": "Why would you not take it." },
+                { "id": 7, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "But how did your wish to save the world break it..." },
+                { "id": 8, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "As you approached the tower." },
+                { "id": 9, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "Not knowing what it meant." },
+                { "id": 10, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "I wish you listened and stopped our..." },
                 { "id": 11, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "" }
             ]
         }

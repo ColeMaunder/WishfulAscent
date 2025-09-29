@@ -12,13 +12,18 @@ public class FealdTutorial : MonoBehaviour
     [SerializeField]
     private GameObject[] toDisable;
     [SerializeField]
-    private float[] timings = {0.5f,0.5f,1};
-
+    private float[] timings = { 0.5f, 0.5f, 1 };
+    Luna luna;
     void Start()
     {
+        luna = GameObject.FindWithTag("Player").transform.GetChild(1).gameObject.GetComponent<Luna>();
         StartCoroutine(TutorialLoop());
     }
-
+    void Update(){
+        if(luna.GetFlight()){
+            DisableAll();
+        }
+    }
     private IEnumerator TutorialLoop()
     {
         GameObject platformOBJ = transform.GetChild(0).gameObject;
@@ -36,10 +41,7 @@ public class FealdTutorial : MonoBehaviour
             yield return new WaitForSeconds(timings[2]);
         }
         orb.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-        foreach (GameObject i in toDisable)
-        {
-            i.SetActive(false);
-        }
+        
         /*while (true)
         {
             platform.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
@@ -49,6 +51,12 @@ public class FealdTutorial : MonoBehaviour
             platform.AddForce(new Vector3(0, 1, -1) * -bounceForce, ForceMode.Impulse);
             yield return new WaitForSeconds(timings[1]);
         }*/
-        
+
+
     }
+    void DisableAll(){
+            foreach (GameObject i in toDisable) {
+                i.SetActive(false);
+            }
+        }
 }
