@@ -76640,6 +76640,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Adar\xE9"
       objectReference: {fileID: 0}
+    - target: {fileID: 9202214472508050977, guid: 8a2c221d85a95a74aa133bafa9c8eeb6, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 82ba856f20c24ef4eb004dee28895c7e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
