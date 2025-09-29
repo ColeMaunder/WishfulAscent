@@ -1,83 +1,131 @@
 {
   "scenes": [
     {
-      "scene": "Tutorial",
+      "scene": "Base Mechanics Tutorial",
       "characters": [
         {
             "name": "Luna",
             "lines": [
-                { "id": 6, "icon": "LunaIcon.png", "voiceOver": "Luna_11.mp3", "text": "oo what is theis gowuwye orb" },
-                { "id": 7, "icon": "LunaIcon.png", "voiceOver": "Luna_11.mp3", "text": "whats going on thers a gonden orb thsing boiuncing around" },
-                { "id": 2, "icon": "LunaIcon.png", "voiceOver": "Luna_11.mp3", "text": "What whao are you" },
-                { "id": 3, "icon": "LunaIcon.png", "voiceOver": "Luna_12.mp3", "text": "Whare is muy bother" },
-                { "id": 3, "icon": "LunaIcon.png", "voiceOver": "Luna_12.mp3", "text": "Welcome to the game!" },
-                { "id": 3, "icon": "LunaIcon.png", "voiceOver": "Luna_12.mp3", "text": "Welcome to the game!" }
-                
-            ]
-        },
-        {
-            "name": "Sol",
-            "lines": [
-                { "id": 6, "icon": "SolIcon.png", "voiceOver": "Sol_11.mp3", "text": "theres a thing foiting in heere" },
-                { "id": 7, "icon": "SolIcon.png", "voiceOver": "Sol_12.mp3", "text": "oh thers sonting her to" }
+                { "id": 2, "icon": "LunaIcon.png", "voiceOver": "Luna_11.mp3", "text": "Wh- Where am I?..." },
+                { "id": 3, "icon": "LunaIcon.png", "voiceOver": "Luna_12.mp3", "text": "Wait..." },
+                { "id": 4, "icon": "LunaIcon.png", "voiceOver": "Luna_12.mp3", "text": "Who are you?! Where's your voice coming from?" },
+                { "id": 5, "icon": "LunaIcon.png", "voiceOver": "Luna_12.mp3", "text": "Huh? Where's my brother? I swear, if you've-" },
+                { "id": 8, "icon": "LunaIcon.png", "voiceOver": "Luna_12.mp3", "text": "Why are we here?" },
+                { "id": 13, "icon": "LunaIcon.png", "voiceOver": "Luna_12.mp3", "text": "I should go and find Altair." }                
             ]
         },
         {
             "name": "Stella",
             "lines": [
-                { "id": 1, "icon": "StellaIcon.png", "voiceOver": "Stella_11.mp3", "text": "Wake up" },
-                { "id": 4, "icon": "StellaIcon.png", "voiceOver": "Stella_12.mp3", "text": "oh you dont remaerver" }
+                { "id": 1, "icon": "StellaIcon.png", "voiceOver": "Stella_11.mp3", "text": "Wake up, Adara..." },
+                { "id": 6, "icon": "StellaIcon.png", "voiceOver": "Stella_11.mp3", "text": "Hmmm... You don't remember anything. Peculiar..." },
+                { "id": 7, "icon": "StellaIcon.png", "voiceOver": "Stella_12.mp3", "text": "No need to fret. I can assure you, Altair is perfectly fine." },
+                { "id": 9, "icon": "StellaIcon.png", "voiceOver": "Stella_12.mp3", "text": "*Laughs* Why are we here? I remember asking that." },
+                { "id": 10, "icon": "StellaIcon.png", "voiceOver": "Stella_12.mp3", "text": "Why are you both here though? Hmmmm..." },
+                { "id": 11, "icon": "StellaIcon.png", "voiceOver": "Stella_12.mp3", "text": "I guess you'll have to figure that out yourselves." },
+                { "id": 12, "icon": "StellaIcon.png", "voiceOver": "Stella_12.mp3", "text": "Goodbye for now." }
             ]
         }
       ]
       
     },
     {
-      "scene": "Cutsene",
+      "scene": "Reunion Cutsene",
       "characters": [
         {
             "name": "Luna",
             "lines": [
-                { "id": 1, "icon": "LunaIcon.png", "voiceOver": "Luna_21.mp3", "text": "Welcome to the game!" },
-                { "id": 2, "icon": "LunaIcon.png", "voiceOver": "Luna_22.mp3", "text": "Welcome to the game!" }
+                { "id": 16, "icon": "LunaIcon.png", "voiceOver": "Luna_21.mp3", "text": "Altair? I'm the one who should be saying that." },
+                { "id": 17, "icon": "LunaIcon.png", "voiceOver": "Luna_21.mp3", "text": "Do you happen to remember how we got here?" },
+                { "id": 20, "icon": "LunaIcon.png", "voiceOver": "Luna_22.mp3", "text": "So he spoke to you too..." }
             ]
         },
         {
             "name": "Sol",
             "lines": [
-                { "id": 1, "icon": "SolIcon.png", "voiceOver": "Sol_21.mp3", "text": "Welcome to the game!" },
-                { "id": 2, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "Welcome to the game!" }
+                { "id": 14, "icon": "SolIcon.png", "voiceOver": "Sol_21.mp3", "text": "Adara?..." },
+                { "id": 15, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "Thank goodness, you're alive!" },
+                { "id": 18, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "I was about to ask you the same thing." },
+                { "id": 19, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "The disembodied voice wasn't particularly helpful." },
+                { "id": 22, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "Hey Mr. Entity, mind letting us out! This isn't funny!" }
             ]
         },
         {
             "name": "Stella",
             "lines": [
-                { "id": 3, "icon": "StellaIcon.png", "voiceOver": "Stella_21.mp3", "text": "Welcome to the game!" }
+                { "id": 21, "icon": "StellaIcon.png", "voiceOver": "Stella_21.mp3", "text": "*Laughs eerily*" },
+                { "id": 23, "icon": "StellaIcon.png", "voiceOver": "Stella_21.mp3", "text": "Ah, dear Altair... I wanted to leave too..." },
+                { "id": 24, "icon": "StellaIcon.png", "voiceOver": "Stella_21.mp3", "text": "Well, go on then. I'm not stopping you." },
+                { "id": 25, "icon": "StellaIcon.png", "voiceOver": "Stella_21.mp3", "text": "But a door or two might..." }
             ]
         }
       ]
     },
     {
-      "scene": "level_1",
+      "scene": "Ability Mechanics Tutorial",
       "characters": [
         {
             "name": "Luna",
             "lines": [
-                { "id": 1, "icon": "LunaIcon.png", "voiceOver": "Luna_21.mp3", "text": "Welcome to the game!" },
-                { "id": 2, "icon": "LunaIcon.png", "voiceOver": "Luna_22.mp3", "text": "Welcome to the game!" }
+                { "id": 26, "icon": "LunaIcon.png", "voiceOver": "Luna_21.mp3", "text": "Huh... A bouncing magical orb. Not menacing at all." },
+                { "id": 27, "icon": "LunaIcon.png", "voiceOver": "Luna_22.mp3", "text": "The orb seems to have been disconnected from this magical... wiring?" },
+                { "id": 28, "icon": "LunaIcon.png", "voiceOver": "Luna_22.mp3", "text": "I wonder what will happen if I fix it?" },
+                { "id": 29, "icon": "LunaIcon.png", "voiceOver": "Luna_22.mp3", "text": "*Laughs* The magical force field is now stuck to me... Great." },
+                { "id": 30, "icon": "LunaIcon.png", "voiceOver": "Luna_22.mp3", "text": "Do not get distracted, Adara. Fix the magical circuit. Maybe it'll open the door..." }
             ]
         },
         {
             "name": "Sol",
             "lines": [
-                { "id": 1, "icon": "SolIcon.png", "voiceOver": "Sol_21.mp3", "text": "Welcome to the game!" },
-                { "id": 2, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "Welcome to the game!" }
+                { "id": 26, "icon": "SolIcon.png", "voiceOver": "Sol_21.mp3", "text": "The door seems locked." },
+                { "id": 27, "icon": "SolIcon.png", "voiceOver": "Sol_21.mp3", "text": "Hmmm... Why is that glowing orb stuck to the pedestal?" },
+                { "id": 28, "icon": "SolIcon.png", "voiceOver": "Sol_21.mp3", "text": "Strange. It looks like it was ripped out of this... circuit?" },
+                { "id": 29, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "I should definitely put it back. Neaten up the place." },
+                { "id": 30, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "Hmmm... The other mysterious orb is now stuck to my hand. Fun." },
+                { "id": 31, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "Maybe I can use this to put the orb back and open the door..." }
+            ]
+        }
+      ]
+    },
+    {
+      "scene": "Level 1",
+      "characters": [
+        {
+            "name": "Luna",
+            "lines": [
+                { "id": 32, "icon": "LunaIcon.png", "voiceOver": "Luna_21.mp3", "text": "Well, that was interesting. I see you've acquired a glowing orb as well." },
+                { "id": 33, "icon": "LunaIcon.png", "voiceOver": "Luna_22.mp3", "text": "They seem to be quite useful." },
+                { "id": 34, "icon": "LunaIcon.png", "voiceOver": "Luna_22.mp3", "text": "I reckon we combine our newfound 'abilities' to open this door." },
+                { "id": 35, "icon": "LunaIcon.png", "voiceOver": "Luna_22.mp3", "text": "The sooner we get out of here the better." }
             ]
         },
         {
+            "name": "Sol",
+            "lines": [
+                { "id": 32, "icon": "SolIcon.png", "voiceOver": "Sol_21.mp3", "text": "That wasn't nearly as challenging as I thought it would be- Big sister! You have an orb as well?" },
+                { "id": 33, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "Nevermind. Not the time for questions." },
+                { "id": 34, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "Let's get out of this place." },
+                { "id": 35, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "Do you think we can combine our newly acquired 'abilities' to open this door?" }
+            ]
+        }
+      ]
+    },
+    {
+      "scene": "IntroCutsene",
+      "characters": [
+        {
             "name": "Stella",
             "lines": [
-                { "id": 3, "icon": "StellaIcon.png", "voiceOver": "Stella_21.mp3", "text": "Welcome to the game!" }
+                { "id": 1, "icon": "SolIcon.png", "voiceOver": "Sol_21.mp3", "text": "You tried to fix the world, one step at a time. Found no path of leat resistance, as you took on the climb" },
+                { "id": 2, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "You mended the broken pieces, bit by bit." },
+                { "id": 3, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "" },
+                { "id": 4, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "But the cracks grew larger without ever teking a hit..." },
+                { "id": 5, "icon": "SolIcon.png", "voiceOver": "Sol_21.mp3", "text": "A wish to fix the world?     Why would you take it " },
+                { "id": 6, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "But how did your wish to save the world brake it..." },
+                { "id": 7, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "As you approched the tower." },
+                { "id": 8, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "Not knowing whant it meant." },
+                { "id": 9, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "I wish you listerned and stopped our..." },
+                { "id": 10, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "" }
             ]
         }
       ]

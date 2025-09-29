@@ -693,6 +693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b1803b13a3b2c49b81d218b57ba711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  watchedButtons: []
 --- !u!114 &1084287887 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5891036511470978045, guid: 762279a9837ba4c4193810f04f3c0501, type: 3}
@@ -1840,7 +1841,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4866713679691029205, guid: 762279a9837ba4c4193810f04f3c0501, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4956283268335211947, guid: 762279a9837ba4c4193810f04f3c0501, type: 3}
       propertyPath: m_Name

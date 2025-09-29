@@ -212,7 +212,7 @@ public class Sol : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
 
             while (Vector3.Distance(orbBody.transform.position, holdPoint.position) != 0){
-                yield return new WaitForSeconds(0.0f);
+                
                 //rb.MovePosition(orbHoldWorld * 0.001f * 10 * Time.deltaTime);
                 orbBody.transform.position = Vector3.MoveTowards(orbBody.transform.position, holdPoint.position, 5 * Time.deltaTime);
             }

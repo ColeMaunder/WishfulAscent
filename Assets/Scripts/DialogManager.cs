@@ -1,8 +1,11 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using System.Collections;
+using TMPro;
 public class DialogManiger : MonoBehaviour {
     private DialogueDataBase dataBase;
+    private string[] charicterNames = { "Luna", "Sol", "Stella" };
     private Dictionary<(string scene, string name, int id), DialogueLine> dialogueLookup;
     //string filePath = Application.dataPath + "/Resources/dialogue.json";
     void Start()
@@ -21,14 +24,26 @@ public class DialogManiger : MonoBehaviour {
             } 
         }
         
-        Debug.Log(GetDialogue("Tutorial", "Luna", 2).text);
+        Debug.Log(GetDialogue("Tutorial", "Luna", 2 ).text);
     }
     public DialogueLine GetDialogue(string sceneName, string character, int id){
         if (dialogueLookup.TryGetValue((sceneName, character, id), out DialogueLine line)) {
+            line.name = name;
             return line;
         }else{
             return null;
         }
+    }
+    public DialogueLine GetDialogue(string sceneName, int id)
+    {
+        foreach (string name in charicterNames)
+        {
+            if (dialogueLookup.TryGetValue((sceneName, name, id), out DialogueLine line)) {
+                line.name = name;
+                return line;
+            }
+        }
+        return null;
     }
 
     /*public void RetrieveLine()
@@ -54,6 +69,7 @@ public class DialogueLine {
     public string icon;
     public string text;
     public string voiceOver;
+    public string name;
     
     /*public void GetIcon(){
         
