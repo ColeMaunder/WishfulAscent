@@ -24,4 +24,8 @@ public class SceneConfiger : MonoBehaviour
         
     }
     
+    public AudioClip GetMusic(){
+        return seaneMusic;
+    }
+    
 }

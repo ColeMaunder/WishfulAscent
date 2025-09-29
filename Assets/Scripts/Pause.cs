@@ -6,16 +6,22 @@ public class Pause : MonoBehaviour
 {
     [SerializeField] GameObject [] pauseScreen;
     [SerializeField] Sprite [] controllsScreens;
+    [SerializeField] AudioClip menueMusic;
+    [SerializeField] float musicVolume = 0;
     FPController controller;
+    AudioHandler sound;
     void Start()
     {
         pauseScreen[0].SetActive(false);
         controller = GameObject.FindWithTag("Player").GetComponent<FPController>();
+        sound = GameObject.FindWithTag("Managers").GetComponent<AudioHandler>();
     }
     public void ActivetePause(InputAction.CallbackContext context) {
         if (context.performed) {
             if (Time.timeScale != 0) {
                Time.timeScale = 0;
+                sound.FaidBetweenWorldSound(menueMusic,musicVolume,8f,0);
+                sound.GetComponent<AudioSource>().Play();
                 pauseScreen[0].SetActive(true);
                 pauseScreen[1].SetActive(true);
                 pauseScreen[2].SetActive(false);
@@ -29,6 +35,8 @@ public class Pause : MonoBehaviour
     }
     public void DeactivatePause(){
         Time.timeScale = 1;
+        sound.FaidBetweenWorldSound(GameObject.FindWithTag("Configurer").GetComponent<SceneConfiger>().GetMusic(),musicVolume,10f,0);
+        sound.GetComponent<AudioSource>().Play();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         pauseScreen[0].SetActive(false);

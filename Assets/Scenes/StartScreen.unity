@@ -1839,7 +1839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeScale: 1
   musicVolume: 1
-  seaneMusic: {fileID: 0}
+  seaneMusic: {fileID: 8300000, guid: 946703b5258c8e941a4cef75203a0c03, type: 3}
 --- !u!4 &1716532718
 Transform:
   m_ObjectHideFlags: 0

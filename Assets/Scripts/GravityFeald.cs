@@ -7,6 +7,8 @@ public class GravityFeald : MonoBehaviour
     [SerializeField]
     float[] gravMods = {-1, 0, 1, 2f };
     [SerializeField]
+    GameObject[] particleEffects;
+    [SerializeField]
     Material[] materials;
     [SerializeField]
     int timeMode = 2;
@@ -19,6 +21,8 @@ public class GravityFeald : MonoBehaviour
     {
         timeMode = neweMode;
         materialRenderer.material = materials[timeMode];
+        particleEffects[timeMode].SetActive(true);
+        SetParticles(neweMode);
     }
     public void Scroll(float inVal)
     {
@@ -28,6 +32,8 @@ public class GravityFeald : MonoBehaviour
             {
                 timeMode++;
                 materialRenderer.material = materials[timeMode];
+                particleEffects[timeMode-1].SetActive(false);
+                particleEffects[timeMode].SetActive(true);
             }
         }
         else
@@ -36,6 +42,17 @@ public class GravityFeald : MonoBehaviour
             {
                 timeMode--;
                 materialRenderer.material = materials[timeMode];
+                particleEffects[timeMode+1].SetActive(false);
+                particleEffects[timeMode].SetActive(true);
+            }
+        }
+    }
+    private void SetParticles(int id) {
+        foreach (GameObject pObject in particleEffects){
+            if(pObject == particleEffects[id]){
+                pObject.SetActive(true);
+            }else{
+                pObject.SetActive(false);
             }
         }
     }

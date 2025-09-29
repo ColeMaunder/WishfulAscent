@@ -11,6 +11,7 @@ TagManager:
   - GravityFeald
   - Managers
   - Dialouge
+  - Configurer
   layers:
   - Default
   - TransparentFX
