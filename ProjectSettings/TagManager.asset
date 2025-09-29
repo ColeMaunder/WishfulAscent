@@ -12,6 +12,7 @@ TagManager:
   - Managers
   - Dialouge
   - Configurer
+  - UICamras
   layers:
   - Default
   - TransparentFX

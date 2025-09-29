@@ -1,6 +1,8 @@
-using Microsoft.Unity.VisualStudio.Editor;
+
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using Image = UnityEngine.UI.Image;
 
 public class Pause : MonoBehaviour
 {
@@ -10,17 +12,22 @@ public class Pause : MonoBehaviour
     [SerializeField] float musicVolume = 0;
     FPController controller;
     AudioHandler sound;
+    SceneChanger changer;
+    EventSystem eventSystem;
     void Start()
     {
+        eventSystem = GameObject.FindAnyObjectByType<EventSystem>(); 
         pauseScreen[0].SetActive(false);
         controller = GameObject.FindWithTag("Player").GetComponent<FPController>();
         sound = GameObject.FindWithTag("Managers").GetComponent<AudioHandler>();
+        changer = GameObject.FindWithTag("Managers").GetComponent<SceneChanger>();
     }
+    
     public void ActivetePause(InputAction.CallbackContext context) {
         if (context.performed) {
             if (Time.timeScale != 0) {
                Time.timeScale = 0;
-                sound.FaidBetweenWorldSound(menueMusic,musicVolume,8f,0);
+                sound.FaidBetweenWorldSound(musicVolume,10,0,1,menueMusic);
                 sound.GetComponent<AudioSource>().Play();
                 pauseScreen[0].SetActive(true);
                 pauseScreen[1].SetActive(true);
@@ -35,7 +42,7 @@ public class Pause : MonoBehaviour
     }
     public void DeactivatePause(){
         Time.timeScale = 1;
-        sound.FaidBetweenWorldSound(GameObject.FindWithTag("Configurer").GetComponent<SceneConfiger>().GetMusic(),musicVolume,10f,0);
+        sound.FaidBetweenWorldSound(musicVolume,10,1,0);
         sound.GetComponent<AudioSource>().Play();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -45,25 +52,27 @@ public class Pause : MonoBehaviour
         controller.DisableChricters(false);
     }
     public void Quit(){
-        print("Quit");
-        Application.Quit();
+        changer.GoToScene("StartScreen");
     }
     public void controllesScrean(bool state){
         pauseScreen[1].SetActive(!state);
         pauseScreen[2].SetActive(state);
         if(state){
-            //Image controllsDisplay = pauseScreen[2].GetComponent<Image>();
+            eventSystem.SetSelectedGameObject(pauseScreen[2].transform.GetChild(0).gameObject);
             switch (controller.GetControlScheme())
             {
                 case "Keyboard":
-                    //pauseScreen[2].GetComponent<Image>().sou
+                    pauseScreen[2].GetComponent<Image>().sprite = controllsScreens[0];
                     print("Keyboard");
                     break;
                 case "Gamepad":
                     print("Gamepad");
+                    pauseScreen[2].GetComponent<Image>().sprite = controllsScreens[1];
                     break;
             }
             
+        }else{
+            eventSystem.SetSelectedGameObject(pauseScreen[1].transform.GetChild(2).gameObject);
         }
     }
 }

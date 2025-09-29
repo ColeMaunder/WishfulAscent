@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 public class DialogManiger : MonoBehaviour {
     private DialogueDataBase dataBase;
     private Dictionary<(string scene, string name, int id), DialogueLine> dialogueLookup;
-    string filePath = Application.dataPath + "/Resources/dialogue.json";
+    //string filePath = Application.dataPath + "/Resources/dialogue.json";
     void Start()
     {
         //string json = System.IO.File.ReadAllText(filePath);

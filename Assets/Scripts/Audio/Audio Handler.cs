@@ -6,13 +6,16 @@ using UnityEngine.Rendering;
 public class AudioHandler : MonoBehaviour{
     [SerializeField]
     private AudioSource sound;
+    Coroutine fade;
+    Coroutine fadeBetween;
 
-    public void playSound(AudioClip audioClip, Transform position, float volume){
+    public void playSound(AudioClip audioClip, Transform position, float volume)
+    {
         AudioSource audioSource = Instantiate(sound, position.position, Quaternion.identity);
         audioSource.clip = audioClip;
         audioSource.volume = volume;
         audioSource.Play();
-        Destroy(audioSource.gameObject,audioSource.clip.length);
+        Destroy(audioSource.gameObject, audioSource.clip.length);
     }
     
     public void playRandomSound(AudioClip[] audioClip, Transform position, float volume){
@@ -30,8 +33,17 @@ public class AudioHandler : MonoBehaviour{
         worldSound[0].Play();
     }
     
-    public void FaidBetweenWorldSound(AudioClip audioClip, float gollVolume, float speed, int index){
-        StartCoroutine(FaidBetween(audioClip,gollVolume,speed,index));
+    public void FaidBetweenWorldSound(float gollVolume, float speed, int index, AudioClip audioClip){
+        if(fadeBetween != null){
+            StopCoroutine(fadeBetween);
+        }
+        fadeBetween = StartCoroutine(FaidBetween(audioClip,gollVolume,speed,index));
+    }
+    public void FaidBetweenWorldSound( float gollVolume, float speed, int indexIn, int indexOut, AudioClip audioClip =null){
+        if(fadeBetween != null){
+            StopCoroutine(fadeBetween);
+        }
+        fadeBetween = StartCoroutine(FaidBetween(audioClip,gollVolume,speed,indexIn,indexOut));
     }
 
     IEnumerator FaidBetween(AudioClip audioClip, float gollVolume, float speed, int index) {
@@ -51,6 +63,32 @@ public class AudioHandler : MonoBehaviour{
         }
         
     }
+    IEnumerator FaidBetween(AudioClip audioClip, float gollVolume, float speed, int indexOut,int indexIn) {
+        AudioSource[] worldSound = this.GetComponents<AudioSource>();
+        float volumeOut = worldSound[indexOut].volume;
+        float volumeIn = worldSound[indexIn].volume;
+        
+        if (audioClip != null && worldSound[indexIn].clip != audioClip) {
+            worldSound[indexIn].clip = audioClip;
+            worldSound[indexIn].Play();
+        } else {
+            Debug.Log("Same Music playing");
+            worldSound[indexIn].UnPause();
+        }
+        
+        while (volumeOut > 0) {
+            if(volumeOut > 0){
+                volumeOut -= speed / 100;
+                worldSound[indexOut].volume = volumeOut;
+            }
+            if(volumeIn < gollVolume){
+                volumeIn += speed / 100;
+                worldSound[indexIn].volume = volumeIn;
+            }
+            yield return new WaitForSecondsRealtime(0.1f);
+        }
+        worldSound[indexOut].Pause();
+    }
 
     public void FaidInWorldSound(float gollVolume, float speed, int index)
     {
@@ -61,7 +99,10 @@ public class AudioHandler : MonoBehaviour{
     {
         AudioSource[] worldSound = this.GetComponents<AudioSource>();
         worldSound[index].clip = audioClip;
-        StartCoroutine(FaidIn(worldSound, gollVolume, speed, index));
+        if(fade != null){
+            StopCoroutine(fade);
+        }
+        fade = StartCoroutine(FaidIn(worldSound, gollVolume, speed, index));
     }
 
     IEnumerator FaidIn( AudioSource[] worldSound,float gollVolume, float speed,int index){
@@ -77,7 +118,10 @@ public class AudioHandler : MonoBehaviour{
     }
     
     public void FaideOutWorldSound(float speed, int index) {
-        StartCoroutine(FaidOut(speed, index));
+        if(fade != null){
+            StopCoroutine(fade);
+        }
+        fade = StartCoroutine(FaidOut(speed, index));
     }
     IEnumerator FaidOut(float speed,int index){
         AudioSource[] worldSound = this.GetComponents<AudioSource>();
