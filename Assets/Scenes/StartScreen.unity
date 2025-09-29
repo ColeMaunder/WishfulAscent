@@ -643,7 +643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 583139688}
+  m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &653018102
@@ -983,7 +983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21524bb8b54afa94fb370644c34aacb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceen: LevelOne
+  nextSceen: IntroCutsene
 --- !u!1 &1155612305
 GameObject:
   m_ObjectHideFlags: 0
@@ -1878,7 +1878,6 @@ MonoBehaviour:
   timeScale: 1
   musicVolume: 1
   seaneMusic: {fileID: 8300000, guid: 946703b5258c8e941a4cef75203a0c03, type: 3}
-  audioTrack: 1
 --- !u!4 &1716532718
 Transform:
   m_ObjectHideFlags: 0

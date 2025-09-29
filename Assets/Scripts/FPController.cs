@@ -107,7 +107,12 @@ public class FPController : MonoBehaviour
 
         }
     }
-
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if (context.performed) {
+            GameObject.FindWithTag("UI Screens").GetComponent<Pause>().ActivetePause();
+        }
+    }
     public void HandleMovement()
     {
         float speed = moveSpeed;
@@ -204,7 +209,6 @@ public class FPController : MonoBehaviour
         if (on)
         {
             paused = true;
-            character = characters[2];
             //controller.enabled = false;
         }
         else
@@ -218,6 +222,18 @@ public class FPController : MonoBehaviour
     public String GetControlScheme(){
         PlayerInput input = gameObject.GetComponent<PlayerInput>();
         return input.currentControlScheme;
+    }
+    public string GetActiveName(bool active){
+        if(active) {
+            return character.name;
+        }else{
+            foreach (Transform i in characters) {
+                if(i != character){
+                    return i.name;
+                }
+            }
+        }
+        return null;
     }
 }
 

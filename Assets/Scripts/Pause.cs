@@ -23,8 +23,8 @@ public class Pause : MonoBehaviour
         changer = GameObject.FindWithTag("Managers").GetComponent<SceneChanger>();
     }
     
-    public void ActivetePause(InputAction.CallbackContext context) {
-        if (context.performed) {
+    public void ActivetePause() {
+        if (pauseScreen[0]) {
             if (Time.timeScale != 0) {
                Time.timeScale = 0;
                 sound.FaidBetweenWorldSound(musicVolume,10,0,1,menueMusic);

@@ -25,12 +25,14 @@ public class IntroCutseneManger : MonoBehaviour
     void Start()
     {
         dialogManager = GameObject.FindWithTag("Managers").GetComponent<DialogManiger>();
+        lineDisplay.text = "";
         scene = StartCoroutine(runCutsene());
+        nextButton.SetActive(false);
     }
 
     public IEnumerator runCutsene() {
+        yield return new WaitForSecondsRealtime(0.5f);
         DialogueLine dialog = dialogManager.GetDialogue(SceneManager.GetActiveScene().name, "Stella", shotID);
-        lineDisplay.text = "";
         foreach (char letter in dialog.text.ToCharArray()) {
             lineDisplay.text += letter;
             yield return new WaitForSecondsRealtime(typeSpeed);
@@ -39,11 +41,17 @@ public class IntroCutseneManger : MonoBehaviour
         nextButton.SetActive(true);
     }
     public void nextshot(){
-        if (shotID <= shots.Length) {
-            nextButton.SetActive(true);
+        if (shotID < shots.Length) {
+            nextButton.SetActive(false);
+            lineDisplay.text = "";
+            shotDisplay.sprite = shots[shotID];
+            
             scene = StartCoroutine(runCutsene());
         }else{
             GameObject.FindWithTag("Managers").GetComponent<SceneChanger>().GoToScene(nextScene);
         }
+    }
+    public void Skip(){
+        GameObject.FindWithTag("Managers").GetComponent<SceneChanger>().GoToScene(nextScene);
     }
 }

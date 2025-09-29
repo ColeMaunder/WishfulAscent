@@ -48,18 +48,20 @@ public class AudioHandler : MonoBehaviour{
 
     IEnumerator FaidBetween(AudioClip audioClip, float gollVolume, float speed, int index) {
         AudioSource[] worldSound = this.GetComponents<AudioSource>();
-        float volume = worldSound[index].volume;
-        while (volume > 0) {
-            volume -= speed / 100;
-            worldSound[index].volume = volume;
-            yield return new WaitForSecondsRealtime(0.1f);
-        }
-        worldSound[index].clip = audioClip;
-        worldSound[index].Play();
-        while(volume < gollVolume){
-            volume += speed/100;
-            worldSound[index].volume = volume;
-            yield return new WaitForSecondsRealtime(0.1f);
+        if(worldSound[index].clip != audioClip) {
+            float volume = worldSound[index].volume;
+            while (volume > 0) {
+                volume -= speed / 100;
+                worldSound[index].volume = volume;
+                yield return new WaitForSecondsRealtime(0.1f);
+            }
+            worldSound[index].clip = audioClip;
+            worldSound[index].Play();
+            while(volume < gollVolume){
+                volume += speed/100;
+                worldSound[index].volume = volume;
+                yield return new WaitForSecondsRealtime(0.1f);
+            }
         }
         
     }

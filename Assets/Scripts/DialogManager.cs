@@ -24,13 +24,14 @@ public class DialogManiger : MonoBehaviour {
             } 
         }
         
-        Debug.Log(GetDialogue("Tutorial", "Luna", 2 ).text);
+        Debug.Log(GetDialogue("LevelOne", "Luna", 2 ).text);
     }
     public DialogueLine GetDialogue(string sceneName, string character, int id){
         if (dialogueLookup.TryGetValue((sceneName, character, id), out DialogueLine line)) {
             line.name = name;
             return line;
         }else{
+            Debug.Log("No sutch instance in the file");
             return null;
         }
     }
@@ -43,6 +44,7 @@ public class DialogManiger : MonoBehaviour {
                 return line;
             }
         }
+        Debug.Log("No sutch instance in the file");
         return null;
     }
 
