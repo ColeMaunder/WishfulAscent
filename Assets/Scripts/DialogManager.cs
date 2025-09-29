@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using System.Collections;
-using TMPro;
 public class DialogManiger : MonoBehaviour {
     private DialogueDataBase dataBase;
     private string[] charicterNames = { "Luna", "Sol", "Stella" };
