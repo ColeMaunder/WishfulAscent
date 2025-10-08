@@ -11,24 +11,20 @@ public class Pause : MonoBehaviour
     [SerializeField] AudioClip menueMusic;
     [SerializeField] float musicVolume = 0;
     FPController controller;
-    AudioHandler sound;
-    SceneChanger changer;
     EventSystem eventSystem;
     void Start()
     {
         eventSystem = GameObject.FindAnyObjectByType<EventSystem>(); 
         pauseScreen[0].SetActive(false);
         controller = GameObject.FindWithTag("Player").GetComponent<FPController>();
-        sound = GameObject.FindWithTag("Managers").GetComponent<AudioHandler>();
-        changer = GameObject.FindWithTag("Managers").GetComponent<SceneChanger>();
     }
     
     public void ActivetePause() {
         if (pauseScreen[0]) {
             if (Time.timeScale != 0) {
                Time.timeScale = 0;
-                sound.FaidBetweenWorldSound(musicVolume,10,0,1,menueMusic);
-                sound.GetComponent<AudioSource>().Play();
+                AudioHandler.Audio.FaidBetweenWorldSound(musicVolume,10,0,1,menueMusic);
+                AudioHandler.Audio.GetComponent<AudioSource>().Play();
                 pauseScreen[0].SetActive(true);
                 pauseScreen[1].SetActive(true);
                 pauseScreen[2].SetActive(false);
@@ -42,8 +38,8 @@ public class Pause : MonoBehaviour
     }
     public void DeactivatePause(){
         Time.timeScale = 1;
-        sound.FaidBetweenWorldSound(musicVolume,10,1,0);
-        sound.GetComponent<AudioSource>().Play();
+        AudioHandler.Audio.FaidBetweenWorldSound(musicVolume,10,1,0);
+        AudioHandler.Audio.GetComponent<AudioSource>().Play();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         pauseScreen[0].SetActive(false);
@@ -52,7 +48,7 @@ public class Pause : MonoBehaviour
         controller.DisableChricters(false);
     }
     public void Quit(){
-        changer.GoToScene("StartScreen");
+        SceneChanger.ChangeScene.GoToScene("StartScreen");
     }
     public void controllesScrean(bool state){
         pauseScreen[1].SetActive(!state);

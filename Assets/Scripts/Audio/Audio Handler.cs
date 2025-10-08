@@ -4,11 +4,13 @@ using UnityEngine.Rendering;
 
 
 public class AudioHandler : MonoBehaviour{
-    [SerializeField]
+    public static AudioHandler Audio;
     private AudioSource sound;
     Coroutine fade;
     Coroutine fadeBetween;
-
+    public void instantiate() {
+        Audio = this;
+    }
     public void playSound(AudioClip audioClip, Transform position, float volume)
     {
         AudioSource audioSource = Instantiate(sound, position.position, Quaternion.identity);

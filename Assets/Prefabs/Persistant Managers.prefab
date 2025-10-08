@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 4825072480090954023}
   m_Layer: 0
   m_Name: Persistant Managers
-  m_TagString: Managers
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 354b05f8eab309043b527458b71443c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 1673072727164077307, guid: feb2a7648b9960d4dbea3177bc6094ba, type: 3}
 --- !u!82 &8610650489910308460
 AudioSource:
   m_ObjectHideFlags: 0
