@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Reflection;
 
 public class DoNotDistroy : MonoBehaviour
 {
@@ -13,6 +14,12 @@ public class DoNotDistroy : MonoBehaviour
         {
             persistantObjects[objectID] = gameObject;
             DontDestroyOnLoad(gameObject);
+            foreach (MonoBehaviour script in gameObject.GetComponents<MonoBehaviour>()) {
+                MethodInfo method = script.GetType().GetMethod("instantiate", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+                if (method != null) {
+                    method.Invoke(script, null);
+                }
+            }
         }
         else if (persistantObjects[objectID] != gameObject)
         {

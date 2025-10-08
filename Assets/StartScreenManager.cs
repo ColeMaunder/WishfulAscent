@@ -5,13 +5,9 @@ public class StartScreenManager : MonoBehaviour
 {
     [SerializeField]
     String nextSceen;
-    SceneChanger changer;
-    void Start()
-    {
-        changer = GameObject.FindWithTag("Managers").GetComponent<SceneChanger>();
-    }
+
     public void continueGame(){
-        changer.GoToScene(nextSceen);
+        SceneChanger.ChangeScene.GoToScene(nextSceen);
     }
     public void Quit()
     {
