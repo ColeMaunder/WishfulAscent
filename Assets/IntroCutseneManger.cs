@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class IntroCutseneManger : MonoBehaviour
 {
-    DialogManiger dialogManager;
     [SerializeField]
     Sprite[] shots;
     [SerializeField]
@@ -24,7 +23,7 @@ public class IntroCutseneManger : MonoBehaviour
 
     void Start()
     {
-        dialogManager = GameObject.FindWithTag("Managers").GetComponent<DialogManiger>();
+
         lineDisplay.text = "";
         scene = StartCoroutine(runCutsene());
         nextButton.SetActive(false);
@@ -32,7 +31,7 @@ public class IntroCutseneManger : MonoBehaviour
 
     public IEnumerator runCutsene() {
         yield return new WaitForSecondsRealtime(0.5f);
-        DialogueLine dialog = dialogManager.GetDialogue(SceneManager.GetActiveScene().name, "Stella", shotID);
+        DialogueLine dialog = DialogManiger.Dialog.GetDialogue(SceneManager.GetActiveScene().name, "Intro", shotID);
         foreach (char letter in dialog.text.ToCharArray()) {
             lineDisplay.text += letter;
             yield return new WaitForSecondsRealtime(typeSpeed);
