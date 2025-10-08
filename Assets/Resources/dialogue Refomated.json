@@ -96,7 +96,7 @@
       "scene": "IntroCutsene",
       "sequences": [
         {
-            "sequence": "Stella",
+            "sequence": "Intro",
             "lines": [
                 { "id": 0, "name": "Stella", "voiceOver": "Sol_21.mp3", "text": "You tried to fix the world, one step at a time." },
                 { "id": 1, "name": "Stella", "voiceOver": "Sol_21.mp3", "text": "Found no path of least resistance, as you took on this climb." },
