@@ -6,14 +6,14 @@
         {
             "sequence": "Base Mechanics Tutorial",
             "lines": [
-                { "id": 2,"name": "Luna", "voiceOver": "Luna_11.mp3", "text": "Wh- Where am I?..." },
+                { "id": 2,"name": "Luna", "voiceOver": "Luna_11", "text": "Wh- Where am I?..." },
                 { "id": 3, "name": "Luna", "voiceOver": "Luna_12.mp3", "text": "Wait..." },
                 { "id": 4, "name": "Luna", "voiceOver": "Luna_12.mp3", "text": "Who are you?! Where's your voice coming from?" },
                 { "id": 5, "name": "Luna", "voiceOver": "Luna_12.mp3", "text": "Huh? Where's my brother? I swear, if you've-" },
                 { "id": 8, "name": "Luna", "voiceOver": "Luna_12.mp3", "text": "Why are we here?" },
                 { "id": 13, "name": "Luna", "voiceOver": "Luna_12.mp3", "text": "I should go and find Altair." },
 
-                { "id": 1, "name": "Stella", "voiceOver": "Stella_11.mp3", "text": "Wake up, Adara..." },
+                { "id": 1, "name": "Stella", "voiceOver": "1_Stella", "text": "Wake up, Adara..." },
                 { "id": 6, "name": "Stella", "voiceOver": "Stella_11.mp3", "text": "Hmmm... You don't remember anything. Peculiar..." },
                 { "id": 7, "name": "Stella", "voiceOver": "Stella_12.mp3", "text": "No need to fret. I can assure you, Altair is perfectly fine." },
                 { "id": 9, "name": "Stella", "voiceOver": "Stella_12.mp3", "text": "*Laughs* Why are we here? I remember asking that." },

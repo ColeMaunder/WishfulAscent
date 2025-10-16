@@ -39,22 +39,18 @@ public class DialogManiger : MonoBehaviour {
             return null;
         }
     }
-    public void RunSequence(string scene, string sequence, GameObject display){
+    public void RunSequence(string scene, string sequence, DisplayDialogue display){
         if (dialougeSequence != null){
             StopCoroutine(dialougeSequence);
         }
-        TMP_Text speakerName = display.transform.GetChild(1).gameObject.GetComponent<TMP_Text>();
-        TMP_Text text = display.transform.GetChild(2).gameObject.GetComponent<TMP_Text>();
-        dialougeSequence = StartCoroutine(DialougeSequence(scene, sequence, speakerName, text));
+        
+        dialougeSequence = StartCoroutine(DialougeSequence(scene, sequence, display));
     }
-    public void RunSequence(string scene, string sequence, TMP_Text speakerName, TMP_Text text){
-        if (dialougeSequence != null){
-            StopCoroutine(dialougeSequence);
-        }
-        dialougeSequence = StartCoroutine(DialougeSequence(scene, sequence, speakerName, text));
-    }
-    private IEnumerator DialougeSequence(string scene, string sequence, TMP_Text speakerName, TMP_Text text){
+    private IEnumerator DialougeSequence(string scene, string sequence, DisplayDialogue display){
         int idCount = 1;
+        display.Activate(true);
+        TMP_Text speakerName = display.nameDisplay;
+        TMP_Text text = display.lineDisplay;
         DialogueLine line = GetDialogue(scene, sequence, idCount);
         while (line != null){
             speakerName.text = line.name;
@@ -63,15 +59,19 @@ public class DialogManiger : MonoBehaviour {
                 AudioSource speeker = GameObject.Find(line.name).transform.GetChild(0).gameObject.GetComponent<AudioSource>();
                 speeker.clip = line.voiceOverAudio;
                 speeker.Play();
+                Debug.Log("Playing Audio ID:"+ idCount);
                 while (speeker.isPlaying){
                     yield return new WaitForSeconds(0.5f);
                 }
             }else{
                 yield return new WaitForSeconds(1);
+                Debug.Log("No Audio File for ID:" + idCount);
             }
             idCount++;
             line = GetDialogue(scene, sequence, idCount);
         }
+        yield return new WaitForSeconds(1);
+        display.Activate(false);
     }
     /*public DialogueLine GetDialogue(string sceneName, int id)
     {

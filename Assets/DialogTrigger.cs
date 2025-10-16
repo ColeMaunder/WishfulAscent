@@ -6,22 +6,24 @@ public class DialogTrigger : MonoBehaviour
     [SerializeField] bool characterDependent = false;
     [SerializeField] string sequence;
     string scene;
-    GameObject dialogDiplay;
+    DisplayDialogue dialogDiplay;
     void Start()
     {
         //scene = SceneManager.GetActiveScene().name;
         scene = "LevelOne";
-        dialogDiplay = GameObject.Find("Dialouge");
+        dialogDiplay = GameObject.Find("Ui Screnes").GetComponent<DisplayDialogue>();
     }
     private void OnTriggerEnter(Collider other)
     {
         GameObject enterObject = other.gameObject;
+        Debug.Log(enterObject.name + " entered trigger");
         if(enterObject.GetComponent<CharacterController>() != null){
-            dialogDiplay.SetActive(true);
+            string nameSequence = sequence;
             if (characterDependent){
-                sequence += " " + enterObject.name;
+                nameSequence += " " + enterObject.name;
             }
-            DialogManiger.Dialog.RunSequence(scene, sequence, dialogDiplay);
+            DialogManiger.Dialog.RunSequence(scene, nameSequence, dialogDiplay);
         }
+        gameObject.SetActive(false);
     }
 }

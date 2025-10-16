@@ -1613,9 +1613,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 35076417593631478, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 852291084323545504, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1406662391459719346, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2208687676678258913, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
       propertyPath: m_Name
@@ -1623,7 +1631,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2208687676678258913, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3897011187206546861, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
       propertyPath: m_ActionEvents.Array.data[10].m_PersistentCalls.m_Calls.Array.data[0].m_Target
