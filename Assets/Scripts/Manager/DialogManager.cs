@@ -33,7 +33,6 @@ public class DialogManiger : MonoBehaviour {
         if (dialogueLookup.TryGetValue((sceneName, sequence, id), out DialogueLine line)) {
             return line;
         }else{
-            Debug.Log("No sutch instance in the file");
             return null;
         }
     }
