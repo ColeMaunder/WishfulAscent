@@ -40,8 +40,8 @@ public class FPController : MonoBehaviour
     private void Awake()
     {
         Camera3P = transform.GetChild(2).gameObject;
-        Camera3P.gameObject.GetComponent<Camera>().enabled = false;
-        Camera3P.gameObject.GetComponent<AudioListener>().enabled = false;
+        Camera3P.transform.GetChild(0).gameObject.GetComponent<Camera>().enabled = false;
+        Camera3P.transform.GetChild(0).gameObject.GetComponent<AudioListener>().enabled = false;
         character = characters[currentCharacter];
         cameraTransform = character.GetChild(0);
         cameraTransform.gameObject.GetComponent<Camera>().enabled = true;

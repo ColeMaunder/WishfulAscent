@@ -1,16 +1,27 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+using TMPro;
 public class DialogTrigger : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] bool characterDependent = false;
+    [SerializeField] string sequence;
+    string scene;
+    GameObject dialogDiplay;
     void Start()
     {
-        
+        //scene = SceneManager.GetActiveScene().name;
+        scene = "LevelOne";
+        dialogDiplay = GameObject.Find("Dialouge");
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        GameObject enterObject = other.gameObject;
+        if(enterObject.GetComponent<CharacterController>() != null){
+            dialogDiplay.SetActive(true);
+            if (characterDependent){
+                sequence += " " + enterObject.name;
+            }
+            DialogManiger.Dialog.RunSequence(scene, sequence, dialogDiplay);
+        }
     }
 }

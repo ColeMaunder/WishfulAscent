@@ -1,8 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using System.Collections;
+using TMPro;
 public class DialogManiger : MonoBehaviour {
+    Coroutine dialougeSequence;
     public static DialogManiger Dialog;
     public void instantiate() {
         Dialog = this;
@@ -31,9 +32,45 @@ public class DialogManiger : MonoBehaviour {
     }
     public DialogueLine GetDialogue(string sceneName, string sequence, int id){
         if (dialogueLookup.TryGetValue((sceneName, sequence, id), out DialogueLine line)) {
+            line.voiceOverAudio = Resources.Load<AudioClip>("Dialog Audio/" + sceneName + "/" + sequence + "/" + line.voiceOver);
             return line;
         }else{
+            Debug.Log("No sutch instance in the file");
             return null;
+        }
+    }
+    public void RunSequence(string scene, string sequence, GameObject display){
+        if (dialougeSequence != null){
+            StopCoroutine(dialougeSequence);
+        }
+        TMP_Text speakerName = display.transform.GetChild(1).gameObject.GetComponent<TMP_Text>();
+        TMP_Text text = display.transform.GetChild(2).gameObject.GetComponent<TMP_Text>();
+        dialougeSequence = StartCoroutine(DialougeSequence(scene, sequence, speakerName, text));
+    }
+    public void RunSequence(string scene, string sequence, TMP_Text speakerName, TMP_Text text){
+        if (dialougeSequence != null){
+            StopCoroutine(dialougeSequence);
+        }
+        dialougeSequence = StartCoroutine(DialougeSequence(scene, sequence, speakerName, text));
+    }
+    private IEnumerator DialougeSequence(string scene, string sequence, TMP_Text speakerName, TMP_Text text){
+        int idCount = 1;
+        DialogueLine line = GetDialogue(scene, sequence, idCount);
+        while (line != null){
+            speakerName.text = line.name;
+            text.text = line.text;
+            if(line.voiceOverAudio != null){
+                AudioSource speeker = GameObject.Find(line.name).transform.GetChild(0).gameObject.GetComponent<AudioSource>();
+                speeker.clip = line.voiceOverAudio;
+                speeker.Play();
+                while (speeker.isPlaying){
+                    yield return new WaitForSeconds(0.5f);
+                }
+            }else{
+                yield return new WaitForSeconds(1);
+            }
+            idCount++;
+            line = GetDialogue(scene, sequence, idCount);
         }
     }
     /*public DialogueLine GetDialogue(string sceneName, int id)
@@ -72,7 +109,7 @@ public class DialogueLine {
     public int id;
     public string text;
     public string voiceOver;
-    
+    public AudioClip voiceOverAudio;
     
     /*public void GetIcon(){
         
