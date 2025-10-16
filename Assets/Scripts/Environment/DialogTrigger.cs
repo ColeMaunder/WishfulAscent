@@ -6,12 +6,10 @@ public class DialogTrigger : MonoBehaviour
     [SerializeField] bool characterDependent = false;
     [SerializeField] string sequence;
     string scene;
-    DisplayDialogue dialogDiplay;
     void Start()
     {
         //scene = SceneManager.GetActiveScene().name;
         scene = "LevelOne";
-        dialogDiplay = GameObject.Find("Ui Screnes").GetComponent<DisplayDialogue>();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -22,7 +20,7 @@ public class DialogTrigger : MonoBehaviour
             if (characterDependent){
                 nameSequence += " " + enterObject.name;
             }
-            DialogManiger.Dialog.RunSequence(scene, nameSequence, dialogDiplay);
+            DialogManiger.Dialog.RunSequence(scene, nameSequence);
         }
         gameObject.SetActive(false);
     }

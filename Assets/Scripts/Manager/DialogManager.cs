@@ -39,11 +39,11 @@ public class DialogManiger : MonoBehaviour {
             return null;
         }
     }
-    public void RunSequence(string scene, string sequence, DisplayDialogue display){
+    public void RunSequence(string scene, string sequence){
         if (dialougeSequence != null){
             StopCoroutine(dialougeSequence);
         }
-        
+        DisplayDialogue display = GameObject.Find("Ui Screnes").GetComponent<DisplayDialogue>();
         dialougeSequence = StartCoroutine(DialougeSequence(scene, sequence, display));
     }
     private IEnumerator DialougeSequence(string scene, string sequence, DisplayDialogue display){
