@@ -110,7 +110,8 @@ public class FPController : MonoBehaviour
     public void OnPause(InputAction.CallbackContext context)
     {
         if (context.performed) {
-            GameObject.FindWithTag("UI Screens").GetComponent<Pause>().ActivetePause();
+            GameObject.Find("Ui Screnes").GetComponent<Pause>().ActivetePause();
+            Debug.Log("Pause triggered");
         }
     }
     public void HandleMovement()
