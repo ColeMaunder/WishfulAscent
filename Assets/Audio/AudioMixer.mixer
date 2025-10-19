@@ -53,7 +53,15 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: 338f19cdbcf811e40a3d62b9bfc361a3
+    name: Dialogue
+  - guid: 8f6f13b138ffe4240ad4bdf41f1b4c9c
+    name: Master
+  - guid: b2243c89db3bcb34b89ef50b442b74b7
+    name: Music
+  - guid: 95e4cbf2aa7a3274cbc572004d754a42
+    name: SoundEffects
   m_AudioMixerGroupViews:
   - guids:
     - 9b75ef3422766ea469fad46b9e3dc32b

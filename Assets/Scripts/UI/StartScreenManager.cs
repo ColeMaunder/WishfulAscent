@@ -23,11 +23,19 @@ public class StartScreenManager : MonoBehaviour
     [SerializeField]
     float fadeDuration = 2.0f;
     //VideoClip[] videos;
+    EventSystem eventSystem;
+    void Start()
+    {
+        eventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
+    }
 
-    
+
     public void NewGame(){
         Saving.saver.newSaveFile();
         SceneChanger.ChangeScene.GoToScene(nextSceen);
+    }
+    public void BackToStartScrean(){
+        eventSystem.SetSelectedGameObject(startScreen.transform.GetChild(3).gameObject);
     }
     public void LoadSave(bool state){
         saveList.SetActive(state);
@@ -49,7 +57,7 @@ public class StartScreenManager : MonoBehaviour
         } else {
             to = titleScreen.GetComponent<CanvasGroup>();
             from = startScreen.GetComponent<CanvasGroup>();
-            GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(titleScreen.transform.GetChild(2).gameObject);
+            eventSystem.SetSelectedGameObject(titleScreen.transform.GetChild(2).gameObject);
         }
         to.interactable = false;
         from.interactable = false;
@@ -72,10 +80,15 @@ public class StartScreenManager : MonoBehaviour
         from.interactable = true;
     }
    
-    public void Settings(){
-        settingsScreen.SetActive(true);
-        GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(settingsScreen.transform.GetChild(2).gameObject);
-        titleScreen.transform.GetChild(0).gameObject.GetComponent<VideoPlayer>().Pause();
+    public void Settings(bool state){
+        if(state){
+            eventSystem.SetSelectedGameObject(settingsScreen.transform.GetChild(2).gameObject);
+            titleScreen.transform.GetChild(0).gameObject.GetComponent<VideoPlayer>().Pause();
+        } else {
+            eventSystem.SetSelectedGameObject(titleScreen.transform.GetChild(2).gameObject);
+            titleScreen.transform.GetChild(0).gameObject.GetComponent<VideoPlayer>().Play(); 
+        }
+        settingsScreen.SetActive(state);
     }
     public void Quit()
     {

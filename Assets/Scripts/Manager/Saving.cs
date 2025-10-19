@@ -2,10 +2,13 @@ using System;
 using UnityEngine;
 using System.IO;
 using System.Collections.Generic;
+using System.Collections;
+using UnityEngine.SceneManagement;
 
 
 [System.Serializable]
 public class SaveData {
+    public int saveID;
     public string currentScene;
     public string whenSaved;
     public float playTime;
@@ -17,15 +20,24 @@ public class Saving: MonoBehaviour {
     public static Saving saver = new Saving();
     private readonly string saveHeader = "Save";
     private readonly string fielName = "WishfullAscentSaves/";
-    private List<string> fileDirectory = new List<string>();
+    public List<SaveData> saveList = new List<SaveData>();
     public void instantiate() {
         saver = this;
     }
     void Start()
     {
         Directory.CreateDirectory(Path.Combine(Application.persistentDataPath, fielName));
-        fileDirectory.AddRange(Directory.GetFiles(Path.Combine(Application.persistentDataPath, fielName)));
-        
+        foreach (var item in Directory.GetFiles(Path.Combine(Application.persistentDataPath, fielName))) {
+            string[] fileName = item.Split('/');
+            string json = File.ReadAllText(Path.Combine(Application.persistentDataPath, fielName + fileName[fileName.Length - 1]));
+            saveList.Add(JsonUtility.FromJson<SaveData>(json));
+        }
+    }
+    void Update()
+    {
+        if (SceneManager.GetActiveScene().name != "StartScreen"){
+            activeSave.playTime += Time.deltaTime;
+        }
     }
     public void PerformSave(string sceneName, int roomPrgress = 0)
     {
@@ -58,13 +70,15 @@ public class Saving: MonoBehaviour {
         }
     }
     public void newSaveFile() {
-        int saveId = fileDirectory.Count + 1;
+        int saveId = saveList.Count + 1;
         string filePath = fielName + saveHeader + saveId + ".json";
+        activeSave.saveID = saveId;
+        activeSave.playTime = 0;
         activeSave.whenSaved = DateTime.Now.ToString("MM-dd-yyyy HH:mm:ss");
         activeSave.currentScene = "IntroCutsene";
         string json = JsonUtility.ToJson(activeSave, true);
         File.WriteAllText(Path.Combine(Application.persistentDataPath, filePath), json);
-        fileDirectory.Add(Path.Combine(Application.persistentDataPath, filePath));
+        saveList.Add(activeSave);
         PlayerPrefs.SetInt("MostRecentSave", saveId);
     }
     public bool AreExistingSaves() {
@@ -72,9 +86,6 @@ public class Saving: MonoBehaviour {
         Debug.Log("Save folder Exists");
         return File.Exists(Path.Combine(Application.persistentDataPath, filePath));
         
-    }
-    public void SetSaveID(int newId){
-        PlayerPrefs.SetInt("MostRecentSave", newId);
     }
     public void LoadSave(){
         LoadSave(PlayerPrefs.GetInt("MostRecentSave"));

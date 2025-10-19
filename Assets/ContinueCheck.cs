@@ -29,6 +29,5 @@ public class ContinueCheck : MonoBehaviour
             }
             buttonText.color = currentCouler;
         }
-
     }
 }
