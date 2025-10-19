@@ -47,10 +47,10 @@ public class IntroCutseneManger : MonoBehaviour
             
             scene = StartCoroutine(runCutsene());
         }else{
-            GameObject.FindWithTag("Managers").GetComponent<SceneChanger>().GoToScene(nextScene);
+            SceneChanger.ChangeScene.GoToScene(nextScene);
         }
     }
     public void Skip(){
-        GameObject.FindWithTag("Managers").GetComponent<SceneChanger>().GoToScene(nextScene);
+        SceneChanger.ChangeScene.GoToScene(nextScene);
     }
 }

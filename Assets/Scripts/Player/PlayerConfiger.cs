@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerConfigurer : MonoBehaviour
 {
@@ -15,5 +16,6 @@ public class PlayerConfigurer : MonoBehaviour
         for(int i = 0; i <= 1;i++){
            playerPerent.GetChild(i).position = startPositions[i].position;
         }
+        Saving.saver.PerformSave(SceneManager.GetActiveScene().name);
     }
 }

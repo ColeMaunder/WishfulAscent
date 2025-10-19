@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneConfiger : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class SceneConfiger : MonoBehaviour
         }
         //GameObject.FindWithTag("SceneChainger").GetComponent<SceneChanger>().SetCahingID(sceneCahngeID);
         AudioHandler.Audio.FaidBetweenWorldSound(musicVolume,8f,0,seaneMusic);
-         AudioHandler.Audio.FaideOutWorldSound(8f,1);
+        AudioHandler.Audio.FaideOutWorldSound(8f, 1);
     }
     
     public AudioClip GetMusic(){
