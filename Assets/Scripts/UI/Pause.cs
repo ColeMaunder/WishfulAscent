@@ -7,7 +7,7 @@ using Image = UnityEngine.UI.Image;
 public class Pause : MonoBehaviour
 {
     [SerializeField] GameObject [] pauseScreen;
-    [SerializeField] Sprite [] controllsScreens;
+    
     [SerializeField] AudioClip menueMusic;
     [SerializeField] float musicVolume = 0;
     FPController controller;
@@ -50,23 +50,11 @@ public class Pause : MonoBehaviour
     public void Quit(){
         SceneChanger.ChangeScene.GoToScene("StartScreen");
     }
-    public void controllesScrean(bool state){
+    public void SettingsScrean(bool state){
         pauseScreen[1].SetActive(!state);
         pauseScreen[2].SetActive(state);
         if(state){
-            eventSystem.SetSelectedGameObject(pauseScreen[2].transform.GetChild(0).gameObject);
-            switch (controller.GetControlScheme())
-            {
-                case "Keyboard":
-                    pauseScreen[2].GetComponent<Image>().sprite = controllsScreens[0];
-                    print("Keyboard");
-                    break;
-                case "Gamepad":
-                    print("Gamepad");
-                    pauseScreen[2].GetComponent<Image>().sprite = controllsScreens[1];
-                    break;
-            }
-            
+            eventSystem.SetSelectedGameObject(pauseScreen[2].transform.GetChild(3).gameObject);
         }else{
             eventSystem.SetSelectedGameObject(pauseScreen[1].transform.GetChild(2).gameObject);
         }

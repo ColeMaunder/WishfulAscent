@@ -4,23 +4,22 @@ using UnityEngine.UI;
 
 public class UIButtonsManger : MonoBehaviour
 {
-    EventSystem eventSystem;
+
     GameObject lastSalected = null;
     [SerializeField]
-    GameObject[] watchedButtons;
-    void Start()
-    {
-       eventSystem = GameObject.FindAnyObjectByType<EventSystem>(); 
-    }
+    
 
-    // Update is called once per frame
+
     void Update()
     {
-        if(eventSystem.currentSelectedGameObject && lastSalected != eventSystem.currentSelectedGameObject){
-            lastSalected = eventSystem.currentSelectedGameObject;
+        if(EventSystem.current.currentSelectedGameObject && lastSalected != EventSystem.current.currentSelectedGameObject &&
+         EventSystem.current.currentSelectedGameObject.GetComponent<Selectable>().interactable) {
+            lastSalected = EventSystem.current.currentSelectedGameObject;
         }
-        if (!eventSystem.currentSelectedGameObject && lastSalected) {
-            eventSystem.SetSelectedGameObject(lastSalected);
+        
+        if (!EventSystem.current.currentSelectedGameObject && lastSalected ||
+        !EventSystem.current.currentSelectedGameObject.GetComponent<Selectable>().interactable) {
+            EventSystem.current.SetSelectedGameObject(lastSalected);
         }
     }
 }
