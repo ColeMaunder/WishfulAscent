@@ -2,97 +2,132 @@
   "scenes": [
     {
       "scene": "LevelOne",
-      "characters": [
+      "sequences": [
         {
-            "name": "Luna",
+            "sequence": "Base Mechanics Tutorial",
             "lines": [
-                { "id": 2, "icon": "LunaIcon.png", "voiceOver": "Luna_11.mp3", "text": "Wh- Where am I?..." },
-                { "id": 3, "icon": "LunaIcon.png", "voiceOver": "Luna_12.mp3", "text": "Wait..." },
-                { "id": 4, "icon": "LunaIcon.png", "voiceOver": "Luna_12.mp3", "text": "Who are you?! Where's your voice coming from?" },
-                { "id": 5, "icon": "LunaIcon.png", "voiceOver": "Luna_12.mp3", "text": "Huh? Where's my brother? I swear, if you've-" },
-                { "id": 8, "icon": "LunaIcon.png", "voiceOver": "Luna_12.mp3", "text": "Why are we here?" },
-                { "id": 13, "icon": "LunaIcon.png", "voiceOver": "Luna_12.mp3", "text": "I should go and find Altair." },
-                
-                { "id": 16, "icon": "LunaIcon.png", "voiceOver": "Luna_21.mp3", "text": "Altair? I'm the one who should be saying that." },
-                { "id": 17, "icon": "LunaIcon.png", "voiceOver": "Luna_21.mp3", "text": "Do you happen to remember how we got here?" },
-                { "id": 20, "icon": "LunaIcon.png", "voiceOver": "Luna_22.mp3", "text": "So he spoke to you too..." },
-                
-                { "id": 26, "icon": "LunaIcon.png", "voiceOver": "Luna_21.mp3", "text": "Huh... A bouncing magical orb. Not menacing at all." },
-                { "id": 27, "icon": "LunaIcon.png", "voiceOver": "Luna_22.mp3", "text": "The orb seems to have been disconnected from this magical... wiring?" },
-                { "id": 28, "icon": "LunaIcon.png", "voiceOver": "Luna_22.mp3", "text": "I wonder what will happen if I fix it?" },
-                { "id": 29, "icon": "LunaIcon.png", "voiceOver": "Luna_22.mp3", "text": "*Laughs* The magical force field is now stuck to me... Great." },
-                { "id": 30, "icon": "LunaIcon.png", "voiceOver": "Luna_22.mp3", "text": "Do not get distracted, Adara. Fix the magical circuit. Maybe it'll open the door..." },
+                { "id": 2,"name": "Adara", "voiceOver": "Where am I", "text": "Wh- Where am I?..." },
+                { "id": 3, "name": "Adara", "voiceOver": "Wait", "text": "Wait..." },
+                { "id": 4, "name": "Adara", "voiceOver": "Who are you?", "text": "Who are you?! Where's your voice coming from?" },
+                { "id": 5, "name": "Adara", "voiceOver": "Huh? Where’s my brother", "text": "Huh? Where's my brother? I swear, if you've-" },
+                { "id": 8, "name": "Adara", "voiceOver": "Why are we here?", "text": "Why are we here?" },
+                { "id": 13, "name": "Adara", "voiceOver": "I should go and find Altair", "text": "I should go and find Altair." },
 
-                { "id": 32, "icon": "LunaIcon.png", "voiceOver": "Luna_21.mp3", "text": "Well, that was interesting. I see you've acquired a glowing orb as well." },
-                { "id": 33, "icon": "LunaIcon.png", "voiceOver": "Luna_22.mp3", "text": "They seem to be quite useful." },
-                { "id": 34, "icon": "LunaIcon.png", "voiceOver": "Luna_22.mp3", "text": "I reckon we combine our newfound 'abilities' to open this door." },
-                { "id": 35, "icon": "LunaIcon.png", "voiceOver": "Luna_22.mp3", "text": "The sooner we get out of here the better." }
+                { "id": 1, "name": "???", "voiceOver": "BMT_1_Stella", "text": "Wake up, Adara..." },
+                { "id": 6, "name": "???", "voiceOver": "BMT_6_Stella", "text": "Hmmm... You don't remember anything. Peculiar..." },
+                { "id": 7, "name": "???", "voiceOver": "BMT_7_Stella", "text": "No need to fret. I can assure you, Altair is perfectly fine." },
+                { "id": 9, "name": "???", "voiceOver": "BMT_9_Stella", "text": "*Laughs* Why are we here? I remember asking that." },
+                { "id": 10, "name": "???", "voiceOver": "BMT_10_Stella", "text": "Why are you both here though? Hmmmm..." },
+                { "id": 11, "name": "???", "voiceOver": "BMT_11_Stella", "text": "I guess you'll have to figure that out yourselves." },
+                { "id": 12, "name": "???", "voiceOver": "BMT_12_Stella", "text": "Goodbye for now." }
             ]
         },
         {
-            "name": "Sol",
+            "sequence": "Reunion Cutsene",
             "lines": [
-                { "id": 14, "icon": "SolIcon.png", "voiceOver": "Sol_21.mp3", "text": "Adara?..." },
-                { "id": 15, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "Thank goodness, you're alive!" },
-                { "id": 18, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "I was about to ask you the same thing." },
-                { "id": 19, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "The disembodied voice wasn't particularly helpful." },
-                { "id": 22, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "Hey Mr. Entity, mind letting us out! This isn't funny!" },
+                { "id": 1, "name": "Altair", "voiceOver": "Sol_ID14", "text": "Adara?..." },
+                { "id": 2, "name": "Altair", "voiceOver": "Sol_ID15", "text": "Thank goodness, you're alive!" },
+                { "id": 5, "name": "Altair", "voiceOver": "Sol_ID18", "text": "I was about to ask you the same thing." },
+                { "id": 6, "name": "Altair", "voiceOver": "Sol_ID19", "text": "The disembodied voice wasn't particularly helpful." },
+                { "id": 9, "name": "Altair", "voiceOver": "Sol_ID22", "text": "Hey Mr. Entity, mind letting us out! This isn't funny!" },
 
-                { "id": 26, "icon": "SolIcon.png", "voiceOver": "Sol_21.mp3", "text": "The door seems locked." },
-                { "id": 27, "icon": "SolIcon.png", "voiceOver": "Sol_21.mp3", "text": "Hmmm... Why is that glowing orb stuck to the pedestal?" },
-                { "id": 28, "icon": "SolIcon.png", "voiceOver": "Sol_21.mp3", "text": "Strange. It looks like it was ripped out of this... circuit?" },
-                { "id": 29, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "I should definitely put it back. Neaten up the place." },
-                { "id": 30, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "Hmmm... The other mysterious orb is now stuck to my hand. Fun." },
-                { "id": 31, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "Maybe I can use this to put the orb back and open the door..." },
+                { "id": 3, "name": "Adara", "voiceOver": "Altair?", "text": "Altair? I'm the one who should be saying that." },
+                { "id": 4, "name": "Adara", "voiceOver": "Do you happen to remember…", "Do you happen to remember…": "Do you happen to remember how we got here?" },
+                { "id": 7, "name": "Adara", "voiceOver": "So he spoke to you too", "So he spoke to you too": "So he spoke to you too..." },
 
-                { "id": 32, "icon": "SolIcon.png", "voiceOver": "Sol_21.mp3", "text": "That wasn't nearly as challenging as I thought it would be- Big sister! You have an orb as well?" },
-                { "id": 33, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "Nevermind. Not the time for questions." },
-                { "id": 34, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "Let's get out of this place." },
-                { "id": 35, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "Do you think we can combine our newly acquired 'abilities' to open this door?" }
+                { "id": 8, "name": "???", "voiceOver": "RC_8_Stella", "text": "*Laughs eerily*" },
+                { "id": 10, "name": "???", "voiceOver": "RC_10_Stella", "text": "Ah, dear Altair... I wanted to leave too..." },
+                { "id": 11, "name": "???", "voiceOver": "RC_11_Stella", "text": "Well, go on then. I'm not stopping you." },
+                { "id": 12, "name": "???", "voiceOver": "RC_12_Stella", "text": "But a door or two might..." }
             ]
         },
         {
-            "name": "Stella",
+            "sequence": "Ability Mechanics Tutorial Adara",
             "lines": [
-                { "id": 1, "icon": "StellaIcon.png", "voiceOver": "Stella_11.mp3", "text": "Wake up, Adara..." },
-                { "id": 6, "icon": "StellaIcon.png", "voiceOver": "Stella_11.mp3", "text": "Hmmm... You don't remember anything. Peculiar..." },
-                { "id": 7, "icon": "StellaIcon.png", "voiceOver": "Stella_12.mp3", "text": "No need to fret. I can assure you, Altair is perfectly fine." },
-                { "id": 9, "icon": "StellaIcon.png", "voiceOver": "Stella_12.mp3", "text": "*Laughs* Why are we here? I remember asking that." },
-                { "id": 10, "icon": "StellaIcon.png", "voiceOver": "Stella_12.mp3", "text": "Why are you both here though? Hmmmm..." },
-                { "id": 11, "icon": "StellaIcon.png", "voiceOver": "Stella_12.mp3", "text": "I guess you'll have to figure that out yourselves." },
-                { "id": 12, "icon": "StellaIcon.png", "voiceOver": "Stella_12.mp3", "text": "Goodbye for now." },
+                { "id": 1, "name": "Adara", "voiceOver": "Huh.. A bouncing magical orb", "text": "Huh... A bouncing magical orb. Not menacing at all." },
+                { "id": 3, "name": "Adara", "voiceOver": "I wonder what will happen", "text": "I wonder what will happen if I fix it?" },
+                { "id": 5, "name": "Adara", "voiceOver": "Do not get distracted Adara", "text": "Do not get distracted, Adara. Fix the magical circuit. Maybe it'll open the door..." },
 
-                { "id": 21, "icon": "StellaIcon.png", "voiceOver": "Stella_21.mp3", "text": "*Laughs eerily*" },
-                { "id": 23, "icon": "StellaIcon.png", "voiceOver": "Stella_21.mp3", "text": "Ah, dear Altair... I wanted to leave too..." },
-                { "id": 24, "icon": "StellaIcon.png", "voiceOver": "Stella_21.mp3", "text": "Well, go on then. I'm not stopping you." },
-                { "id": 25, "icon": "StellaIcon.png", "voiceOver": "Stella_21.mp3", "text": "But a door or two might..." }
+                { "id": 2, "name": "Altair", "voiceOver": "Sol_ID27", "text": "Hmmm... Why is that glowing orb stuck to the pedestal?" },
+                { "id": 4, "name": "Altair", "voiceOver": "Sol_ID29", "text": "I should definitely put it back. Neaten up the place." }
+                
+            ]
+        },
+        {
+            "sequence": "Ability Mechanics Tutorial Altair",
+            "lines": [
+               
+                { "id": 2, "name": "Adara", "voiceOver": "The orb seems to have been", "text": "The orb seems to have been disconnected from this magical... wiring?" },
+                { "id": 4, "name": "Adara", "voiceOver": "The magical force field is now stuck to me", "text": "*Laughs* The magical force field is now stuck to me... Great." },
+
+                { "id": 1, "name": "Altair", "voiceOver": "Sol_ID26", "text": "The door seems locked." },
+                { "id": 3, "name": "Altair", "voiceOver": "Sol_ID28", "text": "Strange. It looks like it was ripped out of this... circuit?" },
+                { "id": 5, "name": "Altair", "voiceOver": "Sol_ID30", "text": "Hmmm... The other mysterious orb is now stuck to my hand. Fun." },
+                { "id": 6, "name": "Altair", "voiceOver": "Sol_ID31", "text": "Maybe I can use this to put the orb back and open the door..." }
+                
+            ]
+        },
+        {
+            "sequence": "Level 1 Adara",
+            "lines": [
+                { "id": 1, "name": "Adara", "Well, that was interesting": "Luna_21", "text": "Well, that was interesting. I see you've acquired a glowing orb as well." },
+                { "id": 3, "name": "Adara", "I reckon we": "Luna_22", "text": "I reckon we combine our newfound 'abilities' to open this door." },
+                
+                { "id": 2, "name": "Altair", "voiceOver": "Sol_ID33", "text": "Nevermind. Not the time for questions." },
+                { "id": 4, "name": "Altair", "voiceOver": "Sol_ID35", "text": "Do you think we can combine our newly acquired 'abilities' to open this door?" }
+                
+            ]
+        },{
+            "sequence": "Level 1 Altair",
+            "lines": [
+                
+                { "id": 2, "name": "Adara", "voiceOver": "They seem to be quite useful", "text": "They seem to be quite useful." },
+                { "id": 4, "name": "Adara", "voiceOver": "The sooner we get out of here the better", "text": "The sooner we get out of here the better." },
+
+                { "id": 1, "name": "Altair", "voiceOver": "Sol_ID32", "text": "That wasn't nearly as challenging as I thought it would be- Big sister! You have an orb as well?" },
+                { "id": 3, "name": "Altair", "voiceOver": "Sol_ID34", "text": "Let's get out of this place." }
+                  
+                  
             ]
         }
       ]
-      
     },
     {
       "scene": "IntroCutsene",
-      "characters": [
+      "sequences": [
         {
-            "name": "Stella",
+            "sequence": "Intro",
             "lines": [
-                { "id": 0, "icon": "SolIcon.png", "voiceOver": "Sol_21.mp3", "text": "You tried to fix the world, one step at a time." },
-                { "id": 1, "icon": "SolIcon.png", "voiceOver": "Sol_21.mp3", "text": "Found no path of least resistance, as you took on this climb." },
-                { "id": 2, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "You mended the broken pieces..." },
-                { "id": 3, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "Bit by bit." },
-                { "id": 4, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "But the cracks grew larger without ever taking a hit..." },
-                { "id": 5, "icon": "SolIcon.png", "voiceOver": "Sol_21.mp3", "text": "A wish to fix the world?" },
-                { "id": 6, "icon": "SolIcon.png", "voiceOver": "Sol_21.mp3", "text": "Why would you not take it." },
-                { "id": 7, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "But how did your wish to save the world break it..." },
-                { "id": 8, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "As you approached the tower." },
-                { "id": 9, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "Not knowing what it meant." },
-                { "id": 10, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "I wish you listened and stopped our..." },
-                { "id": 11, "icon": "SolIcon.png", "voiceOver": "Sol_22.mp3", "text": "" }
+                { "id": 0, "name": "Stella", "voiceOver": "I_0_Stella", "text": "You tried to fix the world, one step at a time." },
+                { "id": 1, "name": "Stella", "voiceOver": "I_1_Stella", "text": "Found no path of least resistance, as you took on this climb." },
+                { "id": 2, "name": "Stella", "voiceOver": "I_2_Stella", "text": "You mended the broken pieces..." },
+                { "id": 3, "name": "Stella", "voiceOver": "I_3_Stella", "text": "Bit by bit." },
+                { "id": 4, "name": "Stella", "voiceOver": "I_4_Stella", "text": "But the cracks grew larger without ever taking a hit..." },
+                { "id": 5, "name": "Stella", "voiceOver": "I_5_Stella", "text": "A wish to fix the world?" },
+                { "id": 6, "name": "Stella", "voiceOver": "I_6_Stella", "text": "Why would you not take it." },
+                { "id": 7, "name": "Stella", "voiceOver": "I_7_Stella", "text": "But how did your wish to save the world break it..." },
+                { "id": 8, "name": "Stella", "voiceOver": "I_8_Stella", "text": "As you approached the tower." },
+                { "id": 9, "name": "Stella", "voiceOver": "I_9_Stella", "text": "Not knowing what it meant." },
+                { "id": 10, "name": "Stella", "voiceOver": "I_10_Stella", "text": "I wish you listened and stopped our..." },
+                { "id": 11, "name": "Stella", "voiceOver": "I_11_Stella", "text": "" }
+            ]
+        }
+      ]
+    },
+    {
+      "scene": "Complete",
+      "sequences": [
+        {
+            "sequence": "Outro",
+            "lines": [
+                { "id": 0, "name": "Stella", "voiceOver": "O_0_Stella", "text": "More than one thing broke, when entering the tower..." },
+                { "id": 1, "name": "Stella", "voiceOver": "O_1_Stella", "text": "Something else died, you thought it was the power." },
+                { "id": 2, "name": "Stella", "voiceOver": "O_2_Stella", "text": "Despite my best efforts, you ignored my warning. Could you not sense something darker dawning?" },
+                { "id": 3, "name": "Stella", "voiceOver": "O_3_Stella", "text": "When you put the pieces back together, the light blindingly shone" },
+                { "id": 4, "name": "Stella", "voiceOver": "O_4_Stella", "text": "But the friend that you had known and loved was well and truly gone..." }
             ]
         }
       ]
     }
   ]
 }
-

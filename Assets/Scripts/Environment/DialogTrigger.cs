@@ -8,8 +8,7 @@ public class DialogTrigger : MonoBehaviour
     string scene;
     void Start()
     {
-        //scene = SceneManager.GetActiveScene().name;
-        scene = "LevelOne";
+        scene = SceneManager.GetActiveScene().name;
     }
     private void OnTriggerEnter(Collider other)
     {

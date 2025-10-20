@@ -10,7 +10,10 @@ public class SettingsManager : MonoBehaviour
     [SerializeField]
     GameObject controllsScreen;
     [SerializeField]
-    Button [] buttons;
+    Button[] buttons;
+    private void OnEnable() {
+        EventSystem.current.SetSelectedGameObject(transform.GetChild(3).gameObject);
+    }
     public void volume(bool state){
         volumeScreen.SetActive(state);
         AllInteractible(state);

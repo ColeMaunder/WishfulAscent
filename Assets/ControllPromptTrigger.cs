@@ -9,7 +9,7 @@ public class ControllPromptTrigger : MonoBehaviour
         controllsPrompts = GameObject.Find("Controlls Prompts").GetComponent<ControllsPrompts>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         GameObject enterObject = other.gameObject;
         if (enterObject.GetComponent<CharacterController>() != null){

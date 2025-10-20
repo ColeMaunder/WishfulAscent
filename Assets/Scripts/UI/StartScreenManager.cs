@@ -76,7 +76,6 @@ public class StartScreenManager : MonoBehaviour
    
     public void Settings(bool state){
         if(state){
-            EventSystem.current.SetSelectedGameObject(settingsScreen.transform.GetChild(3).gameObject);
             titleScreen.transform.GetChild(0).gameObject.GetComponent<VideoPlayer>().Pause();
         } else {
             EventSystem.current.SetSelectedGameObject(titleScreen.transform.GetChild(2).gameObject);

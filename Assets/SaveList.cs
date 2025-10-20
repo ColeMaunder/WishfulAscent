@@ -30,10 +30,10 @@ public class SaveList : MonoBehaviour
                 buttons[i].gameObject.SetActive(true);
                 buttons[i].gameObject.GetComponent<Button>().interactable = true;
                 buttons[i].gameObject.GetComponent<LoadSave>().save = fileDirectory[i + (int)(slider.value * 3)];
-                buttons[i].GetChild(0).gameObject.GetComponent<TMP_Text>().text = "Save: " +fileDirectory[i + (int) (slider.value * 3)].saveID;
+                buttons[i].gameObject.GetComponent<LoadSave>().UpdateText();
             } catch (ArgumentOutOfRangeException) {
                 buttons[i].gameObject.GetComponent<Button>().interactable = false;
-                buttons[i].GetChild(0).gameObject.GetComponent<TMP_Text>().text = "";
+                buttons[i].gameObject.GetComponent<LoadSave>().BalnkText();
                 //buttons[i].gameObject.SetActive(false);
             }
         }

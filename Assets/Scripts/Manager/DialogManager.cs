@@ -15,7 +15,7 @@ public class DialogManiger : MonoBehaviour {
     void Start()
     {
         //string json = System.IO.File.ReadAllText(filePath);
-        TextAsset jsonFile = Resources.Load<TextAsset>("dialogue Refomated");
+        TextAsset jsonFile = Resources.Load<TextAsset>("Dialogue");
         dataBase = JsonUtility.FromJson<DialogueDataBase>(jsonFile.text);
         //dataBase = JsonUtility.FromJson<DialogueDataBase>(json);
 

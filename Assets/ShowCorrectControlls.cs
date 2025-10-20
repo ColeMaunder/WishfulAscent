@@ -8,16 +8,23 @@ public class ShowCorrectControlls : MonoBehaviour
     [SerializeField]
     Sprite[] controllsScreens;
     [SerializeField]
-    GameObject [] buttonOptions;
+    GameObject[] buttonOptions;
+    [SerializeField]
+    Sprite [] buttonIcons;
     void OnEnable() {
         try {
             FPController controller = GameObject.FindWithTag("Player").GetComponent<FPController>();
             SetIcon(controller.GetControlScheme());
-            EventSystem.current.SetSelectedGameObject(transform.GetChild(0).gameObject);
             setAllButtons(false);
         } catch(NullReferenceException) {
-            setAllButtons(true);
+            setAllButtons(true); 
+        }
+    }
+    public void SetSalect() {
+        if (!buttonOptions[0].activeSelf) {
             EventSystem.current.SetSelectedGameObject(transform.GetChild(1).gameObject);
+        } else {
+            EventSystem.current.SetSelectedGameObject(transform.GetChild(2).gameObject);
         }
     }
     private void setAllButtons(bool state)
@@ -27,6 +34,7 @@ public class ShowCorrectControlls : MonoBehaviour
             item.GetComponent<Button>().interactable = state;
         }
     }
+    
     public void SetIcon( string name){
         Image dispaly = gameObject.GetComponent<Image>();
         switch (name) {
@@ -38,6 +46,13 @@ public class ShowCorrectControlls : MonoBehaviour
                 print("Gamepad");
                 dispaly.sprite = controllsScreens[1];
                 break;
+        }
+    }
+    public void SetAllButtonIcons(int type)
+    {
+        for (int i = 0; i < buttonOptions.Length; i++)
+        {
+            buttonOptions[i].gameObject.GetComponent<Image>().sprite = buttonIcons[i +type];
         }
     }
 }

@@ -4,11 +4,10 @@ using UnityEngine.UI;
 
 public class ControllsPrompts : MonoBehaviour
 {
-    [SerializeField] GameObject pauseScreen;
     [SerializeField] Sprite [] controller;
     [SerializeField] Sprite[] keyboard;
-    //[SerializeField] string [] controllerName;
-    //[SerializeField] string [] keyboardName;
+    [SerializeField] string [] nameControll;
+
     FPController fpController;
     GameObject displayUI;
     Image icon;
@@ -29,11 +28,11 @@ public class ControllsPrompts : MonoBehaviour
             {
                 case "Keyboard":
                 icon.sprite = keyboard[id];
-                //discription.text = keyboardName[id];
+                discription.text = nameControll[id];
                     break;
                 case "Gamepad":
                 icon.sprite = controller[id];
-                //discription.text = controllerName[id];
+                discription.text = nameControll[id];
                     break;
             }
     }
