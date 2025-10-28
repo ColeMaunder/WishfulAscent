@@ -3,12 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class PlayerConfigurer : MonoBehaviour
 {
-     [SerializeField]
-    private Transform [] startPositions;
-    private Transform[] players;
+    [SerializeField]
+    private Transform[] startPositions;
+    [SerializeField]
+    private string wakeDialog = "";
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    void Start()
     {
+        string scene = SceneManager.GetActiveScene().name;
         Transform playerPerent = GameObject.FindWithTag("Player").transform;
         /*for(int i = 0; i <= 1;i++){
             players[i] = playerPerent.GetChild(1);
@@ -16,6 +18,9 @@ public class PlayerConfigurer : MonoBehaviour
         for(int i = 0; i <= 1;i++){
            playerPerent.GetChild(i).position = startPositions[i].position;
         }
-        Saving.saver.PerformSave(SceneManager.GetActiveScene().name);
+        Saving.saver.PerformSave(scene);
+        if(wakeDialog != "") {
+            DialogManiger.Dialog.RunSequence(scene, wakeDialog,1);
+        }
     }
 }

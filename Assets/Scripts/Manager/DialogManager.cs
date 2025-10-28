@@ -5,6 +5,7 @@ using TMPro;
 public class DialogManiger : MonoBehaviour {
     Coroutine dialougeSequence;
     public static DialogManiger Dialog;
+    private bool dialogPlaying;
     public void instantiate() {
         Dialog = this;
     }
@@ -12,41 +13,57 @@ public class DialogManiger : MonoBehaviour {
     //private string[] charicterNames = { "Luna", "Sol", "Stella" };
     private Dictionary<(string scene, string sequence, int id), DialogueLine> dialogueLookup;
     //string filePath = Application.dataPath + "/Resources/dialogue.json";
-    void Start()
+    void Awake()
     {
         //string json = System.IO.File.ReadAllText(filePath);
         TextAsset jsonFile = Resources.Load<TextAsset>("Dialogue");
         dataBase = JsonUtility.FromJson<DialogueDataBase>(jsonFile.text);
         //dataBase = JsonUtility.FromJson<DialogueDataBase>(json);
 
-        dialogueLookup = new Dictionary<(string, string, int), DialogueLine> ();
+        dialogueLookup = new Dictionary<(string, string, int), DialogueLine>();
         foreach (var scene in dataBase.scenes) {
-            foreach (var character in scene.sequences){
-               foreach (var line in character.lines){
+            foreach (var character in scene.sequences) {
+                foreach (var line in character.lines) {
                     dialogueLookup[(scene.scene, character.sequence, line.id)] = line;
-                }  
-            } 
+                }
+            }
         }
-        
-        Debug.Log(GetDialogue("LevelOne", "Base Mechanics Tutorial", 2 ).text);
+
+        Debug.Log(GetDialogue("LevelOne", "Base Mechanics Tutorial", 2).text);
     }
-    public DialogueLine GetDialogue(string sceneName, string sequence, int id){
+    public DialogueLine GetDialogue(string sceneName, string sequence, int id) {
         if (dialogueLookup.TryGetValue((sceneName, sequence, id), out DialogueLine line)) {
             line.voiceOverAudio = Resources.Load<AudioClip>("Dialog Audio/" + sceneName + "/" + sequence + "/" + line.voiceOver);
             return line;
-        }else{
+        } else {
             Debug.Log("No sutch instance in the file");
             return null;
         }
     }
-    public void RunSequence(string scene, string sequence){
-        if (dialougeSequence != null){
+    public void RunSequence(string scene, string sequence)
+    {
+        if (dialougeSequence != null)
+        {
             StopCoroutine(dialougeSequence);
         }
         DisplayDialogue display = GameObject.Find("Ui Screnes").GetComponent<DisplayDialogue>();
         dialougeSequence = StartCoroutine(DialougeSequence(scene, sequence, display));
     }
+    public void RunSequence(string scene, string sequence, int progress) {
+        RunSequence(scene, sequence);
+        StartCoroutine(RoomProsreser(progress));
+    }
+    public bool GetDialogPlaying() {
+        return dialogPlaying;
+    }
+    private IEnumerator RoomProsreser(int progress){
+        while (dialogPlaying){
+            yield return new WaitForSeconds(0.5f);
+        }
+        Saving.activeSave.roomPrgress = progress;   
+    }
     private IEnumerator DialougeSequence(string scene, string sequence, DisplayDialogue display){
+        dialogPlaying = true;
         int idCount = 1;
         display.Activate(true);
         TMP_Text speakerName = display.nameDisplay;
@@ -72,6 +89,7 @@ public class DialogManiger : MonoBehaviour {
         }
         yield return new WaitForSeconds(1);
         display.Activate(false);
+        dialogPlaying = false;
     }
     /*public DialogueLine GetDialogue(string sceneName, int id)
     {

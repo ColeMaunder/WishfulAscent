@@ -8,9 +8,9 @@
             "lines": [
                 { "id": 2,"name": "Adara", "voiceOver": "Where am I", "text": "Wh- Where am I?..." },
                 { "id": 3, "name": "Adara", "voiceOver": "Wait", "text": "Wait..." },
-                { "id": 4, "name": "Adara", "voiceOver": "Who are you?", "text": "Who are you?! Where's your voice coming from?" },
-                { "id": 5, "name": "Adara", "voiceOver": "Huh? Where’s my brother", "text": "Huh? Where's my brother? I swear, if you've-" },
-                { "id": 8, "name": "Adara", "voiceOver": "Why are we here?", "text": "Why are we here?" },
+                { "id": 4, "name": "Adara", "voiceOver": "Who are you", "text": "Who are you?! Where's your voice coming from?" },
+                { "id": 5, "name": "Adara", "voiceOver": "Huh Wheres my brother", "text": "Huh? Where's my brother? I swear, if you've-" },
+                { "id": 8, "name": "Adara", "voiceOver": "Why are we here", "text": "Why are we here?" },
                 { "id": 13, "name": "Adara", "voiceOver": "I should go and find Altair", "text": "I should go and find Altair." },
 
                 { "id": 1, "name": "Stella", "voiceOver": "BMT_1_Stella", "text": "Wake up, Adara..." },
@@ -31,9 +31,9 @@
                 { "id": 6, "name": "Altair", "voiceOver": "Sol_ID19", "text": "The disembodied voice wasn't particularly helpful." },
                 { "id": 9, "name": "Altair", "voiceOver": "Sol_ID22", "text": "Hey Mr. Entity, mind letting us out! This isn't funny!" },
 
-                { "id": 3, "name": "Adara", "voiceOver": "Altair?", "text": "Altair? I'm the one who should be saying that." },
-                { "id": 4, "name": "Adara", "voiceOver": "Do you happen to remember…", "Do you happen to remember…": "Do you happen to remember how we got here?" },
-                { "id": 7, "name": "Adara", "voiceOver": "So he spoke to you too", "So he spoke to you too": "So he spoke to you too..." },
+                { "id": 3, "name": "Adara", "voiceOver": "RC_3_Adara", "text": "Altair? I'm the one who should be saying that." },
+                { "id": 4, "name": "Adara", "voiceOver": "Do you happen to remember…", "text": "Do you happen to remember how we got here?" },
+                { "id": 7, "name": "Adara", "voiceOver": "So he spoke to you too", "text": "So he spoke to you too..." },
 
                 { "id": 8, "name": "Stella", "voiceOver": "RC_8_Stella", "text": "*Laughs eerily*" },
                 { "id": 10, "name": "Stella", "voiceOver": "RC_10_Stella", "text": "Ah, dear Altair... I wanted to leave too..." },

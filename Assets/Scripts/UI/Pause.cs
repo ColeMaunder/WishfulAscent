@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using Image = UnityEngine.UI.Image;
+using System.Collections.Generic;
 
 public class Pause : MonoBehaviour
 {
@@ -12,11 +13,17 @@ public class Pause : MonoBehaviour
     [SerializeField] float musicVolume = 0;
     FPController controller;
     EventSystem eventSystem;
+    AudioSource[] audioSources = { null, null, null };
+    List<AudioSource> waitingDialog = new List<AudioSource>();
+    
     void Start()
     {
         eventSystem = GameObject.FindAnyObjectByType<EventSystem>(); 
         pauseScreen[0].SetActive(false);
         controller = GameObject.FindWithTag("Player").GetComponent<FPController>();
+        for (int i = 0; i < 3; i++){
+            audioSources[i] = controller.transform.GetChild(i).GetChild(0).GetComponent<AudioSource>();
+        }
     }
     
     public void ActivetePause() {
@@ -31,6 +38,12 @@ public class Pause : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 controller.DisableChricters(true); 
+                foreach (var item in audioSources) {
+                    if (item.isPlaying) {
+                        waitingDialog.Add(item);
+                        item.Pause();
+                    }
+                }
             } else {
                 DeactivatePause();
             }
@@ -46,6 +59,10 @@ public class Pause : MonoBehaviour
         pauseScreen[1].SetActive(false);
         pauseScreen[2].SetActive(false);
         controller.DisableChricters(false);
+        foreach (var item in waitingDialog) {
+            item.Play();
+        }
+        waitingDialog.Clear();
     }
     public void Quit(){
         SceneChanger.ChangeScene.GoToScene("StartScreen");

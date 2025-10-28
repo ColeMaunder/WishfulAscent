@@ -5,6 +5,7 @@ public class DialogTrigger : MonoBehaviour
 {
     [SerializeField] bool characterDependent = false;
     [SerializeField] string sequence;
+    [SerializeField] int roomProgress = 0;
     string scene;
     void Start()
     {
@@ -16,11 +17,17 @@ public class DialogTrigger : MonoBehaviour
         Debug.Log(enterObject.name + " entered trigger");
         if(enterObject.GetComponent<CharacterController>() != null){
             string nameSequence = sequence;
-            if (characterDependent){
+            if (characterDependent)
+            {
                 nameSequence += " " + enterObject.name;
             }
-            DialogManiger.Dialog.RunSequence(scene, nameSequence);
+            if(roomProgress == 0){
+                DialogManiger.Dialog.RunSequence(scene, nameSequence);
+            }else{
+                DialogManiger.Dialog.RunSequence(scene, nameSequence,roomProgress);
+            }
+            
+            gameObject.SetActive(false);
         }
-        gameObject.SetActive(false);
     }
 }
