@@ -13,13 +13,13 @@
                 { "id": 8, "name": "Adara", "voiceOver": "Why are we here?", "text": "Why are we here?" },
                 { "id": 13, "name": "Adara", "voiceOver": "I should go and find Altair", "text": "I should go and find Altair." },
 
-                { "id": 1, "name": "???", "voiceOver": "BMT_1_Stella", "text": "Wake up, Adara..." },
-                { "id": 6, "name": "???", "voiceOver": "BMT_6_Stella", "text": "Hmmm... You don't remember anything. Peculiar..." },
-                { "id": 7, "name": "???", "voiceOver": "BMT_7_Stella", "text": "No need to fret. I can assure you, Altair is perfectly fine." },
-                { "id": 9, "name": "???", "voiceOver": "BMT_9_Stella", "text": "*Laughs* Why are we here? I remember asking that." },
-                { "id": 10, "name": "???", "voiceOver": "BMT_10_Stella", "text": "Why are you both here though? Hmmmm..." },
-                { "id": 11, "name": "???", "voiceOver": "BMT_11_Stella", "text": "I guess you'll have to figure that out yourselves." },
-                { "id": 12, "name": "???", "voiceOver": "BMT_12_Stella", "text": "Goodbye for now." }
+                { "id": 1, "name": "Stella", "voiceOver": "BMT_1_Stella", "text": "Wake up, Adara..." },
+                { "id": 6, "name": "Stella", "voiceOver": "BMT_6_Stella", "text": "Hmmm... You don't remember anything. Peculiar..." },
+                { "id": 7, "name": "Stella", "voiceOver": "BMT_7_Stella", "text": "No need to fret. I can assure you, Altair is perfectly fine." },
+                { "id": 9, "name": "Stella", "voiceOver": "BMT_9_Stella", "text": "*Laughs* Why are we here? I remember asking that." },
+                { "id": 10, "name": "Stella", "voiceOver": "BMT_10_Stella", "text": "Why are you both here though? Hmmmm..." },
+                { "id": 11, "name": "Stella", "voiceOver": "BMT_11_Stella", "text": "I guess you'll have to figure that out yourselves." },
+                { "id": 12, "name": "Stella", "voiceOver": "BMT_12_Stella", "text": "Goodbye for now." }
             ]
         },
         {
@@ -35,10 +35,10 @@
                 { "id": 4, "name": "Adara", "voiceOver": "Do you happen to remember…", "Do you happen to remember…": "Do you happen to remember how we got here?" },
                 { "id": 7, "name": "Adara", "voiceOver": "So he spoke to you too", "So he spoke to you too": "So he spoke to you too..." },
 
-                { "id": 8, "name": "???", "voiceOver": "RC_8_Stella", "text": "*Laughs eerily*" },
-                { "id": 10, "name": "???", "voiceOver": "RC_10_Stella", "text": "Ah, dear Altair... I wanted to leave too..." },
-                { "id": 11, "name": "???", "voiceOver": "RC_11_Stella", "text": "Well, go on then. I'm not stopping you." },
-                { "id": 12, "name": "???", "voiceOver": "RC_12_Stella", "text": "But a door or two might..." }
+                { "id": 8, "name": "Stella", "voiceOver": "RC_8_Stella", "text": "*Laughs eerily*" },
+                { "id": 10, "name": "Stella", "voiceOver": "RC_10_Stella", "text": "Ah, dear Altair... I wanted to leave too..." },
+                { "id": 11, "name": "Stella", "voiceOver": "RC_11_Stella", "text": "Well, go on then. I'm not stopping you." },
+                { "id": 12, "name": "Stella", "voiceOver": "RC_12_Stella", "text": "But a door or two might..." }
             ]
         },
         {

@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,16 +15,15 @@ public class ControllsPrompts : MonoBehaviour
     TMP_Text discription;
     void Awake()
     {
-        Camera commonUICamra = GameObject.Find("Common UI").gameObject.GetComponent<Camera>();
-        gameObject.GetComponent<Canvas>().worldCamera = commonUICamra;
+        
         displayUI = transform.GetChild(0).gameObject;
         icon = displayUI.transform.GetChild(0).gameObject.GetComponent<Image>();
         discription = displayUI.transform.GetChild(1).gameObject.GetComponent<TMP_Text>();
         fpController = GameObject.FindWithTag("Player").GetComponent<FPController>();
+        TriggerCamra(fpController.GetActiveCharicter().name);
     }
 
     public void TiggerControll(int id){
-        activateControllUI(true);
         switch (fpController.GetControlScheme())
             {
                 case "Keyboard":
@@ -38,5 +38,24 @@ public class ControllsPrompts : MonoBehaviour
     }
     public void activateControllUI(bool state){
         displayUI.SetActive(state);
+    }
+    public void TriggerCamra(string name){
+        Camera commonUICamra = GameObject.Find(name +" UI").gameObject.GetComponent<Camera>();
+        gameObject.GetComponent<Canvas>().worldCamera = commonUICamra;
+    }
+    public string GetCamra(){
+        try{
+            return gameObject.GetComponent<Canvas>().worldCamera.name;
+        }catch(NullReferenceException){
+            return "";
+        }
+        
+    }
+    public void wipe(){
+        icon.sprite = null;
+        discription.text = "";
+        if (GetCamra() != (fpController.GetActiveCharicter() + " UI")) {
+           gameObject.GetComponent<Canvas>().worldCamera = null; 
+        }
     }
 }

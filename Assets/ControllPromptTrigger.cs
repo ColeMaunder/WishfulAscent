@@ -3,17 +3,26 @@ using UnityEngine;
 public class ControllPromptTrigger : MonoBehaviour
 {
     ControllsPrompts controllsPrompts;
+    FPController controller;
     [SerializeField] int controllID;
+
     void Start()
     {
         controllsPrompts = GameObject.Find("Controlls Prompts").GetComponent<ControllsPrompts>();
+        controller = FindFirstObjectByType<FPController>().GetComponent<FPController>();
     }
 
     private void OnTriggerStay(Collider other)
     {
-        GameObject enterObject = other.gameObject;
+        Transform enterObject = other.transform;
         if (enterObject.GetComponent<CharacterController>() != null){
-            controllsPrompts.TiggerControll(controllID);
+            controllsPrompts.activateControllUI(true);
+            if (enterObject == controller.GetActiveCharicter()){
+                controllsPrompts.TriggerCamra(controller.GetActiveCharicter().name);
+                controllsPrompts.TiggerControll(controllID);
+            }else if (controllsPrompts.GetCamra() == "") {
+                controllsPrompts.activateControllUI(false);
+            }
         }
     }
     private void OnTriggerExit(Collider other)
