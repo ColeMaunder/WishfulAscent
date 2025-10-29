@@ -4,6 +4,7 @@ using System.Collections;
 using TMPro;
 public class DialogManiger : MonoBehaviour {
     Coroutine dialougeSequence;
+    Coroutine progresser;
     public static DialogManiger Dialog;
     private bool dialogPlaying;
     public void instantiate() {
@@ -21,15 +22,27 @@ public class DialogManiger : MonoBehaviour {
         //dataBase = JsonUtility.FromJson<DialogueDataBase>(json);
 
         dialogueLookup = new Dictionary<(string, string, int), DialogueLine>();
-        foreach (var scene in dataBase.scenes) {
-            foreach (var character in scene.sequences) {
-                foreach (var line in character.lines) {
+        foreach (var scene in dataBase.scenes)
+        {
+            foreach (var character in scene.sequences)
+            {
+                foreach (var line in character.lines)
+                {
                     dialogueLookup[(scene.scene, character.sequence, line.id)] = line;
                 }
             }
         }
 
         Debug.Log(GetDialogue("LevelOne", "Base Mechanics Tutorial", 2).text);
+    }
+    public void newScene(){
+
+        if (dialougeSequence != null) {
+            StopCoroutine(dialougeSequence);
+        }
+        if (progresser != null) {
+            StopCoroutine(progresser);
+        }
     }
     public DialogueLine GetDialogue(string sceneName, string sequence, int id) {
         if (dialogueLookup.TryGetValue((sceneName, sequence, id), out DialogueLine line)) {
@@ -42,8 +55,7 @@ public class DialogManiger : MonoBehaviour {
     }
     public void RunSequence(string scene, string sequence)
     {
-        if (dialougeSequence != null)
-        {
+        if (dialougeSequence != null) {
             StopCoroutine(dialougeSequence);
         }
         DisplayDialogue display = GameObject.Find("Ui Screnes").GetComponent<DisplayDialogue>();
@@ -51,7 +63,10 @@ public class DialogManiger : MonoBehaviour {
     }
     public void RunSequence(string scene, string sequence, int progress) {
         RunSequence(scene, sequence);
-        StartCoroutine(RoomProsreser(progress));
+        if (progresser != null) {
+            StopCoroutine(progresser);
+        }
+        progresser = StartCoroutine(RoomProsreser(progress));
     }
     public bool GetDialogPlaying() {
         return dialogPlaying;

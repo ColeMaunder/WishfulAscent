@@ -25,7 +25,9 @@ public class Pause : MonoBehaviour
             audioSources[i] = controller.transform.GetChild(i).GetChild(0).GetComponent<AudioSource>();
         }
     }
-    
+    private void OnEnable() {
+        
+    }
     public void ActivetePause() {
         if (pauseScreen[0]) {
             if (Time.timeScale != 0) {
@@ -37,7 +39,8 @@ public class Pause : MonoBehaviour
                 pauseScreen[2].SetActive(false);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                controller.DisableChricters(true); 
+                controller.DisableChricters(true);
+                EventSystem.current.SetSelectedGameObject(pauseScreen[1].transform.GetChild(1).gameObject);
                 foreach (var item in audioSources) {
                     if (item.isPlaying) {
                         waitingDialog.Add(item);

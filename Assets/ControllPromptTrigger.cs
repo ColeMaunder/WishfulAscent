@@ -5,17 +5,23 @@ public class ControllPromptTrigger : MonoBehaviour
     ControllsPrompts controllsPrompts;
     FPController controller;
     [SerializeField] int controllID;
+    [SerializeField] int progressRequired;
 
     void Start()
     {
         controllsPrompts = GameObject.Find("Controlls Prompts").GetComponent<ControllsPrompts>();
         controller = FindFirstObjectByType<FPController>().GetComponent<FPController>();
     }
-
+    void Update()
+    {
+        if(Time.timeScale <= 0){
+            controllsPrompts.activateControllUI(false);
+        }
+    }
     private void OnTriggerStay(Collider other)
     {
         Transform enterObject = other.transform;
-        if (enterObject.GetComponent<CharacterController>() != null){
+        if (Saving.activeSave.roomPrgress == progressRequired && enterObject.GetComponent<CharacterController>() != null){
             controllsPrompts.activateControllUI(true);
             if (enterObject == controller.GetActiveCharicter()){
                 controllsPrompts.TriggerCamra(controller.GetActiveCharicter().name);

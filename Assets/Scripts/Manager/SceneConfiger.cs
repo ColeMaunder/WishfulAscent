@@ -11,7 +11,7 @@ public class SceneConfiger : MonoBehaviour
     // int sceneCahngeID = 0;
     [SerializeField]
     private AudioClip seaneMusic;
-    void Awake()
+    void Start()
     {
         Time.timeScale = timeScale;
         DoNotDistroy[] allDoNotDistroy = FindObjectsByType<DoNotDistroy>(FindObjectsSortMode.None);

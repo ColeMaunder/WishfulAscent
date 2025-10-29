@@ -15,8 +15,6 @@ public class IntroCutseneManger : MonoBehaviour
     TMP_Text lineDisplay;
     [SerializeField]
     GameObject nextButton;
-    [SerializeField]
-    float typeSpeed;
     Coroutine scene;
     int shotID = 0;
     [SerializeField]
@@ -26,7 +24,6 @@ public class IntroCutseneManger : MonoBehaviour
 
     void Start()
     {
-
         lineDisplay.text = "";
         scene = StartCoroutine(runCutsene());
         nextButton.GetComponent<Button>().interactable = false;
@@ -36,10 +33,17 @@ public class IntroCutseneManger : MonoBehaviour
     public IEnumerator runCutsene() {
         yield return new WaitForSecondsRealtime(0.5f);
         DialogueLine dialog = DialogManiger.Dialog.GetDialogue(SceneManager.GetActiveScene().name, sequence, shotID);
+        AudioSource speeker = transform.GetComponent<AudioSource>();
+        speeker.clip = dialog.voiceOverAudio;
+        speeker.Play();
+        float speed = dialog.voiceOverAudio.length / dialog.text.Length;
         foreach (char letter in dialog.text.ToCharArray()) {
             lineDisplay.text += letter;
-            yield return new WaitForSecondsRealtime(typeSpeed);
+            yield return new WaitForSecondsRealtime(speed);
         }
+        /*while (speeker.isPlaying){
+            yield return new WaitForSeconds(0.5f);
+        }*/
         shotID++;
         nextButton.SetActive(true);
         nextButton.GetComponent<Button>().interactable = true;

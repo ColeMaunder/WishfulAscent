@@ -4,7 +4,6 @@ using System.Security.Cryptography.X509Certificates;
 public class Doar : MonoBehaviour
 {
     private float doarOpen = 0;
-    private float openspead;
     private float amount = -4;
     [SerializeField] bool doOpen = false;
     bool run = false;

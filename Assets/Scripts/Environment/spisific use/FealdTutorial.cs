@@ -3,7 +3,7 @@ using System.Collections;
 
 public class FealdTutorial : MonoBehaviour
 {
-    TimeForce platform;
+    GameObject platform;
     [SerializeField]
     GameObject orb;
     public GravityFeald gravFeald;
@@ -21,19 +21,18 @@ public class FealdTutorial : MonoBehaviour
     }
     void Update(){
         if(luna.GetFlight()){
-            DisableAll();
+            //DisableAll();
         }
     }
     private IEnumerator TutorialLoop()
     {
-        GameObject platformOBJ = transform.GetChild(0).gameObject;
-        platform = platformOBJ.GetComponent<TimeForce>();
+        platform = transform.GetChild(0).gameObject;
         gravFeald = GameObject.FindWithTag("GravityFeald").gameObject.GetComponent<GravityFeald>();
         yield return new WaitForSeconds(0.5f);
         while (transform.GetChild(1) == gravFeald.transform)
         {
             gravFeald.SetGravMode(0);
-            platform.AddForce(Vector3.up * bounceForce, ForceMode.Impulse);
+            platform.GetComponent<TimeForce>().AddForce(Vector3.up * bounceForce, ForceMode.Impulse);
             yield return new WaitForSeconds(timings[0]);
             gravFeald.SetGravMode(1);
             yield return new WaitForSeconds(timings[1]);

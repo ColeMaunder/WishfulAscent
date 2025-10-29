@@ -26,11 +26,7 @@ public class SettingsManager : MonoBehaviour
     public void controlls(bool state){
         controllsScreen.SetActive(state);
         AllInteractible(state);
-        if(state){
-            
-            
-            
-        }else{
+        if(!state){
             EventSystem.current.SetSelectedGameObject(transform.GetChild(4).gameObject);
         }
     }
@@ -39,5 +35,17 @@ public class SettingsManager : MonoBehaviour
         {
             item.interactable = !state;
         }
+    }
+    public void setMaster(float volume){
+        AudioMixerManager.settings.setMaster(volume);
+    }
+    public void setSound(float volume){
+        AudioMixerManager.settings.setSound(volume);
+    }
+    public void setMusic(float volume) {
+        AudioMixerManager.settings.setMusic(volume);
+    }
+    public void setDialogue(float volume) {
+        AudioMixerManager.settings.setDialogue(volume);
     }
 }

@@ -3,15 +3,16 @@ using UnityEngine.Audio;
 
 public class AudioMixerManager : MonoBehaviour
 {
-    void Start()
-    {
+    public static AudioMixerManager settings;
+    [SerializeField]
+    private AudioMixer audioMixer;
+    public void instantiate() {
+        settings = this;
         setMaster(PlayerPrefs.GetFloat("Master"));
         setSound(PlayerPrefs.GetFloat("SoundEffects"));
         setMusic(PlayerPrefs.GetFloat("Music"));
         setDialogue(PlayerPrefs.GetFloat("Dialogue"));
     }
-    [SerializeField]
-    private AudioMixer audioMixer;
     public void setMaster(float volume){// between 0.0001 and 1
         audioMixer.SetFloat("Master", Mathf.Log10(volume) * 20f);
         PlayerPrefs.SetFloat("Master", volume);

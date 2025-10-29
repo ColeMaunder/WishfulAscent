@@ -12,6 +12,7 @@ public class SceneChanger : MonoBehaviour
     }
     public void GoToScene(string sceneName)
     {
+        DialogManiger.Dialog.newScene();
         SceneManager.LoadScene(sceneName);
     }
 }

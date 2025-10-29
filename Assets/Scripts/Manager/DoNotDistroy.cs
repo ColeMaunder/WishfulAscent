@@ -5,7 +5,7 @@ using System.Reflection;
 
 public class DoNotDistroy : MonoBehaviour
 {
-    private static GameObject[] persistantObjects = new GameObject[4];
+    private static GameObject[] persistantObjects = new GameObject[5];
     public int objectID;
     public String[] isNotIn;
     void Awake()
