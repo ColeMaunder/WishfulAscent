@@ -6,7 +6,7 @@ public class DialogManiger : MonoBehaviour {
     Coroutine dialougeSequence;
     Coroutine progresser;
     public static DialogManiger Dialog;
-    private bool dialogPlaying;
+    private bool dialogPlaying = false;
     public void instantiate() {
         Dialog = this;
     }
