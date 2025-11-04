@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,9 +13,11 @@ public class FPController : MonoBehaviour
     public float flySpeed = 2f;
     public float runSpeed = 8f;
     public float crouchSpeed = 3f;
-    public float crouchMod = 0.5f;
-    //public Vector3 crouchHight;
-    //private Vector3 standHight;
+    public float crouchHight;
+    private float standHight;
+    [SerializeField] private float speed = 3;
+    private Coroutine crouch;
+    private bool crouching;
     public float gravity = -9.81f;
     public float jumpHight = 1.5f;
     public float flyLookVeriance = 25f;
@@ -51,6 +54,7 @@ public class FPController : MonoBehaviour
         animator = character.GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        standHight = controller.height;
     }
 
     private void Update()
@@ -113,6 +117,26 @@ public class FPController : MonoBehaviour
             Debug.Log("Pause triggered");
         }
     }
+    IEnumerator CrouchDown(){
+        while(controller.height > crouchHight) {
+            yield return new WaitForSeconds(0.01f);
+            controller.height -= 0.1f/speed;
+            controller.center = new Vector3(0, controller.center.y + (0.035f/speed), 0);
+            animator.SetFloat("StandHight", (controller.height-crouchHight)/(standHight-crouchHight));
+        }
+        controller.height = crouchHight;
+        animator.SetFloat("StandHight", 0);
+    }
+    IEnumerator CrouchUp(){
+        while(controller.height < standHight) {
+            yield return new WaitForSeconds(0.01f);
+            controller.height += 0.1f/speed;
+            controller.center = new Vector3(0, controller.center.y - (0.035f / speed), 0);
+            animator.SetFloat("StandHight", (controller.height-crouchHight)/(standHight-crouchHight));
+        }
+        controller.height = standHight;
+        animator.SetFloat("StandHight", 1);
+    }
     public void HandleMovement()
     {
         float speed = moveSpeed;
@@ -142,14 +166,27 @@ public class FPController : MonoBehaviour
             if (controller.isGrounded && jumpInput) {
                 animator.SetTrigger("Jump");
                 velocity.y = Mathf.Sqrt(jumpHight * -2f * gravity);
-
             }
 
             if (crouchInput) {
                 speed = crouchSpeed;
-                animator.SetBool("Crouch", true);
+                //animator.SetBool("Crouch", true);
+                if(!crouching){
+                    if(crouch != null){
+                        StopCoroutine(crouch);
+                    }
+                    crouching = true;
+                crouch = StartCoroutine(CrouchDown());
+                }
             } else {
-                animator.SetBool("Crouch", false);
+                //animator.SetBool("Crouch", false);
+                if(crouching){
+                    if(crouch != null){
+                        StopCoroutine(crouch);
+                    }
+                    crouching = false;
+                crouch = StartCoroutine(CrouchUp());
+                }
             }
         }
 
@@ -158,16 +195,13 @@ public class FPController : MonoBehaviour
         }
         Vector3 move = character.right * moveInput.x + character.forward * moveInput.y + character.up * moveY;
         if (move != Vector3.zero) {
-            animator.SetBool("Walking", true);
-
             if (runInput)  {
-                animator.SetBool("Running", true);
+                animator.SetFloat("Direction", 2 * Mathf.Sign(moveInput.y));
             } else {
-                animator.SetBool("Running", false);
+                animator.SetFloat("Direction", Mathf.Sign(moveInput.y));
             }
         } else {
-            animator.SetBool("Walking", false);
-            animator.SetBool("Running", false);
+            animator.SetFloat("Direction", 0);
         }
         if (flyLook != 0 && (moveInput.x != 0 || moveInput.y != 0)) {
             move += character.up * flyLook;
@@ -190,10 +224,15 @@ public class FPController : MonoBehaviour
         float mouseY = lookInput.y * lookSensitivity;
 
         verticalRotation -= mouseY;
-        verticalRotation = Mathf.Clamp(verticalRotation, -verticalLookLimit, verticalLookLimit);
+        //verticalRotation = Mathf.Clamp(verticalRotation, -verticalLookLimit, verticalLookLimit);
+        if(verticalRotation > verticalLookLimit){
+            verticalRotation = verticalLookLimit;
+        } else if (verticalRotation < -verticalLookLimit){
+            verticalRotation = -verticalLookLimit;
+        }
 
-        cameraTransform.localRotation = Quaternion.Euler(verticalRotation, -90f, 0);
-        animator.SetFloat("Look", verticalRotation+verticalLookLimit);
+        cameraTransform.localRotation = Quaternion.Euler(verticalRotation, 0f, 0);
+        //animator.SetFloat("Look", verticalRotation+verticalLookLimit);
         character.Rotate(Vector3.up * mouseX);
         
     }
