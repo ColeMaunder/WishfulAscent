@@ -13,8 +13,8 @@ public class FPController : MonoBehaviour
     public float runSpeed = 8f;
     public float crouchSpeed = 3f;
     public float crouchMod = 0.5f;
-    public Vector3 crouchHight;
-    private Vector3 standHight;
+    //public Vector3 crouchHight;
+    //private Vector3 standHight;
     public float gravity = -9.81f;
     public float jumpHight = 1.5f;
     public float flyLookVeriance = 25f;
@@ -35,23 +35,22 @@ public class FPController : MonoBehaviour
     private float flyLook = 0;
     private float moveY;
     private GameObject Camera3P;
+    Animator animator;
 
 
     private void Awake()
     {
         Camera3P = transform.GetChild(2).gameObject;
-        Camera3P.transform.GetChild(0).gameObject.GetComponent<Camera>().enabled = false;
-        Camera3P.transform.GetChild(0).gameObject.GetComponent<AudioListener>().enabled = false;
+        Camera3P.transform.GetComponentInChildren<Camera>().enabled = false;
+        Camera3P.transform.GetComponentInChildren<AudioListener>().enabled = false;
         character = characters[currentCharacter];
-        cameraTransform = character.GetChild(0);
-        cameraTransform.gameObject.GetComponent<Camera>().enabled = true;
-        cameraTransform.gameObject.GetComponent<AudioListener>().enabled = true;
+        cameraTransform = character.GetComponentInChildren<Camera>().transform;
+        cameraTransform.GetComponent<Camera>().enabled = true;
+        cameraTransform.GetComponent<AudioListener>().enabled = true;
         controller = character.GetComponent<CharacterController>();
+        animator = character.GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        standHight = cameraTransform.localPosition;
-        crouchHight = new Vector3(cameraTransform.localPosition.x, cameraTransform.localPosition.y * crouchMod, cameraTransform.localPosition.z);
-
     }
 
     private void Update()
@@ -99,7 +98,7 @@ public class FPController : MonoBehaviour
             }
             cameraTransform.gameObject.GetComponent<Camera>().enabled = false;
             cameraTransform.gameObject.GetComponent<AudioListener>().enabled = false;
-            cameraTransform = character.GetChild(0);
+            cameraTransform = character.GetComponentInChildren<Camera>().transform;
             cameraTransform.gameObject.GetComponent<Camera>().enabled = true;
             cameraTransform.gameObject.GetComponent<AudioListener>().enabled = true;
             controller.Move(Vector3.zero);
@@ -119,73 +118,68 @@ public class FPController : MonoBehaviour
         float speed = moveSpeed;
         if (character.GetComponent<Luna>() != null && character.GetComponent<Luna>().GetFlight())
         {
-            if (jumpInput)
-            {
+            animator.SetBool("Fly", true);
+            if (jumpInput) {
                 moveY = flySpeed;
-            }
-            else if (crouchInput)
-            {
+            } else if (crouchInput) {
                 moveY = -flySpeed;
-            }
-            else
-            {
+            } else  {
                 moveY = 0;
             }
             velocity.y = 0;
-            if (verticalRotation > verticalLookLimit - flyLookVeriance || verticalRotation < -verticalLookLimit + flyLookVeriance)
-            {
+            if (verticalRotation > verticalLookLimit - flyLookVeriance || verticalRotation < -verticalLookLimit + flyLookVeriance) {
                 flyLook = flySpeed * -verticalRotation / 90;
-            }
-            else
-            {
+            } else {
                 flyLook = 0;
-                if (!jumpInput && !crouchInput)
-                {
+                if (!jumpInput && !crouchInput) {
                     velocity.y = 0;
                 }
             }
-        }
-        else
-        {
+        } else {
+            animator.SetBool("Fly", false);
             moveY = 0;
             velocity.y += gravity * Time.deltaTime;
-            if (controller.isGrounded && jumpInput)
-            {
+            if (controller.isGrounded && jumpInput) {
+                animator.SetTrigger("Jump");
                 velocity.y = Mathf.Sqrt(jumpHight * -2f * gravity);
+
             }
 
-            if (crouchInput)
-            {
+            if (crouchInput) {
                 speed = crouchSpeed;
-                cameraTransform.localPosition = crouchHight;
-            }
-            else
-            {
-                cameraTransform.localPosition = standHight;
+                animator.SetBool("Crouch", true);
+            } else {
+                animator.SetBool("Crouch", false);
             }
         }
 
-        if (runInput)
-        {
+        if (runInput)  {
             speed = runSpeed;
         }
         Vector3 move = character.right * moveInput.x + character.forward * moveInput.y + character.up * moveY;
-        if (flyLook != 0 && (moveInput.x != 0 || moveInput.y != 0))
-        {
+        if (move != Vector3.zero) {
+            animator.SetBool("Walking", true);
+
+            if (runInput)  {
+                animator.SetBool("Running", true);
+            } else {
+                animator.SetBool("Running", false);
+            }
+        } else {
+            animator.SetBool("Walking", false);
+            animator.SetBool("Running", false);
+        }
+        if (flyLook != 0 && (moveInput.x != 0 || moveInput.y != 0)) {
             move += character.up * flyLook;
         }
 
         controller.Move(move * speed * Time.deltaTime);
 
-        if (moveY == 0)
-        {
-            if (controller.isGrounded && velocity.y <= 0)
-            {
+        if (moveY == 0) {
+            if (controller.isGrounded && velocity.y <= 0) {
                 velocity.y = -2f;
             }
-        }
-        else
-        {
+        } else {
             velocity.y = 0;
         }
         controller.Move(velocity * Time.deltaTime);
@@ -198,8 +192,10 @@ public class FPController : MonoBehaviour
         verticalRotation -= mouseY;
         verticalRotation = Mathf.Clamp(verticalRotation, -verticalLookLimit, verticalLookLimit);
 
-        cameraTransform.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
+        cameraTransform.localRotation = Quaternion.Euler(verticalRotation, -90f, 0);
+        animator.SetFloat("Look", verticalRotation+verticalLookLimit);
         character.Rotate(Vector3.up * mouseX);
+        
     }
     public Transform GetActiveCharicter()
     {

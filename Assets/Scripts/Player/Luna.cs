@@ -22,12 +22,12 @@ public class Luna : MonoBehaviour
     public bool GetFlight(){
         return flight;
     }
-
+/*
     void Start()
     {
         gravFeald = GameObject.FindWithTag("GravityFeald").gameObject;
         holdPoint = camra.GetChild(0);
-        controller = transform.parent.gameObject.GetComponent<FPController>();
+        controller = FindFirstObjectByType<FPController>();
     }
     void Update(){
 
@@ -48,7 +48,7 @@ public class Luna : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
     /*public void ToggleActive(InputAction.CallbackContext context){
         if(transform == controller.GetActiveCharicter()){
             if(context.performed){
@@ -62,7 +62,7 @@ public class Luna : MonoBehaviour
                 }
             }
         }
-    }*/
+    }*//*
     private void returnFeald() {
         Vector3 fealdPosition = gravFeald.transform.position;
         Vector3 direction = (holdPoint.position - fealdPosition).normalized;
@@ -163,5 +163,5 @@ public class Luna : MonoBehaviour
     {
         hasPowerControll = true;
         StartCoroutine(ObtainOrb());
-    }
+    }*/
 }

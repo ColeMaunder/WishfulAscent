@@ -6,7 +6,7 @@ public class DialogManiger : MonoBehaviour {
     Coroutine dialougeSequence;
     Coroutine progresser;
     public static DialogManiger Dialog;
-    private bool dialogPlaying = false;
+    private bool dialogPlaying;
     public void instantiate() {
         Dialog = this;
     }
@@ -88,7 +88,7 @@ public class DialogManiger : MonoBehaviour {
             speakerName.text = line.name;
             text.text = line.text;
             if(line.voiceOverAudio != null){
-                AudioSource speeker = GameObject.Find(line.name).transform.GetChild(0).gameObject.GetComponent<AudioSource>();
+                AudioSource speeker = GameObject.Find(line.name).transform.GetComponentInChildren<AudioSource>();
                 speeker.clip = line.voiceOverAudio;
                 speeker.Play();
                 Debug.Log("Playing Audio ID:"+ idCount);
