@@ -22,7 +22,7 @@ public class Pause : MonoBehaviour
         pauseScreen[0].SetActive(false);
         controller = GameObject.FindWithTag("Player").GetComponent<FPController>();
         for (int i = 0; i < 3; i++){
-            audioSources[i] = controller.transform.GetChild(i).GetChild(0).GetComponent<AudioSource>();
+            audioSources[i] = controller.transform.GetChild(i).GetComponentInChildren<AudioSource>();
         }
     }
     private void OnEnable() {
