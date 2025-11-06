@@ -16,7 +16,7 @@ public class FealdTutorial : MonoBehaviour
     Luna luna;
     void Start()
     {
-        luna = GameObject.FindWithTag("Player").transform.GetChild(1).gameObject.GetComponent<Luna>();
+        luna = GameObject.FindWithTag("Player").transform.GetComponentInChildren<Luna>();
         StartCoroutine(TutorialLoop());
     }
     void Update(){

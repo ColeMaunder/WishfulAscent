@@ -25,6 +25,7 @@ public class Sol : MonoBehaviour
     Transform holdPoint;
     bool orbReturning = false;
     private List<Coroutine> orbReturnProsess = new List<Coroutine>();
+    Animator animator;
     void Start()
     {
         gravOrb = GameObject.FindWithTag("GravityOrb").gameObject;
@@ -32,6 +33,7 @@ public class Sol : MonoBehaviour
         controller = transform.parent.gameObject.GetComponent<FPController>();
         orbBody = gravOrb.GetComponent<TimeForce>();
         gravFeald = gravOrb.transform.GetChild(0).GetComponent<Transform>();
+        animator = gameObject.GetComponent<Animator>();
         //StartCoroutine(OrbBack(gravOrb.transform.GetComponent<Rigidbody>()));
     }
     void FixedUpdate()
@@ -109,6 +111,7 @@ public class Sol : MonoBehaviour
                     if (holdLocked)
                     {
                         scaleUp = StartCoroutine(ScaleUpFeald());
+                        
                     }
                     else
                     {
@@ -141,6 +144,7 @@ public class Sol : MonoBehaviour
 
     private IEnumerator ScaleUpFeald()
     {
+        animator.SetBool("Toggle", true);
         if (scaleDown != null)
         {
             StopCoroutine(scaleDown);
@@ -174,6 +178,7 @@ public class Sol : MonoBehaviour
         {
             StopCoroutine(scaleUp);
         }
+        animator.SetBool("Toggle", false);
         while (fealdScale > fealdScaleBase)
         {
             yield return new WaitForSeconds(0.01f);
@@ -185,6 +190,7 @@ public class Sol : MonoBehaviour
     }
     private IEnumerator OrbBack()
     {
+        animator.SetBool("Released", false);
         if(!orbReturning){
             orbReturning = true;
             while (Vector3.Distance(orbBody.transform.position, holdPoint.position) != 0){
@@ -200,6 +206,7 @@ public class Sol : MonoBehaviour
      }
     private IEnumerator ObtainOrb()
     {
+        animator.SetBool("Released", true);
         if(!orbReturning){
             orbReturning = true;
             while (fealdScale > fealdScaleBase) {

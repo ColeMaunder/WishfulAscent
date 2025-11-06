@@ -23,11 +23,22 @@ public class GravityFeald : MonoBehaviour
         particleEffects[timeMode].SetActive(true);
         SetParticles(neweMode);
     }
+    public void GravToggle(bool fealdEnabled)
+    {
+        if (fealdEnabled) {
+            timeMode = 0;
+        } else {
+            timeMode = 2;
+        }
+        materialRenderer.material = materials[timeMode];
+        particleEffects[timeMode].SetActive(true);
+        SetParticles(timeMode);
+    }
     public void Scroll(float inVal)
     {
         if (inVal > 0)
         {
-            if (2 >= timeMode + 1)
+            if (1 >= timeMode + 1)
             {
                 timeMode++;
                 materialRenderer.material = materials[timeMode];

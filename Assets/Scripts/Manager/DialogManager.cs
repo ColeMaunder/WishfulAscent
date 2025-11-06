@@ -33,7 +33,7 @@ public class DialogManiger : MonoBehaviour {
             }
         }
 
-        Debug.Log(GetDialogue("LevelOne", "Base Mechanics Tutorial", 2).text);
+        //Debug.Log(GetDialogue("LevelOne", "Base Mechanics Tutorial", 2).text);
     }
     public void newScene(){
 

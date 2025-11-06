@@ -19,22 +19,26 @@ public class Luna : MonoBehaviour
     //Vector3 fealdHold;
     Transform holdPoint;
     private Coroutine scaleUp;
+    bool fealdEnabledLock = false;
+    Animator animator;
     public bool GetFlight(){
         return flight;
     }
-/*
+
     void Start()
     {
         gravFeald = GameObject.FindWithTag("GravityFeald").gameObject;
         holdPoint = camra.GetChild(0);
-        controller = FindFirstObjectByType<FPController>();
+        controller = transform.parent.GetComponent<FPController>();
+        animator = gameObject.GetComponent<Animator>();
     }
     void Update(){
 
         flight = gravFeald.transform.parent == camra;
     }
     public void TemporalContoll(InputAction.CallbackContext context){
-        if(transform == controller.GetActiveCharicter() && hasPowerControll){
+        if (transform == controller.GetActiveCharicter() && hasPowerControll) {
+            Debug.Log("Adara active");
             if (context.performed) {
                 if (fealdScale <= fealdScaleBase) {
                     scaleUp = StartCoroutine(ScaleUpFeald());
@@ -42,13 +46,14 @@ public class Luna : MonoBehaviour
                     returnFeald();
                 }
             } else {
-                if( fealdScale > fealdScaleBase && scaleUp != null){
+                if (fealdScale > fealdScaleBase && scaleUp != null) {
                     StopCoroutine(scaleUp);
                     gravFeald.transform.SetParent(null);
+                    //animator.SetBool("Released", true);
                 }
             }
         }
-    }*/
+    }
     /*public void ToggleActive(InputAction.CallbackContext context){
         if(transform == controller.GetActiveCharicter()){
             if(context.performed){
@@ -62,7 +67,7 @@ public class Luna : MonoBehaviour
                 }
             }
         }
-    }*//*
+    }*/
     private void returnFeald() {
         Vector3 fealdPosition = gravFeald.transform.position;
         Vector3 direction = (holdPoint.position - fealdPosition).normalized;
@@ -76,6 +81,7 @@ public class Luna : MonoBehaviour
         }
     }
     private IEnumerator ScaleUpFeald() {
+        animator.SetBool("Released", true);
         while(fealdScale < fealdScaleMax) {
             yield return new WaitForSeconds(0.01f);
             fealdScale += fealdScale/scaleMod;
@@ -109,6 +115,7 @@ public class Luna : MonoBehaviour
         }
         yield return  new WaitForSeconds(0.01f);
         gravFeald.transform.SetParent(camra);
+        animator.SetBool("Released", false);
         
      }
     public void ScrollTime(InputAction.CallbackContext context) {
@@ -122,10 +129,25 @@ public class Luna : MonoBehaviour
             }
         }
     }
-    public void TimeNoraml(InputAction.CallbackContext context) {
+    public void GravToggle(InputAction.CallbackContext context) {
         if (transform == controller.GetActiveCharicter()  && hasPowerControll) {
             if (context.performed) {
-                gravFeald.GetComponent<GravityFeald>().Scroll(2);
+                fealdEnabledLock = !fealdEnabledLock;
+                gravFeald.GetComponent<GravityFeald>().GravToggle(fealdEnabledLock);
+                animator.SetBool("Toggle", fealdEnabledLock);
+            }
+        }
+    }
+    public void GravHold(InputAction.CallbackContext context)
+    {
+        if (transform == controller.GetActiveCharicter() && hasPowerControll) {
+            if (context.performed) {
+                print("ok");
+                gravFeald.GetComponent<GravityFeald>().GravToggle(true);
+                animator.SetBool("Toggle", true);
+            } else if (!fealdEnabledLock) {
+                gravFeald.GetComponent<GravityFeald>().GravToggle(false);
+                animator.SetBool("Toggle", false);
             }
         }
     }
@@ -163,5 +185,5 @@ public class Luna : MonoBehaviour
     {
         hasPowerControll = true;
         StartCoroutine(ObtainOrb());
-    }*/
+    }
 }

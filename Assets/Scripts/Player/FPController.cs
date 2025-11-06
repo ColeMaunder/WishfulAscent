@@ -140,8 +140,7 @@ public class FPController : MonoBehaviour
     public void HandleMovement()
     {
         float speed = moveSpeed;
-        if (character.GetComponent<Luna>() != null && character.GetComponent<Luna>().GetFlight())
-        {
+        if (character.GetComponent<Luna>() != null && character.GetComponent<Luna>().GetFlight()) {
             animator.SetBool("Fly", true);
             if (jumpInput) {
                 moveY = flySpeed;
@@ -170,7 +169,6 @@ public class FPController : MonoBehaviour
 
             if (crouchInput) {
                 speed = crouchSpeed;
-                //animator.SetBool("Crouch", true);
                 if(!crouching){
                     if(crouch != null){
                         StopCoroutine(crouch);
@@ -179,7 +177,6 @@ public class FPController : MonoBehaviour
                 crouch = StartCoroutine(CrouchDown());
                 }
             } else {
-                //animator.SetBool("Crouch", false);
                 if(crouching){
                     if(crouch != null){
                         StopCoroutine(crouch);
@@ -194,15 +191,21 @@ public class FPController : MonoBehaviour
             speed = runSpeed;
         }
         Vector3 move = character.right * moveInput.x + character.forward * moveInput.y + character.up * moveY;
-        if (move != Vector3.zero) {
-            if (runInput)  {
-                animator.SetFloat("Direction", 2 * Mathf.Sign(moveInput.y));
-            } else {
-                animator.SetFloat("Direction", Mathf.Sign(moveInput.y));
-            }
-        } else {
-            animator.SetFloat("Direction", 0);
+        float directionY = 0;
+        float directionX = 0;
+        if (moveInput.y != 0) {
+            directionY = Mathf.Sign(moveInput.y);
         }
+        if (moveInput.x != 0) {
+            directionX = Mathf.Sign(moveInput.x);
+        }
+        if (runInput)  {
+            directionX *= 2;
+            directionY *= 2;
+        } 
+        animator.SetFloat("Y Direction", directionY);
+        animator.SetFloat("X Direction", directionX);
+
         if (flyLook != 0 && (moveInput.x != 0 || moveInput.y != 0)) {
             move += character.up * flyLook;
         }
@@ -211,6 +214,7 @@ public class FPController : MonoBehaviour
 
         if (moveY == 0) {
             if (controller.isGrounded && velocity.y <= 0) {
+                print("down");
                 velocity.y = -2f;
             }
         } else {

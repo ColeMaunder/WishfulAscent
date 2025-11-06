@@ -8,7 +8,7 @@ public class AutoRail : MonoBehaviour
     [SerializeField] Transform turnPoint;
     [SerializeField] Transform nextpoint;
     public bool turn = false;
-    float amount = 0f;
+    //float amount = 0f;
     void Start()
     {
         StartCoroutine(runCart());

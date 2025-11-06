@@ -13,7 +13,7 @@ public class ActivateAbilitys : MonoBehaviour
             } 
         } else{
            if (collision.gameObject.GetComponent<Luna>() != null) {
-                //collision.gameObject.GetComponent<Luna>().ActivetAbility();
+                collision.gameObject.GetComponent<Luna>().ActivetAbility();
                 gameObject.SetActive(false);
             }  
         }
