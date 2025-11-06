@@ -164,6 +164,8 @@ public class Luna : MonoBehaviour
         gravFeald.transform.localScale = new Vector3(fealdScaleBase, fealdScaleBase, fealdScaleBase);
     }
     private IEnumerator ObtainOrb(){
+        gravFeald.GetComponent<GravityFeald>().GravToggle(false);
+        animator.SetBool("Toggle", false);
         fealdScale = 25;
         while (fealdScale > fealdScaleBase) {
             yield return new WaitForSeconds(0.01f);

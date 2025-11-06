@@ -56,7 +56,9 @@ public class Sol : MonoBehaviour
                 {
                     gravOrb.transform.SetParent(null);
                     orbBody.AddForce(camra.forward * trowForce);
+                    animator.SetBool("Released", true);
                 } else {
+                    animator.SetBool("Released", false);
                     Vector3 orbPosition = orbBody.transform.position;
                     Vector3 direction = (holdPoint.position - orbPosition).normalized;
                     float distance = Vector3.Distance(orbPosition , holdPoint.position);
@@ -66,7 +68,7 @@ public class Sol : MonoBehaviour
                         wipeCorutene(orbReturnProsess);
                         orbReturning = false;
                         gravOrb.transform.SetParent(camra);
-                        gravOrb.transform. position = holdPoint.position;
+                        gravOrb.transform.position = holdPoint.position;
                         FealdOff();
                     }else{
                         orbReturnProsess.Add(StartCoroutine(OrbBack()));
@@ -174,11 +176,11 @@ public class Sol : MonoBehaviour
     }
     private IEnumerator ScaleDownFeald()
     {
+        animator.SetBool("Toggle", false);
         if (scaleUp != null)
         {
             StopCoroutine(scaleUp);
         }
-        animator.SetBool("Toggle", false);
         while (fealdScale > fealdScaleBase)
         {
             yield return new WaitForSeconds(0.01f);
@@ -206,7 +208,6 @@ public class Sol : MonoBehaviour
      }
     private IEnumerator ObtainOrb()
     {
-        animator.SetBool("Released", true);
         if(!orbReturning){
             orbReturning = true;
             while (fealdScale > fealdScaleBase) {

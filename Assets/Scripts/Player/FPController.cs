@@ -105,6 +105,7 @@ public class FPController : MonoBehaviour
             cameraTransform = character.GetComponentInChildren<Camera>().transform;
             cameraTransform.gameObject.GetComponent<Camera>().enabled = true;
             cameraTransform.gameObject.GetComponent<AudioListener>().enabled = true;
+            animator = character.GetComponent<Animator>();
             controller.Move(Vector3.zero);
             controller = character.GetComponent<CharacterController>();
 
