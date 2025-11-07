@@ -79,6 +79,10 @@ public class GravityFeald : MonoBehaviour
             //rb.angularVelocity = rb.angularVelocity * 0;
             //rb.Sleep();
         }
+        if (collision.gameObject.GetComponent<MagicPowerd>() != null && gravMods[timeMode] != 1) {
+            MagicPowerd mp = collision.gameObject.GetComponent<MagicPowerd>();
+            mp.DeStabolize();
+        }
     }
     void OnTriggerExit(Collider collision)
     {

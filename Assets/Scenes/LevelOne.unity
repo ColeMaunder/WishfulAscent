@@ -6984,6 +6984,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Adara Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 1470998845849302563, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 1470998845849302563, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.437
+      objectReference: {fileID: 0}
+    - target: {fileID: 1470998845849302563, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 1470998845849302563, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.16026975
+      objectReference: {fileID: 0}
+    - target: {fileID: 1470998845849302563, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.9870733
+      objectReference: {fileID: 0}
+    - target: {fileID: 1470998845849302563, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -161.555
+      objectReference: {fileID: 0}
     - target: {fileID: 2087240928812226551, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -7108,9 +7132,37 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6815857302682397917, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 29.839548
+      objectReference: {fileID: 0}
+    - target: {fileID: 6815857302682397917, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.583
+      objectReference: {fileID: 0}
+    - target: {fileID: 6815857302682397917, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.2023575
+      objectReference: {fileID: 0}
+    - target: {fileID: 6815857302682397917, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.23782977
+      objectReference: {fileID: 0}
+    - target: {fileID: 6815857302682397917, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.97130686
+      objectReference: {fileID: 0}
+    - target: {fileID: 6815857302682397917, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 207.517
+      objectReference: {fileID: 0}
     - target: {fileID: 6981249852081381628, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
       propertyPath: m_LocalPosition.x
       value: 20.756
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981249852081381628, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.534
       objectReference: {fileID: 0}
     - target: {fileID: 6981249852081381628, guid: 48e4a2e160f1e2d42a4f4472d1b69305, type: 3}
       propertyPath: m_LocalPosition.z
