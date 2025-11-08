@@ -760,7 +760,7 @@ MonoBehaviour:
   shotDisplay: {fileID: 1221686017}
   lineDisplay: {fileID: 190047659}
   nextButton: {fileID: 34820800}
-  nextScene: StartScreen
+  nextScene: LevrlTwo
   sequence: Outro
 --- !u!114 &763907054
 MonoBehaviour:

@@ -14,7 +14,7 @@ public class MagicDroplet : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<GravityFeald>() == null) {
             if (collision.gameObject.GetComponent<MagicPowerd>() != null) {
-                collision.gameObject.GetComponent<MagicPowerd>().empowerd = true;
+                collision.gameObject.GetComponent<MagicPowerd>().Empower();
             } else {
                 quaternion  ClosionAngel =  Quaternion.FromToRotation(Vector3.up, collision.contacts[0].normal);
                 partcles.transform.rotation = ClosionAngel * Quaternion.Euler(-90, 0, 0);

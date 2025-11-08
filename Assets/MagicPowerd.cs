@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MagicPowerd : MonoBehaviour
 {
-    public bool empowerd;
+    [SerializeField] private bool empowerd;
     [SerializeField] float fealdScaleBase = 0.2f;
     [SerializeField] float fealdScaleMax = 10f;
     [SerializeField] float activeTime = 10f;
@@ -11,15 +11,9 @@ public class MagicPowerd : MonoBehaviour
     private float fealdScale = 0.2f;
     public float scaleMod = 10;
     [SerializeField] GameObject magicFeald;
-    MeshRenderer MagRenderer;
+    [SerializeField] MeshRenderer MagRenderer;
     Coroutine runEMP;
     
-    void Start()
-    {
-        //magicFeald = transform.GetChild(0).GetComponent<GameObject>();
-        //magicFeald.SetActive(false);
-        MagRenderer = GetComponent<MeshRenderer>();
-    }
 
     // Update is called once per frame
     void Update()

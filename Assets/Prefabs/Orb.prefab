@@ -175,6 +175,7 @@ MonoBehaviour:
   - {fileID: 963798294112862009, guid: 7b5021a093883674e9fee1ce22944172, type: 3}
   scaleMod: 1
   magicFeald: {fileID: 5120408449787389748}
+  MagRenderer: {fileID: 1292993756569112741}
 --- !u!1 &5120408449787389748
 GameObject:
   m_ObjectHideFlags: 0
