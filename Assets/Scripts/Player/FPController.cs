@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class FPController : MonoBehaviour
 {
+    [SerializeField] bool swapEnabled = true;
     public int currentCharacter = 0;
     public Transform[] characters;
     public Transform character;
@@ -92,7 +93,7 @@ public class FPController : MonoBehaviour
     }
     public void OnSwap(InputAction.CallbackContext context)
     {
-        if (context.performed && !paused)
+        if (!paused && swapEnabled && context.performed)
         {
             if (character == characters[0])
             {

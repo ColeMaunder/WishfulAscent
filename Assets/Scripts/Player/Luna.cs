@@ -36,6 +36,7 @@ public class Luna : MonoBehaviour
 
         flight = gravFeald.transform.parent == camra;
     }
+    
     public void TemporalContoll(InputAction.CallbackContext context){
         if (transform == controller.GetActiveCharicter() && hasPowerControll) {
             Debug.Log("Adara active");

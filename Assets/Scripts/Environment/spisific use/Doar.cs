@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using System.Security.Cryptography.X509Certificates;
 public class Doar : MonoBehaviour
 {
     private float doarOpen = 0;

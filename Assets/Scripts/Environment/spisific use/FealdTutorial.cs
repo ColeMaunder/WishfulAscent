@@ -29,7 +29,7 @@ public class FealdTutorial : MonoBehaviour
         platform = transform.GetChild(0).gameObject;
         gravFeald = GameObject.FindWithTag("GravityFeald").gameObject.GetComponent<GravityFeald>();
         yield return new WaitForSeconds(0.5f);
-/*        while (transform.GetChild(1) == gravFeald.transform)
+        while (transform.GetChild(1) == gravFeald.transform)
         {
             gravFeald.SetGravMode(0);
             platform.GetComponent<TimeForce>().AddForce(Vector3.up * bounceForce, ForceMode.Impulse);
@@ -37,7 +37,7 @@ public class FealdTutorial : MonoBehaviour
             gravFeald.SetGravMode(1);
             yield return new WaitForSeconds(timings[1]);
         }
-        orb.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;*/
+        orb.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         
         /*while (true)
         {

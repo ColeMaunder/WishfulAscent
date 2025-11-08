@@ -10,7 +10,7 @@ public class GravityFeald : MonoBehaviour
     [SerializeField]
     Material[] materials;
     [SerializeField]
-    int timeMode = 2;
+    int timeMode = 1;
     MeshRenderer materialRenderer;
     void Start()
     {
@@ -28,7 +28,7 @@ public class GravityFeald : MonoBehaviour
         if (fealdEnabled) {
             timeMode = 0;
         } else {
-            timeMode = 2;
+            timeMode = 1;
         }
         materialRenderer.material = materials[timeMode];
         particleEffects[timeMode].SetActive(true);
@@ -79,11 +79,29 @@ public class GravityFeald : MonoBehaviour
             //rb.angularVelocity = rb.angularVelocity * 0;
             //rb.Sleep();
         }
-        if (collision.gameObject.GetComponent<MagicPowerd>() != null && gravMods[timeMode] != 1) {
+        if (collision.gameObject.GetComponent<MagicPowerd>() != null && gravMods[timeMode] != 1)
+        {
             MagicPowerd mp = collision.gameObject.GetComponent<MagicPowerd>();
             mp.DeStabolize();
         }
     }
+    /*void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.GetComponent<TimeForce>() != null)
+        {
+            if(timeMode == 0){
+                TimeForce tf = collision.gameObject.GetComponent<TimeForce>();
+                tf.Sleep();
+            }
+            
+
+            //Item item = collision.gameObject.GetComponent<Item>();
+            //item.SetTimeMod(forceMods[timeMode]);
+            //rb.linearVelocity = rb.linearVelocity * 0;
+            //rb.angularVelocity = rb.angularVelocity * 0;
+            //rb.Sleep();
+        }
+    }*/
     void OnTriggerExit(Collider collision)
     {
         if (collision.gameObject.GetComponent<TimeForce>() != null)

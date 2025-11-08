@@ -17,10 +17,15 @@ public class TimeForce : MonoBehaviour
     }
 
     void FixedUpdate()
-    {    
-        if(gravMod == 0){
+    {
+        if (gravMod == 0) {
             rb.Sleep();
-        }   
+        }
+        Vector3 currentVelocity = rb.linearVelocity;
+        if(gravMod == -1 && currentVelocity.y < 0){
+            Debug.Log("Current Velocity: " + currentVelocity);
+            AddLValocoty(new Vector3(rb.linearVelocity.x, 0.1f + rb.linearVelocity.y, rb.linearVelocity.z));
+        }
         if(gravityAfected && gravity){
             rb.AddForce(gravityForce * gravMod, ForceMode.Acceleration);
         }
@@ -29,6 +34,7 @@ public class TimeForce : MonoBehaviour
         if (newMod == -1) {
             Gravity(false);
             rb.WakeUp();
+            gravMod = newMod; 
         } else {
             Gravity(true);
             gravMod = newMod;  
