@@ -24,7 +24,11 @@ public class TimeForce : MonoBehaviour
         Vector3 currentVelocity = rb.linearVelocity;
         if(gravMod == -1 && currentVelocity.y < 0){
             Debug.Log("Current Velocity: " + currentVelocity);
-            AddLValocoty(new Vector3(rb.linearVelocity.x, 0.1f + rb.linearVelocity.y, rb.linearVelocity.z));
+            float stopValocity = 0.2f + rb.linearVelocity.y;
+            if(stopValocity > 0){
+                stopValocity = 0;
+            }
+            AddLValocoty(new Vector3(rb.linearVelocity.x, stopValocity , rb.linearVelocity.z));
         }
         if(gravityAfected && gravity){
             rb.AddForce(gravityForce * gravMod, ForceMode.Acceleration);
