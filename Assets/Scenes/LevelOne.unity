@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.120064065, g: 0.12708984, b: 0.2754717, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -24215,6 +24215,7 @@ MonoBehaviour:
   characterDependent: 1
   sequence: Ability Mechanics Tutorial
   roomProgress: 0
+  waitForFinish: 0
 --- !u!65 &624067561
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37186,7 +37187,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1dfb4a7a14284fc49b5eea09216cf5ad, type: 3}
       propertyPath: m_Name
-      value: Light
+      value: ChandelierLight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -51424,7 +51425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1dfb4a7a14284fc49b5eea09216cf5ad, type: 3}
       propertyPath: m_Name
-      value: Light (1)
+      value: ChandelierLight(1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -76752,6 +76753,7 @@ MonoBehaviour:
   characterDependent: 0
   sequence: Base Mechanics Tutorial
   roomProgress: 0
+  waitForFinish: 0
 --- !u!65 &1840445151
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -76918,6 +76920,7 @@ MonoBehaviour:
   characterDependent: 0
   sequence: Reunion Cutsene
   roomProgress: 0
+  waitForFinish: 0
 --- !u!65 &1862112740
 BoxCollider:
   m_ObjectHideFlags: 0
