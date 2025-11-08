@@ -87,15 +87,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Ability scroll",
-                    "type": "PassThrough",
-                    "id": "f56b8d94-56a6-4406-8c41-adbf9ca01317",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Pause",
                     "type": "Button",
                     "id": "e8155d11-34b9-4511-8354-99a1bc8a8a48",
@@ -400,50 +391,6 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "Ability Mod 2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "Sholder Buttons",
-                    "id": "72c92713-9418-4d02-81eb-0685aee3f068",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Ability scroll",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "15ea3461-593b-44f4-ad0c-88b82bcd0d3b",
-                    "path": "<Gamepad>/leftShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Ability scroll",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "15086374-b747-4729-8ca8-74231cb33f79",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Ability scroll",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "43675341-68e4-4bb2-8554-12ceaf522edf",
-                    "path": "<Mouse>/scroll/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Ability scroll",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

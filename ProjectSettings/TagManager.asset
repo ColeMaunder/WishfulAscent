@@ -13,6 +13,7 @@ TagManager:
   - Configurer
   - UICamras
   - UI Screens
+  - Rail
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Character 1
   - Character 2
   - pilar
-  - 
+  - Rail
   - 
   - 
   - 

@@ -23,11 +23,22 @@ public class GravityFeald : MonoBehaviour
         particleEffects[timeMode].SetActive(true);
         SetParticles(neweMode);
     }
+    public void GravToggle(bool fealdEnabled)
+    {
+        if (fealdEnabled) {
+            timeMode = 0;
+        } else {
+            timeMode = 2;
+        }
+        materialRenderer.material = materials[timeMode];
+        particleEffects[timeMode].SetActive(true);
+        SetParticles(timeMode);
+    }
     public void Scroll(float inVal)
     {
         if (inVal > 0)
         {
-            if (2 >= timeMode + 1)
+            if (1 >= timeMode + 1)
             {
                 timeMode++;
                 materialRenderer.material = materials[timeMode];
@@ -67,6 +78,10 @@ public class GravityFeald : MonoBehaviour
             //rb.linearVelocity = rb.linearVelocity * 0;
             //rb.angularVelocity = rb.angularVelocity * 0;
             //rb.Sleep();
+        }
+        if (collision.gameObject.GetComponent<MagicPowerd>() != null && gravMods[timeMode] != 1) {
+            MagicPowerd mp = collision.gameObject.GetComponent<MagicPowerd>();
+            mp.DeStabolize();
         }
     }
     void OnTriggerExit(Collider collision)

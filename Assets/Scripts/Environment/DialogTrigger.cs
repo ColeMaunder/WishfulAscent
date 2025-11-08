@@ -32,7 +32,7 @@ public class DialogTrigger : MonoBehaviour
             gameObject.GetComponent<Collider>().enabled = false;
         }
     }
-    IEnumerator TriggerDialog(string sequence)
+    /*IEnumerator TriggerDialog(string sequence)
     {
 
         yield return new WaitWhile(() => waitForFinish && DialogManiger.Dialog.GetDialogPlaying());
@@ -41,7 +41,7 @@ public class DialogTrigger : MonoBehaviour
         } else {
             DialogManiger.Dialog.RunSequence(scene, sequence, roomProgress);
         }
-    }
+    }*/
     void TriggerDialogQue(string sequence) {
         dialogQue.Add(new string[] { scene, sequence, "" + roomProgress });
         if(!dialogQueRunning) {

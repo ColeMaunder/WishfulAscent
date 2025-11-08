@@ -17,7 +17,7 @@ public class SaveData {
 
 public class Saving: MonoBehaviour {
     public static SaveData activeSave = new SaveData();
-    public static Saving saver = new Saving();
+    public static Saving saver { get; private set; }
     private readonly string saveHeader = "Save";
     private readonly string fielName = "WishfullAscentSaves/";
     public List<SaveData> saveList = new List<SaveData>();

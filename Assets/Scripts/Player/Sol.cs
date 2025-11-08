@@ -25,6 +25,7 @@ public class Sol : MonoBehaviour
     Transform holdPoint;
     bool orbReturning = false;
     private List<Coroutine> orbReturnProsess = new List<Coroutine>();
+    Animator animator;
     void Start()
     {
         gravOrb = GameObject.FindWithTag("GravityOrb").gameObject;
@@ -32,6 +33,7 @@ public class Sol : MonoBehaviour
         controller = transform.parent.gameObject.GetComponent<FPController>();
         orbBody = gravOrb.GetComponent<TimeForce>();
         gravFeald = gravOrb.transform.GetChild(0).GetComponent<Transform>();
+        animator = gameObject.GetComponent<Animator>();
         //StartCoroutine(OrbBack(gravOrb.transform.GetComponent<Rigidbody>()));
     }
     void FixedUpdate()
@@ -54,7 +56,9 @@ public class Sol : MonoBehaviour
                 {
                     gravOrb.transform.SetParent(null);
                     orbBody.AddForce(camra.forward * trowForce);
+                    animator.SetBool("Released", true);
                 } else {
+                    animator.SetBool("Released", false);
                     Vector3 orbPosition = orbBody.transform.position;
                     Vector3 direction = (holdPoint.position - orbPosition).normalized;
                     float distance = Vector3.Distance(orbPosition , holdPoint.position);
@@ -64,7 +68,7 @@ public class Sol : MonoBehaviour
                         wipeCorutene(orbReturnProsess);
                         orbReturning = false;
                         gravOrb.transform.SetParent(camra);
-                        gravOrb.transform. position = holdPoint.position;
+                        gravOrb.transform.position = holdPoint.position;
                         FealdOff();
                     }else{
                         orbReturnProsess.Add(StartCoroutine(OrbBack()));
@@ -109,6 +113,7 @@ public class Sol : MonoBehaviour
                     if (holdLocked)
                     {
                         scaleUp = StartCoroutine(ScaleUpFeald());
+                        
                     }
                     else
                     {
@@ -141,6 +146,7 @@ public class Sol : MonoBehaviour
 
     private IEnumerator ScaleUpFeald()
     {
+        animator.SetBool("Toggle", true);
         if (scaleDown != null)
         {
             StopCoroutine(scaleDown);
@@ -170,6 +176,7 @@ public class Sol : MonoBehaviour
     }
     private IEnumerator ScaleDownFeald()
     {
+        animator.SetBool("Toggle", false);
         if (scaleUp != null)
         {
             StopCoroutine(scaleUp);
@@ -185,6 +192,7 @@ public class Sol : MonoBehaviour
     }
     private IEnumerator OrbBack()
     {
+        animator.SetBool("Released", false);
         if(!orbReturning){
             orbReturning = true;
             while (Vector3.Distance(orbBody.transform.position, holdPoint.position) != 0){

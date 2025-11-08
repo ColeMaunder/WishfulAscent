@@ -4,7 +4,7 @@ using UnityEngine.Rendering;
 
 
 public class AudioHandler : MonoBehaviour{
-    public static AudioHandler Audio = new AudioHandler();
+    public static AudioHandler Audio { get; private set; }
     private AudioSource sound;
     Coroutine fade;
     Coroutine fadeBetween;
