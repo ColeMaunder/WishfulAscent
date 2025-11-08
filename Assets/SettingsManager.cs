@@ -10,6 +10,8 @@ public class SettingsManager : MonoBehaviour
     [SerializeField]
     GameObject controllsScreen;
     [SerializeField]
+    GameObject windowScreen;
+    [SerializeField]
     Button[] buttons;
     private void OnEnable() {
         EventSystem.current.SetSelectedGameObject(transform.GetChild(3).gameObject);
@@ -28,6 +30,13 @@ public class SettingsManager : MonoBehaviour
         AllInteractible(state);
         if(!state){
             EventSystem.current.SetSelectedGameObject(transform.GetChild(4).gameObject);
+        }
+    }
+    public void Window(bool state){
+        windowScreen.SetActive(state);
+        AllInteractible(state);
+        if(!state){
+            EventSystem.current.SetSelectedGameObject(transform.GetChild(5).gameObject);
         }
     }
     private void AllInteractible(bool state) {

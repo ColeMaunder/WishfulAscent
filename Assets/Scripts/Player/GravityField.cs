@@ -11,7 +11,7 @@ public class GravityField : MonoBehaviour
         gravOrb = transform.parent;
     }
     void OnTriggerStay(Collider collision) {
-        if(collision.gameObject.GetComponent<TimeForce>()  != null){
+        if(collision.gameObject.GetComponent<TimeForce>()  != null && collision.gameObject.GetComponent<MagicDroplet>()  == null){
             TimeForce tf = collision.gameObject.GetComponent<TimeForce>();
             Vector3 direction = Vector3.Normalize(collision.transform.position - gravOrb.position);
             //tf.Gravity(false);
