@@ -16217,7 +16217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   progressRequired: 2
   speed: 2
-  openPoint: {x: 4.282, y: -1.8, z: -6.519}
+  openPoint: {x: 4.282, y: -2.2, z: -6.519}
 --- !u!33 &273088817
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -76812,7 +76812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterDependent: 0
   sequence: Reunion Cutsene
-  roomProgress: 0
+  roomProgress: 2
   waitForFinish: 0
 --- !u!65 &1862112740
 BoxCollider:

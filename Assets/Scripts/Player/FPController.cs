@@ -39,6 +39,7 @@ public class FPController : MonoBehaviour
     private float moveY;
     private GameObject Camera3P;
     Animator animator;
+    bool grounded;
 
 
     private void Awake()
@@ -64,6 +65,9 @@ public class FPController : MonoBehaviour
             HandleMovement();
             HandleLook();
         }
+        Debug.DrawRay(transform.position, Vector3.down * 0.2f, controller.isGrounded ? Color.green : Color.red);
+        grounded = controller.isGrounded;
+        
     }
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -142,6 +146,7 @@ public class FPController : MonoBehaviour
     }
     public void HandleMovement()
     {
+        
         float speed = moveSpeed;
         if (character.GetComponent<Luna>() != null && character.GetComponent<Luna>().GetFlight()) {
             animator.SetBool("Fly", true);
@@ -165,7 +170,8 @@ public class FPController : MonoBehaviour
             animator.SetBool("Fly", false);
             moveY = 0;
             velocity.y += gravity * Time.deltaTime;
-            if (controller.isGrounded && jumpInput) {
+            if (grounded && jumpInput) {
+                Debug.Log("jump");
                 animator.SetTrigger("Jump");
                 velocity.y = Mathf.Sqrt(jumpHight * -2f * gravity);
             }
