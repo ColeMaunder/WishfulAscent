@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 524d5ec1bef3a1b4c898fa46e0913365
+guid: 6e51fc0b9ee85f84a8c1ae8d061125e5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -39,7 +39,7 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -97,23 +97,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Back Button_0
+      name: Dropdown Arrow_0
       rect:
         serializedVersion: 2
-        x: 411
-        y: 2111
-        width: 480
-        height: 350
+        x: 616
+        y: 81
+        width: 252
+        height: 183
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78ad067707139664fb8543460442f9b6
-      internalID: 767039632
+      spriteID: 14d38b60fab07e74997dc8f175a56093
+      internalID: 106834384
       vertices: []
       indices: 
       edges: []
@@ -122,7 +122,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a874ef149234b5448a7355bc2b856b7b
+    spriteID: 485592cea2111b24f8180f73e842d400
     internalID: 0
     vertices: []
     indices: 
@@ -132,7 +132,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Back Button_0: 767039632
+      Dropdown Arrow_0: 106834384
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

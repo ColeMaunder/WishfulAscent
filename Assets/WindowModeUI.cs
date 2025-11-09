@@ -9,22 +9,23 @@ public class WindowModeUI : MonoBehaviour
     [SerializeField] TMP_Dropdown dimentions;
     void OnEnable() {
         screens.value = WindowMode.settings.activeMode;
-        if(screens.value == 3){
+        //EventSystem.current.SetSelectedGameObject(screens.gameObject);
+        if(screens.value == 2){
             dimentions.gameObject.SetActive(true);
             dimentions.value = WindowMode.settings.dimentionID;
         } else{
             dimentions.gameObject.SetActive(false);
         }
-        EventSystem.current.SetSelectedGameObject(screens.gameObject);
+        //EventSystem.current.SetSelectedGameObject(screens.gameObject);
     }
     
     public void updateWindow(){
-        if (screens.value == 3) {
+        if (screens.value == 2) {
             dimentions.gameObject.SetActive(true);
-            WindowMode.settings.dimentionID = dimentions.value;
+            WindowMode.settings.setScreenDimention(dimentions.value);
         } else {
             dimentions.gameObject.SetActive(false);
-            WindowMode.settings.activeMode = screens.value;
+            WindowMode.settings.setScreen(screens.value);
         }
     }
     public void salectBack(GameObject next){

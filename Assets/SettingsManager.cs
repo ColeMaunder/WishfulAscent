@@ -15,6 +15,8 @@ public class SettingsManager : MonoBehaviour
     Button[] buttons;
     private void OnEnable() {
         EventSystem.current.SetSelectedGameObject(transform.GetChild(3).gameObject);
+        AllInteractible(false);
+        AllActivated(false);
     }
     public void volume(bool state){
         volumeScreen.SetActive(state);
@@ -29,32 +31,31 @@ public class SettingsManager : MonoBehaviour
         controllsScreen.SetActive(state);
         AllInteractible(state);
         if(!state){
-            EventSystem.current.SetSelectedGameObject(transform.GetChild(4).gameObject);
+            EventSystem.current.SetSelectedGameObject(transform.GetChild(5).gameObject);
         }
     }
     public void Window(bool state){
         windowScreen.SetActive(state);
         AllInteractible(state);
-        if(!state){
-            EventSystem.current.SetSelectedGameObject(transform.GetChild(5).gameObject);
+        if(state){
+            EventSystem.current.SetSelectedGameObject(windowScreen.transform.GetChild(1).gameObject);
+        }else{
+             EventSystem.current.SetSelectedGameObject(transform.GetChild(4).gameObject);
         }
     }
     private void AllInteractible(bool state) {
         foreach (var item in buttons)
         {
-            item.interactable = !state;
+            item.gameObject.GetComponent<ButtonSelectHandler>().enabled = !state;
+            //item.interactable = !state;
         }
     }
-    public void setMaster(float volume){
-        AudioMixerManager.settings.setMaster(volume);
+    private void AllActivated(bool state) {
+        foreach (var item in buttons){
+            if(item.gameObject.GetComponent<SettinsSalectHandler>() != null){
+                item.gameObject.GetComponent<SettinsSalectHandler>().SetActivated(state);
+            }
+        }
     }
-    public void setSound(float volume){
-        AudioMixerManager.settings.setSound(volume);
-    }
-    public void setMusic(float volume) {
-        AudioMixerManager.settings.setMusic(volume);
-    }
-    public void setDialogue(float volume) {
-        AudioMixerManager.settings.setDialogue(volume);
-    }
+    
 }

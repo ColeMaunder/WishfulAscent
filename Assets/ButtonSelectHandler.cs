@@ -6,7 +6,7 @@ public class ButtonSelectHandler : MonoBehaviour, IPointerEnterHandler
 {
     public void OnPointerEnter(PointerEventData eventData){
         if(gameObject.GetComponent<Selectable>().interactable){
-            FindAnyObjectByType<EventSystem>().SetSelectedGameObject(gameObject);
+            FindFirstObjectByType<EventSystem>().SetSelectedGameObject(gameObject);
         }
     }
 }

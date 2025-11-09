@@ -11,9 +11,9 @@ public class WindowMode : MonoBehaviour
         settings = this;
         if (PlayerPrefs.GetInt("WindowMode") == 2)
         {
-            setScreen(PlayerPrefs.GetInt("WindowMode"));
-        } else {
             setScreenDimention(PlayerPrefs.GetInt("WindowDimentionID"));
+        } else {
+            setScreen(PlayerPrefs.GetInt("WindowMode"));
         }
     }
     public void setScreen(int WindowMode){
@@ -36,7 +36,8 @@ public class WindowMode : MonoBehaviour
         int height = Screen.currentResolution.height;
         Screen.SetResolution(width, height, FullScreenMode.FullScreenWindow);
         PlayerPrefs.SetInt("WindowMode", 0);
-        activeMode = 1;
+        PlayerPrefs.Save();
+        activeMode = 0;
     }
 
     public void SetExclusiveFullscreen() {
@@ -44,14 +45,16 @@ public class WindowMode : MonoBehaviour
         int height = Screen.currentResolution.height;
         Screen.SetResolution(width, height, FullScreenMode.ExclusiveFullScreen);
         PlayerPrefs.SetInt("WindowMode", 1);
-        activeMode = 2;
+        PlayerPrefs.Save();
+        activeMode = 1;
     }
 
     public void SetWindowedMode(int id) {
         Screen.SetResolution(dimentionMods[id] * 16, dimentionMods[id] * 9, FullScreenMode.Windowed);
         PlayerPrefs.SetInt("WindowMode", 2);
         PlayerPrefs.SetInt("WindowDimentionID", id);
+        PlayerPrefs.Save();
         dimentionID = id;
-        activeMode = 3;
+        activeMode = 2;
     }
 }

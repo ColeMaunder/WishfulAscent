@@ -9,11 +9,9 @@ public class SettinsSalectHandler : MonoBehaviour
     bool activated = false;
 
     void Update() {
-        if(activated  || EventSystem.current.currentSelectedGameObject == transform.gameObject){
-            showScreen.SetActive(true);
-        } else {
-            showScreen.SetActive(false);
-        }
+        bool state = activated || EventSystem.current.currentSelectedGameObject == transform.gameObject;
+        showScreen.SetActive(state);
+
     }
     public void SetActivated(bool state){
         activated = state;
