@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MagicPowerd : MonoBehaviour
 {
-    [SerializeField] private bool empowerd;
+    [SerializeField] private bool empowerd = false;
     [SerializeField] float fealdScaleBase = 0.2f;
     [SerializeField] float fealdScaleMax = 10f;
     [SerializeField] float activeTime = 10f;
@@ -14,15 +14,12 @@ public class MagicPowerd : MonoBehaviour
     [SerializeField] MeshRenderer MagRenderer;
     Coroutine runEMP;
     
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void Empower() {
         empowerd = true;
         swapMetrirals(1, metirals[0]);
+    }
+    public bool GetEmpowered() {
+        return empowerd;
     }
     void swapMetrirals(int slot, Material newMet){
         Material[] activeMetirials = MagRenderer.materials;
