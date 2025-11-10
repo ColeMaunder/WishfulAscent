@@ -84,6 +84,16 @@ public class GravityFeald : MonoBehaviour
             MagicPowerd mp = collision.gameObject.GetComponent<MagicPowerd>();
             mp.DeStabolize();
         }
+        if (collision.gameObject.GetComponent<Boss>() != null )
+        {
+            Boss boss = collision.gameObject.GetComponent<Boss>();
+            if(gravMods[timeMode] != 1){ 
+                boss.SetCaugh(true);
+            } else {
+                 boss.SetCaugh(false);
+            }
+            
+        }
     }
     /*void OnTriggerEnter(Collider collision)
     {
@@ -108,6 +118,11 @@ public class GravityFeald : MonoBehaviour
         {
             TimeForce tf = collision.gameObject.GetComponent<TimeForce>();
             tf.SetGravMod(1);
+        }
+        if (collision.gameObject.GetComponent<Boss>() != null)
+        {
+            Boss boss = collision.gameObject.GetComponent<Boss>();
+            boss.SetCaugh(false);
         }
     }
 }

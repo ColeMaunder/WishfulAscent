@@ -16,6 +16,6 @@ public class BossPathing : MonoBehaviour
     }
     public void NewPoint(){
         gollPoint.localPosition = new Vector3(0, 0, Random.Range(1.5f, 11.5f));
-        transform.eulerAngles = new Vector3(0, Random.Range(0, 360), 0);
+        transform.eulerAngles = new Vector3(6, Random.Range(0, 360), 0);
     }
 }

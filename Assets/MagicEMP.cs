@@ -16,13 +16,15 @@ public class MagicEMP : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         GameObject entered = other.gameObject;
-        if (entered.GetComponent<EMPOpen>())
-        {
+        if (entered.GetComponent<EMPOpen>()) {
             entered.GetComponent<EMPOpen>().open();
         }
-        if (entered.GetComponent<EMPLock>())
-        {
+        if (entered.GetComponent<EMPLock>()) {
             entered.GetComponent<EMPLock>().UnLock();
+        }
+        if (entered.GetComponent<Boss>()) {
+            entered.GetComponent<Boss>().heart();
+            gameObject.SetActive(false);
         }
     }
 }
