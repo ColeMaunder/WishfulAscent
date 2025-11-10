@@ -3222,6 +3222,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1212121885}
+    - target: {fileID: 7411515686169893953, guid: ca2b4124ed143134d9899ac48d19668a, type: 3}
+      propertyPath: nextCutsene
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7535511566992141925, guid: ca2b4124ed143134d9899ac48d19668a, type: 3}
       propertyPath: m_Mesh
       value: 
