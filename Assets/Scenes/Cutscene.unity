@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeScale: 1
-  musicVolume: 1
+  musicVolume: 0.5
   seaneMusic: {fileID: 8300000, guid: 6b0146d7e968e444d91d596a279d70ad, type: 3}
 --- !u!4 &208927255
 Transform:
@@ -1137,7 +1137,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3775410392ff7e240a7d8919a6d8aa25, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 33a02f0068a3c574980022839351cba2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1542,6 +1542,14 @@ PrefabInstance:
     - target: {fileID: 4300534869394412074, guid: ab72e4f97e08d6f40a4455a521278abf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962421512341605484, guid: ab72e4f97e08d6f40a4455a521278abf, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363970267203678291, guid: ab72e4f97e08d6f40a4455a521278abf, type: 3}
+      propertyPath: nextCutsene
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

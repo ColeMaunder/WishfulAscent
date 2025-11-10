@@ -286,38 +286,38 @@
           
             "sequence": "Cutscene 2",
             "lines": [
-                { "id": 0, "name": "Castellan", "voiceOver": "C1_0_Cas", "text": "Upon entering the tower gifts where bestowed," },
-                { "id": 1, "name": "Castellan", "voiceOver": "C1_1_Cas", "text": "One unto each, their new abilities they must decode." },
-                { "id": 2, "name": "Castellan", "voiceOver": "C1_2_Cas", "text": "A fallen pillar or two, mistakes they did make." },
-                { "id": 3, "name": "Castellan", "voiceOver": "C1_3_Cas", "text": "Unbeknownst to them, something else was about to break..." }
+                { "id": 0, "name": "Castellan", "voiceOver": "C2_0_Cas", "text": "Upon entering the tower gifts where bestowed," },
+                { "id": 1, "name": "Castellan", "voiceOver": "C2_1_Cas", "text": "One unto each, their new abilities they must decode." },
+                { "id": 2, "name": "Castellan", "voiceOver": "C2_2_Cas", "text": "A fallen pillar or two, mistakes they did make." },
+                { "id": 3, "name": "Castellan", "voiceOver": "C2_3_Cas", "text": "Unbeknownst to them, something else was about to break..." }
             ]
         },
         {
             "sequence": "Cutscene 3",
             "lines": [
-                { "id": 0, "name": "Castellan", "voiceOver": "C2_0_Cas", "text": "Reaching the next room in this twisted tower," },
-                { "id": 1, "name": "Castellan", "voiceOver": "C2_1_Cas", "text": "The three friends thought they had a hold on their power." },
-                { "id": 2, "name": "Castellan", "voiceOver": "C2_2_Cas", "text": "But what they were holding had a hold on one of them..." },
-                { "id": 3, "name": "Castellan", "voiceOver": "C2_3_Cas", "text": "The scorches outside reflecting the burns within." }
+                { "id": 0, "name": "Castellan", "voiceOver": "C3_0_Cas", "text": "Reaching the next room in this twisted tower," },
+                { "id": 1, "name": "Castellan", "voiceOver": "C3_1_Cas", "text": "The three friends thought they had a hold on their power." },
+                { "id": 2, "name": "Castellan", "voiceOver": "C3_2_Cas", "text": "But what they were holding had a hold on one of them..." },
+                { "id": 3, "name": "Castellan", "voiceOver": "C3_3_Cas", "text": "The scorches outside reflecting the burns within." }
             ]
         },
         {
             "sequence": "Cutscene 4",
             "lines": [
-                { "id": 0, "name": "Castellan", "voiceOver": "C3_0_Cas", "text": "Room after room, they searched in vain." },
-                { "id": 1, "name": "Castellan", "voiceOver": "C3_1_Cas", "text": "For Caelum, this power started turning into pain..." },
-                { "id": 2, "name": "Castellan", "voiceOver": "C3_2_Cas", "text": "It surged through his veins and entered his heart," },
-                { "id": 3, "name": "Castellan", "voiceOver": "C3_3_Cas", "text": "Until his friends could no longer tell him and the power apart." }
+                { "id": 0, "name": "Castellan", "voiceOver": "C4_0_Cas", "text": "Room after room, they searched in vain." },
+                { "id": 1, "name": "Castellan", "voiceOver": "C4_1_Cas", "text": "For Caelum, this power started turning into pain..." },
+                { "id": 2, "name": "Castellan", "voiceOver": "C4_2_Cas", "text": "It surged through his veins and entered his heart," },
+                { "id": 3, "name": "Castellan", "voiceOver": "C4_3_Cas", "text": "Until his friends could no longer tell him and the power apart." }
             ]
         }
         ,
         {
             "sequence": "Cutscene 5",
             "lines": [
-                { "id": 0, "name": "Castellan", "voiceOver": "C4_0_Cas", "text": "The power overtook him, now no longer a man." },
-                { "id": 1, "name": "Castellan", "voiceOver": "C4_1_Cas", "text": "He became something beyond what the two of you could understand." },
-                { "id": 2, "name": "Castellan", "voiceOver": "C4_2_Cas", "text": "Their wish had been granted, their loved ones were saved" },
-                { "id": 3, "name": "Castellan", "voiceOver": "C4_3_Cas", "text": "But only because the tower was satisfied with what Caelum gave..." }
+                { "id": 0, "name": "Castellan", "voiceOver": "C5_0_Cas", "text": "The power overtook him, now no longer a man." },
+                { "id": 1, "name": "Castellan", "voiceOver": "C5_1_Cas", "text": "He became something beyond what the two of you could understand." },
+                { "id": 2, "name": "Castellan", "voiceOver": "C5_2_Cas", "text": "Their wish had been granted, their loved ones were saved" },
+                { "id": 3, "name": "Castellan", "voiceOver": "C5_3_Cas", "text": "But only because the tower was satisfied with what Caelum gave..." }
             ]
         }
       ]

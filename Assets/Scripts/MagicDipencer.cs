@@ -18,6 +18,7 @@ public class MagicDipencer : MonoBehaviour
     void Update() {
         if (dropping && !droplet.activeSelf && !partcles.isPlaying) {
             droplet.transform.localPosition = Vector3.zero;
+            droplet.GetComponent<TimeForce>().SetGravMod(1);
             droplet.SetActive(true);
             dropRB.constraints = RigidbodyConstraints.FreezeAll;
             StartCoroutine(drop());

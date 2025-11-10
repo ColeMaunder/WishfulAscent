@@ -13,7 +13,7 @@ public class ProgressDoar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Saving.activeSave.roomPrgress >= progressRequired){
+        if(transform.localPosition != openPoint && Saving.activeSave.roomPrgress >= progressRequired){
             transform.localPosition = Vector3.MoveTowards(transform.localPosition, openPoint, speed * Time.deltaTime);
         }
     }

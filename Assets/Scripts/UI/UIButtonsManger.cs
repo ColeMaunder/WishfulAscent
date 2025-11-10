@@ -16,10 +16,13 @@ public class UIButtonsManger : MonoBehaviour
          EventSystem.current.currentSelectedGameObject.GetComponent<Selectable>().interactable) {
             lastSalected = EventSystem.current.currentSelectedGameObject;
         }
-        
-        if (!EventSystem.current.currentSelectedGameObject && lastSalected ||
-        !EventSystem.current.currentSelectedGameObject.GetComponent<Selectable>().interactable) {
-            EventSystem.current.SetSelectedGameObject(lastSalected);
-        }
+        try{
+            if (!EventSystem.current.currentSelectedGameObject && lastSalected ||
+            !EventSystem.current.currentSelectedGameObject.GetComponent<Selectable>().interactable) {
+                    EventSystem.current.SetSelectedGameObject(lastSalected);
+                }
+        } catch (MissingReferenceException){
+                Debug.Log("object not hter to be salected");
+            }
     }
 }
