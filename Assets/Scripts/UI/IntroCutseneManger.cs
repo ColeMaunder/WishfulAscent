@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 public class IntroCutseneManger : MonoBehaviour
 {
     [SerializeField]
-    Sprite[] shots;
+    Sprite[] cutscenes;
     [SerializeField]
     Image shotDisplay;
     [SerializeField]
@@ -19,8 +19,7 @@ public class IntroCutseneManger : MonoBehaviour
     int shotID = 0;
     [SerializeField]
     string nextScene;
-    [SerializeField]
-    string sequence = "Intro";
+    string sequence = "Cutscene";
 
     void Start()
     {
@@ -28,6 +27,11 @@ public class IntroCutseneManger : MonoBehaviour
         scene = StartCoroutine(runCutsene());
         nextButton.GetComponent<Button>().interactable = false;
         nextButton.SetActive(false);
+        NextCutsene nextC = FindFirstObjectByType<NextCutsene>();
+        int cutseneNum = nextC.nextCutsene;
+        nextScene = nextC.nextScene;
+        shotDisplay.sprite = cutscenes[cutseneNum-1];
+        sequence = sequence + " " + cutseneNum;
     }
 
     public IEnumerator runCutsene() {
@@ -50,12 +54,12 @@ public class IntroCutseneManger : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(nextButton);
     }
     public void nextshot(){
-        if (shotID < shots.Length) {
+        if (shotID < 4) {
             nextButton.SetActive(false);
             nextButton.GetComponent<Button>().interactable = true;
             EventSystem.current.SetSelectedGameObject(nextButton);
             lineDisplay.text = "";
-            shotDisplay.sprite = shots[shotID];
+
             
             scene = StartCoroutine(runCutsene());
         }else{

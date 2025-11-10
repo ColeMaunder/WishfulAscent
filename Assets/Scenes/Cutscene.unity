@@ -605,24 +605,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf5119d6057db9a4ea2c465b7cfe191f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shots:
-  - {fileID: 21300000, guid: 3775410392ff7e240a7d8919a6d8aa25, type: 3}
-  - {fileID: 21300000, guid: 3775410392ff7e240a7d8919a6d8aa25, type: 3}
-  - {fileID: 21300000, guid: f580c19575e2e904797e458212c86718, type: 3}
-  - {fileID: 21300000, guid: 80b1fceba3a629c43960f534e6a1a48c, type: 3}
-  - {fileID: 21300000, guid: 015a8dd17b7354a41bd9d4352f066172, type: 3}
-  - {fileID: 21300000, guid: b685865900e8bd647bf9547baaa6b065, type: 3}
-  - {fileID: 21300000, guid: b685865900e8bd647bf9547baaa6b065, type: 3}
-  - {fileID: 21300000, guid: 316d8d5302078e04daf711639fa2593d, type: 3}
-  - {fileID: 21300000, guid: 6c497f62dc60e79459e64bedc8d1a03e, type: 3}
-  - {fileID: 21300000, guid: 6c497f62dc60e79459e64bedc8d1a03e, type: 3}
-  - {fileID: 21300000, guid: 5bb61da2fa38c5845a8bb89a5c3054b4, type: 3}
-  - {fileID: 21300000, guid: c8507babebbd5ac4f9ab1bd31ac65ad1, type: 3}
+  cutscenes:
+  - {fileID: 21300000, guid: 650ad33f8ee82fa41bd5fb2ab314c63c, type: 3}
+  - {fileID: 21300000, guid: 5fbe3982a81e0014aa58de54a48baca2, type: 3}
+  - {fileID: 21300000, guid: d2318729baada4e4e92a9561b197733f, type: 3}
+  - {fileID: 21300000, guid: c602043578c2c344bb2d9222f3dbf8b8, type: 3}
+  - {fileID: 21300000, guid: 2442d5a0251ec8f4a8ce08973792969f, type: 3}
   shotDisplay: {fileID: 1221686017}
   lineDisplay: {fileID: 190047659}
   nextButton: {fileID: 808853553}
   nextScene: LevelOne
-  sequence: Intro
 --- !u!114 &763907054
 MonoBehaviour:
   m_ObjectHideFlags: 0

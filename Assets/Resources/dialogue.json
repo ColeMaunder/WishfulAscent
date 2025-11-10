@@ -271,23 +271,19 @@
       ]
     },
     {
-      "scene": "IntroCutsene",
+      "scene": "Cutscene",
       "sequences": [
         {
-            "sequence": "Intro",
+            "sequence": "Cutscene 1",
             "lines": [
                 { "id": 0, "name": "Castellan", "voiceOver": "I_0_Cas", "text": "In search of a wish to save those they hold dear," },
                 { "id": 1, "name": "Castellan", "voiceOver": "I_1_Cas", "text": "They heard of a place that could fix what they fear." },
                 { "id": 2, "name": "Castellan", "voiceOver": "I_2_Cas", "text": "They reached the tower, not knowing what was in store." },
                 { "id": 3, "name": "Castellan", "voiceOver": "I_3_Cas", "text": "If they had, the three friends might have never stepped through the door..." }
             ]
-        }
-      ]
-    },
-    {
-      "scene": "Cutscene",
-      "sequences": [
+        },
         {
+          
             "sequence": "Cutscene 2",
             "lines": [
                 { "id": 0, "name": "Castellan", "voiceOver": "C1_0_Cas", "text": "Upon entering the tower gifts where bestowed," },

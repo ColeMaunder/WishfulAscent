@@ -26,7 +26,10 @@ public class StartScreenManager : MonoBehaviour
 
     public void NewGame(){
         Saving.saver.newSaveFile();
-        SceneChanger.ChangeScene.GoToScene(nextSceen);
+        NextCutsene nextC = FindFirstObjectByType<NextCutsene>();
+        nextC.nextCutsene = 1;
+        nextC.nextScene = nextSceen;
+        SceneChanger.ChangeScene.GoToScene("Cutscene");
     }
     public void BackToStartScrean(){
         EventSystem.current.SetSelectedGameObject(startScreen.transform.GetChild(3).gameObject);

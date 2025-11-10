@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8610650489910308460}
   - component: {fileID: 4962421512341605484}
   - component: {fileID: 4825072480090954023}
+  - component: {fileID: 7363970267203678291}
   m_Layer: 0
   m_Name: Persistant Managers
   m_TagString: Untagged
@@ -325,3 +326,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectID: 0
   isNotIn: []
+--- !u!114 &7363970267203678291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2443790995628297308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f192c43cc269ded4ba206a63c2a2441c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextCutsene: 1
+  nextScene: LevelOne

@@ -2090,7 +2090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21524bb8b54afa94fb370644c34aacb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceen: IntroCutsene
+  nextSceen: LevelOne
   titleScreen: {fileID: 697403662}
   startScreen: {fileID: 997127819}
   settingsScreen: {fileID: 1687402104}

@@ -6,6 +6,10 @@ public class EndTrigger : MonoBehaviour
     [SerializeField] string nextScene;
     void OnTriggerEnter(Collider other)
     {
-        SceneChanger.ChangeScene.GoToScene(nextScene);
+        NextCutsene nextC = FindFirstObjectByType<NextCutsene>();
+        nextC.nextCutsene = 1;
+        nextC.nextScene = nextScene;
+        SceneChanger.ChangeScene.GoToScene("Cutscene");
+
     }
 }
