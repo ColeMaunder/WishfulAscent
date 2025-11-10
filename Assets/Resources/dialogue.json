@@ -16,7 +16,7 @@
                 { "id": 8, "name": "Adara", "voiceOver": "Adara Line 3 Intro", "text": "Wait!" },
                 { "id": 9, "name": "Castellan", "voiceOver": "OneI_9_Cas", "text": "..." },
                 { "id": 10, "name": "Adara", "voiceOver": "Adara Line 4 Intro", "text": "Well, I should probably try and get out of here." },
-                { "id": 11, "name": "Adara", "voiceOver": "Adara Line 4 Intro", "text": "Wherever here is..." }
+                { "id": 11, "name": "Adara", "voiceOver": "Adara Line 5 Intro", "text": "Wherever here is..." }
             ]
         },
         {
@@ -33,7 +33,7 @@
             "lines": [
                 { "id": 1, "name": "Adara", "voiceOver": "Adara Line 1 SRI", "text": "Magical floating orbs?" },
                 { "id": 2, "name": "Adara", "voiceOver": "Adara Line 2 SRI", "text": "I wonder if they can help us open the door and get out of here.." },
-                { "id": 3, "name": "Altair", "voiceOver": "##", "text": "I dont think we have any other options, lets give it a try" }
+                { "id": 3, "name": "Altair", "voiceOver": "Sol_1D_1_LevelOneNoticeOrbAdara", "text": "I don't think we have any other options, let's give it a try." }
             ]
         },
         {
@@ -41,27 +41,27 @@
             "lines": [
                 { "id": 1, "name": "Altair", "voiceOver": "Sol_ID_1_SeperateRoomIntroduction", "text": "Magical... orbs?" },
                 { "id": 2, "name": "Altair", "voiceOver": "Sol_ID_2_SeperateRoomIntroduction", "text": "They might be able to help us open the door and escape" },
-                { "id": 2, "name": "Adara", "voiceOver": "##", "text": "I hope so. The one on my side looks a bit differnt" }
+                { "id": 2, "name": "Adara", "voiceOver": "Adara NOA Line 1", "text": "I hope so. The one on my side looks a bit different." }
                 
             ]
         },
         {
             "sequence": "Ability pickup Adara",
             "lines": [
-                { "id": 1, "name": "Adara", "voiceOver": "##", "text": "wow! whats happoning it's folowing me..." },
-                { "id": 2, "name": "Altair", "voiceOver": "##", "text": "Are you ok is it hurting you" },
-                { "id": 3, "name": "Adara", "voiceOver": "##", "text": "actualy it's not that bad I can controll it." },
-                { "id": 4, "name": "Adara", "voiceOver": "##", "text": "And I feel weightless" },
-                { "id": 4, "name": "Adara", "voiceOver": "##", "text": "I'm Flying!?" }
+                { "id": 1, "name": "Adara", "voiceOver": "Adara APAd Line 1", "text": "Wow! What's happening it's following me..." },
+                { "id": 2, "name": "Altair", "voiceOver": "Sol_ID_1_LevelOneAbilityPickupAdars", "text": "Are you ok? What's it doing?" },
+                { "id": 3, "name": "Adara", "voiceOver": "Adara APAd Line 2", "text": "I seem to be able to control it..." },
+                { "id": 4, "name": "Adara", "voiceOver": "Adara APAd Line 3", "text": "And I feel weightless..." },
+                { "id": 4, "name": "Adara", "voiceOver": "Adara APAd Line 4", "text": "I'm flying!?" }
             ]
         },
         {
             "sequence": "Ability pickup Altair",
             "lines": [
-                { "id": 1, "name": "Altair", "voiceOver": "##", "text": "I can controll my orb" },
-                { "id": 2, "name": "Altair", "voiceOver": "##", "text": "hmm It pulls stuff towerds it." },
-                { "id": 3, "name": "Adara", "voiceOver": "##", "text": "That's cool." },
-                { "id": 4, "name": "Altair", "voiceOver": "##", "text": "I can defintly do somthing with this." }
+                { "id": 1, "name": "Altair", "voiceOver": "Sol_ID_1_LevelOneAbilityPickupAltair", "text": "I can control this orb!" },
+                { "id": 2, "name": "Altair", "voiceOver": "Sol_ID_2_LevelOneAbilityPickupAltair", "text": "Hmmm.. It pulls stuff towards it." },
+                { "id": 3, "name": "Adara", "voiceOver": "Adara APAl Line 1", "text": "That's cool." },
+                { "id": 4, "name": "Altair", "voiceOver": "Sol_ID_3_LevelOneAbilityPickupAltair", "text": "I can definitely do something with this." }
                 
             ]
         },
@@ -74,32 +74,32 @@
         {
             "sequence": "Take Too Long  Altair",
             "lines": [
-                { "id": 1, "name": "Altair", "voiceOver": "Sol_ID_1_SeperateRoomIntroduction", "text": "Does this other orb fit into the 'circuit' on the wall?" },
-                { "id": 2, "name": "Altair", "voiceOver": "Sol_ID_2_SeperateRoomIntroduction", "text": "Might as well give it a try." }
+                { "id": 1, "name": "Altair", "voiceOver": "Sol_ID_3_SeperateRoomIntroduction", "text": "Does this other orb fit into the 'circuit' on the wall?" },
+                { "id": 2, "name": "Altair", "voiceOver": "Sol_ID_4_SeperateRoomIntroduction", "text": "Might as well give it a try." }
                 
             ]
         },
         {
             "sequence": "Level 1",
             "lines": [
-                { "id": 1, "name": "Altair", "voiceOver": "##", "text": "This place is massive." },
-                { "id": 2, "name": "Altair", "voiceOver": "##", "text": "So cool." },
-                { "id": 3, "name": "Adara", "voiceOver": "##", "text": "Overtheare that looks like the door!" }
+                { "id": 1, "name": "Altair", "voiceOver": "Sol_ID_1_LevelOneLevel1", "text": "This place is massive." },
+                { "id": 2, "name": "Altair", "voiceOver": "Sol_ID_2_LevelOneLevel1", "text": "So cool." },
+                { "id": 3, "name": "Adara", "voiceOver": "Adara Lvl 1 Line 2", "text": "Over there! That looks like the door!" }
             ]
         },
         {
             "sequence": "Trying Door",
             "lines": [
-                { "id": 1, "name": "Adara", "voiceOver": "##", "text": "Thank goodenss we are free." },
-                { "id": 2, "name": "Altair", "voiceOver": "##", "text": "Hang on a second there is somthing wrong we can't go threw." },
-                { "id": 3, "name": "Castellan", "voiceOver": "OneD_3_Cas", "text": "You thaut it wuled be that eazy?" },
-                { "id": 4, "name": "Castellan", "voiceOver": "OneD_4_Cas", "text": "Don't worry this is just the beginnging." },
-                { "id": 5, "name": "Altair", "voiceOver": "##", "text": "You agin. let us out!" },
-                { "id": 6, "name": "Castellan", "voiceOver": "OneD_6_Cas", "text": "But why wuled you whant to leave, we are having so muvh fun."},
-                { "id": 7, "name": "Adara", "voiceOver": "##", "text": "Pleas let us out. What did we do to deseve this?" },
-                { "id": 8, "name": "Castellan", "voiceOver": "OneD_8_Cas", "text": "Well come on up ther is so much more fun in store."},
-                { "id": 9, "name": "Adara", "voiceOver": "##", "text": "What no come back." },
-                { "id": 10, "name": "Altair", "voiceOver": "##", "text": "Adara, we are going to have to do what he says for now." }
+                { "id": 1, "name": "Adara", "voiceOver": "Adara Trying Door 1", "text": "Thank goodness! We're free." },
+                { "id": 2, "name": "Altair", "voiceOver": "Sol_ID_1_LevelOneTryingDoor", "text": "Hang on a second there is somthing wrong we can't go through." },
+                { "id": 3, "name": "Castellan", "voiceOver": "OneD_3_Cas", "text": "You thought it would be that easy?" },
+                { "id": 4, "name": "Castellan", "voiceOver": "OneD_4_Cas", "text": "Don't worry this is just the beginning." },
+                { "id": 5, "name": "Altair", "voiceOver": "Sol_ID_2_LevelOneTryingDoor", "text": "You again. Let us out!" },
+                { "id": 6, "name": "Castellan", "voiceOver": "OneD_6_Cas", "text": "But why would you want to leave, we are having so much fun!"},
+                { "id": 7, "name": "Adara", "voiceOver": "Adara Trying Door 2", "text": "Please let us out. What did we do to deserve this?" },
+                { "id": 8, "name": "Castellan", "voiceOver": "OneD_8_Cas", "text": "Well come on up. There is so much more fun in store."},
+                { "id": 9, "name": "Adara", "voiceOver": "Adara Trying Door 3", "text": "What? No, come back!" },
+                { "id": 10, "name": "Altair", "voiceOver": "Sol_ID_3_LevelOneTryingDoor", "text": "Adara, we are going to have to do what he says for now..." }
             ]
         },
         {
@@ -117,12 +117,12 @@
         {
             "sequence": "Intro",
             "lines": [
-                { "id": 1, "name": "Altair", "voiceOver": "I_0_Cas", "text": "Another room?" },
+                { "id": 1, "name": "Altair", "voiceOver": "Sol_ID_1_LevelTwoPt1", "text": "Another room?" },
                 { "id": 2, "name": "Castellan", "voiceOver": "TwoI_1_Cas", "text": "Awww, are you having fun yet?" },
-                { "id": 3, "name": "Altair", "voiceOver": "I_2_Cas", "text": "Very much no." },
-                { "id": 4, "name": "Adara", "voiceOver": "##", "text": "If you're not going to help leve us be"},
-                { "id": 5, "name": "Castellan", "voiceOver": "TwoI_5_Cas", "text": "**laughs" },
-                { "id": 6, "name": "Altair", "voiceOver": "##", "text": "Is that the orb from before but its gone dark" }
+                { "id": 3, "name": "Altair", "voiceOver": "Sol_ID_2_LevelTwoPt1", "text": "Very much no." },
+                { "id": 4, "name": "Adara", "voiceOver": "Adara Lvl 2 Intro L1", "text": "If you're not going to help, leave us be."},
+                { "id": 5, "name": "Castellan", "voiceOver": "##", "text": "**laughs" },
+                { "id": 6, "name": "Altair", "voiceOver": "Sol_ID_1_LevelTwoIntro", "text": "Is that the orb from before? Hmmm, but it's gone dark..." }
                 
             ]
         },
@@ -130,34 +130,34 @@
             "sequence": "Room 1 Take Too Long",
             "lines": [
                 
-                { "id": 1, "name": "Adara", "voiceOver": "##", "text": "It looks like that energy fades when it toches somting." },
-                { "id": 2, "name": "Altair", "voiceOver": "##", "text": "That orb in the cart was holding the enrgy pritty well before" },
-                { "id": 3, "name": "Adara", "voiceOver": "##", "text": "you move the cart I'll hold up the energy" }
+                { "id": 1, "name": "Adara", "voiceOver": "Adara Room 1 TTL 2.1", "text": "It looks like that energy fades when it touches something." },
+                { "id": 2, "name": "Altair", "voiceOver": "##", "text": "That orb in the cart was holding the energy pretty well before." },
+                { "id": 3, "name": "Adara", "voiceOver": "Adara Room 1 TTL 2.2", "text": "You move the cart I'll hold up the energy." }
             ]
         },
         {
             "sequence": "Trigger EMP",
             "lines": [
                 
-                { "id": 1, "name": "Adara", "voiceOver": "##", "text": "wow the orb let out all it's energy when it touched my feald." },
-                { "id": 2, "name": "Altair", "voiceOver": "##", "text": "Mabe your feld disbling gravity stoppes the orb from..." },
-                { "id": 3, "name": "Adara", "voiceOver": "##", "text": "I dont ceare how it works just keep that orb out of my feal whaile its powered" }
+                { "id": 1, "name": "Adara", "voiceOver": "Adara Trigger EMP 1", "text": "Huh... The orb let out all it's energy when it touched my field." },
+                { "id": 2, "name": "Altair", "voiceOver": "Sol_ID_1_TriggerEMP", "text": "Maybe your field disabling gravity stops the orb from..." },
+                { "id": 3, "name": "Adara", "voiceOver": "Adara Trigger EMP 2", "text": "I don't care how it works, just keep that orb out of my field while it's powered." }
             ]
         },
         {
             "sequence": "Room 2 Take Too Long",
             "lines": [
-                { "id": 1, "name": "Altair", "voiceOver": "##", "text": "we need to fix the rail I can lif the lever but you need to hold" },
-                { "id": 2, "name": "Altair", "voiceOver": "##", "text": "I can lift the lever but you need to hold it up wile I move the cart." },
-                { "id": 3, "name": "Adara", "voiceOver": "##", "text": "Ok ok I got it" }
+                { "id": 1, "name": "Altair", "voiceOver": "Sol_ID_1_LevelTwoRoom2TakeTooLong", "text": "We need to fix the rail." },
+                { "id": 2, "name": "Altair", "voiceOver": "Sol_ID_2_LevelTwoRoom2TakeTooLong", "text": "I can lift the lever but you need to hold it up while I move the cart." },
+                { "id": 3, "name": "Adara", "voiceOver": "Adara Room 2 TTL 2.1", "text": "Ok, ok I got it." }
             ]
         },
         {
-            "sequence": "Finish",
+            "sequence": "Complete",
             "lines": [
-                { "id": 1, "name": "Altair", "voiceOver": "##", "text": "there we go the orb gone and the doar is open" },
-                { "id": 2, "name": "Castellan", "voiceOver": "TwoF_2_Cas", "text": "Sounds like your having fun." },
-                { "id": 3, "name": "Altair", "voiceOver": "##", "text": "Shut up" }
+                { "id": 1, "name": "Altair", "voiceOver": "Sol_ID_3_LevelTwoRoom2TakeTooLong", "text": "There we go. The orb  is gone and the door is open." },
+                { "id": 2, "name": "Castellan", "voiceOver": "##", "text": "Sounds like you're having fun." },
+                { "id": 3, "name": "Altair", "voiceOver": "Sol_ID_4_LevelTwoRoom2TakeTooLong", "text": "Shut up." }
             ]
         }
 
@@ -170,37 +170,36 @@
             "sequence": "Intro",
             "lines": [
                 { "id": 1, "name": "Adara", "voiceOver": "Adara Line 1 Level 3.1", "text": "How many rooms are there?" },
-                { "id": 2, "name": "Castellan", "voiceOver": "ThreeI_2_Cas", "text": "enouph." },
+                { "id": 2, "name": "Castellan", "voiceOver": "ThreeI_2_Cas", "text": "Enough." },
                 { "id": 3, "name": "Adara", "voiceOver": "Adara Line 2 Level 3.1", "text": "And how many is that?" },
                 { "id": 4, "name": "Adara", "voiceOver": "Adara Line 3 Level 3.1", "text": "Hello?"},
-                { "id": 5, "name": "Altair", "voiceOver": "##", "text": "And he's gone" },
-                { "id": 6, "name": "Altair", "voiceOver": "##", "text": "well lets get to it, theres that orb again" }
+                { "id": 5, "name": "Altair", "voiceOver": "Sol_ID_1_LevelThreeIntro", "text": "And he's gone" },
+                { "id": 6, "name": "Altair", "voiceOver": "Sol_ID_2_LevelThreeIntro", "text": "Well, let's get to it. There's that orb again." }
             ]
         },
         {
             "sequence": "Room 1 Take Too Long",
             "lines": [
-                { "id": 0, "name": "Adara", "voiceOver": "##", "text": "When my fald toches the pwerd orbs it relses it's energy" },
-                { "id": 1, "name": "Altair", "voiceOver": "##", "text": "Yeah?" },
-                { "id": 2, "name": "Adara", "voiceOver": "##", "text": "Well i wonder if that energy will overload the doors." },
-                { "id": 5, "name": "Altair", "voiceOver": "##", "text": "Thats an idea lets try it." }
+                { "id": 0, "name": "Adara", "voiceOver": "Adara Room 1 TTL 3.1", "text": "When my field touches the powered orbs, it releases it's energy." },
+                { "id": 1, "name": "Altair", "voiceOver": "Sol_ID_1_LevelThreeTakeTooLong", "text": "Yeah?" },
+                { "id": 2, "name": "Adara", "voiceOver": "Adara Room 1 TTL 3.2", "text": "Well, I wonder if that energy will overload the doors." },
+                { "id": 5, "name": "Altair", "voiceOver": "Sol_ID_2_LevelThreeTakeTooLong", "text": "That's an idea. Let's try it." }
             ]
         },
         {
             "sequence": "Room 2 Take Too Long",
             "lines": [
                 { "id": 1, "name": "Altair", "voiceOver": "Sol_ID_1_LevelThreePt2", "text": "Maybe if we blast the gate with the charge then hold it open, we can blast the door as well" },
-                { "id": 2, "name": "Adara", "voiceOver": "##", "text": "On it." }
+                { "id": 2, "name": "Adara", "voiceOver": "Adara Room 2 TTL 3.1", "text": "On it." }
             ]
         }
         ,
         {
             "sequence": "Complete",
             "lines": [
-                { "id": 1, "name": "Altair", "voiceOver": "##", "text": "Well that's done" },
-                { "id": 2, "name": "Altair", "voiceOver": "Sol_ID_1_LevelThreePt1", "text": "Why do I remember doing this exact thing before?" },
-                { "id": 3, "name": "Adara", "voiceOver": "##", "text": "yeah that's some craizy Déjà vu, weard" },
-                { "id": 4, "name": "Adara", "voiceOver": "ThreeC_4_Cas", "text": "Strainge Indeed" }
+                { "id": 1, "name": "Altair", "voiceOver": "Sol_ID_1_LevelThreeComplete", "text": "Well, that's done" },
+                { "id": 1, "name": "Altair", "voiceOver": "Sol_ID_1_LevelThreePt1", "text": "Why do I remember doing this exact thing before?" },
+                { "id": 2, "name": "Adara", "voiceOver": "Adara Lvl 3 Complete", "text": "Yeah, that's some crazy Déjà vu... Weird." }
             ]
         }
       ]
@@ -211,18 +210,18 @@
         {
             "sequence": "Intro",
             "lines": [
-                { "id": 1, "name": "Adara", "voiceOver": "Adara Line 1 Level 3.1", "text": "This room seems vaguely familiar as well..." },
-                { "id": 2, "name": "Altair", "voiceOver": "##", "text": "I agree..." },
-                { "id": 3, "name": "Castellan", "voiceOver": "BFI_2_Cas", "text": "Ah, you've fianly made it." },
-                { "id": 4, "name": "Castellan", "voiceOver": "BFI_3_Cas", "text": "it is good to see you botha gain face to face." },
-                { "id": 5, "name": "Castellan", "voiceOver": "BFI_4_Cas", "text": "and you braut me my orb I havent needed it for a while but I apecite the gesture." },
-                { "id": 6, "name": "Castellan", "voiceOver": "BFI_5_Cas", "text": "tho this energy is dilcouse." },
-                { "id": 7, "name": "Castellan", "voiceOver": "BFI_6_Cas", "text": "So I'm going to enjoy this abzorb this energy and you cantry and stop me." }
+                { "id": 1, "name": "Adara", "voiceOver": "Adara Boss Fight Int", "text": "This room seems vaguely familiar as well..." },
+                { "id": 2, "name": "Altair", "voiceOver": "Sol_ID_1_BossFightIntro", "text": "I agree..." },
+                { "id": 3, "name": "Castellan", "voiceOver": "BFI_2_Cas", "text": "Ah, you've finally made it." },
+                { "id": 4, "name": "Castellan", "voiceOver": "BFI_3_Cas", "text": "It's good to see you both again face to face." },
+                { "id": 5, "name": "Castellan", "voiceOver": "BFI_4_Cas", "text": "And you brought me my orb! I haven't needed it for a while but I appreciate the gesture." },
+                { "id": 6, "name": "Castellan", "voiceOver": "BFI_5_Cas", "text": "Though this energy is delicious." },
+                { "id": 7, "name": "Castellan", "voiceOver": "BFI_6_Cas", "text": "So I'm going to enjoy this orb and you can try and stop me." }
                 
             ]
         } ,
         {
-            "sequence": "Caught",
+            "sequence": "Caut",
             "lines": [
                 { "id": 1, "name": "Castellan", "voiceOver": "BFC_1_Cas", "text": "Aaaah let me down" }
             ]
@@ -230,17 +229,17 @@
         {
           "sequence": "Hit 1",
             "lines": [
-                { "id": 1, "name": "Castellan", "voiceOver": "BFH1_1_Cas", "text": "Nooo that power is mine" },
-                { "id": 2, "name": "Altair", "voiceOver": "##", "text": "He's getting weeker keep it up" },
-                { "id": 3, "name": "Adara", "voiceOver": "##", "text": "Yeah we got this." }
+                { "id": 1, "name": "Castellan", "voiceOver": "BFH1_1_Cas", "text": "Nooo, that power is mine!" },
+                { "id": 2, "name": "Altair", "voiceOver": "Sol_ID_1_BossFightHit1", "text": "He's getting weaker. Keep it up!" },
+                { "id": 3, "name": "Adara", "voiceOver": "Adara Hit 1", "text": "Yeah! We got this." }
             ]
         },
         {
           "sequence": "Hit 2",
             "lines": [
-                { "id": 1, "name": "Adara", "voiceOver": "##", "text": "How do you like that." },
-                { "id": 2, "name": "Castellan", "voiceOver": "BFH2_2_Cas", "text": "This is not how it's saposed to get back" },
-                { "id": 2, "name": "Altair", "voiceOver": "##", "text": "You started this we are going to finish it" }
+                { "id": 3, "name": "Adara", "voiceOver": "Adara Hit 2", "text": "How do you like that." },
+                { "id": 1, "name": "Castellan", "voiceOver": "BFH2_1_Cas", "text": "This is not how it's supposed to get back" },
+                { "id": 2, "name": "Altair", "voiceOver": "Sol_ID_1_BossFightHit2", "text": "You started this, we are going to finish it." }
                 
             ]
         }
@@ -250,22 +249,36 @@
       "scene": "Ending",
       "sequences": [
         {
-            "sequence": "Talk",
+            "sequence": "Intro",
             "lines": [
                 { "id": 1, "name": "Adara", "voiceOver": "Adara Line 1 Outro", "text": "Wait?" },
                 { "id": 2, "name": "Adara", "voiceOver": "Adara Line 2 Outro", "text": "Caelum?" },
                 { "id": 3, "name": "Altair", "voiceOver": "Sol_ID_1_Outro", "text": "Caelum..." },
                 { "id": 4, "name": "Castellan", "voiceOver": "E_4_Cas", "text": "I see you both remember now..." },
-                { "id": 5, "name": "Castellan", "voiceOver": "E_5_Cas", "text": "First of all thank you for brinign me back to my sences" },
-                { "id": 6, "name": "Castellan", "voiceOver": "E_6_Cas", "text": "Second I'm sorry now you see waht our wish cost" },
-                { "id": 7, "name": "Altair", "voiceOver": "Sol_ID_2_Outro", "text": "Caelum, we didn't mean for this to happen" },
+                { "id": 5, "name": "Castellan", "voiceOver": "E_5_Cas", "text": "First of all, thank you for bringing me back to my senses" },
+                { "id": 6, "name": "Castellan", "voiceOver": "E_6_Cas", "text": "Second, I'm sorry now you see what our wish cost." },
+                { "id": 7, "name": "Altair", "voiceOver": "Sol_ID_2_Outro", "text": "Caelum, we didn't mean for this to happen." },
                 { "id": 8, "name": "Adara", "voiceOver": "Adara Line 3 Outro", "text": "We had no idea what the cost of such a wish would be..." },
-                { "id": 9, "name": "Castellan", "voiceOver": "E_9_Cas", "text": "Even if I knew I woledn't do anything diffent exept meabe be a bit nicer to you guys." },
-                { "id": 10, "name": "Castellan", "voiceOver": "E_10_Cas", "text": "and now is my time to go you tare now free." },
-                { "id": 11, "name": "Castellan", "voiceOver": "E_11_Cas", "text": "Goodbye my frends go enjosy the life we faut so hard for" },
-                { "id": 12, "name": "Adara", "voiceOver": "##", "text": "##" },
-                { "id": 13, "name": "Altair", "voiceOver": "##", "text": "##" }
+                { "id": 9, "name": "Castellan", "voiceOver": "E_9_Cas", "text": "Even if I knew I wouldn't do anything different... Except maybe be a bit nicer to you guys." },
+                { "id": 10, "name": "Castellan", "voiceOver": "E_10_Cas", "text": "And now is my time to go... You are now free." },
+                { "id": 11, "name": "Castellan", "voiceOver": "E_11_Cas", "text": "Goodbye my friends. Go enjoy the life we fought for." },
+                { "id": 3, "name": "Altair", "voiceOver": "Sol_ID_1_EndingIntro", "text": "Goodbye Caelum... We'll not waste any second of it." },
+                { "id": 3, "name": "Adara", "voiceOver": "Adara Goodbye", "text": "Goodbye dear friend. Your sacrifice will not be in vain." }
                 
+            ]
+        }
+      ]
+    },
+    {
+      "scene": "IntroCutsene",
+      "sequences": [
+        {
+            "sequence": "Intro",
+            "lines": [
+                { "id": 0, "name": "Castellan", "voiceOver": "I_0_Cas", "text": "In search of a wish to save those they hold dear," },
+                { "id": 1, "name": "Castellan", "voiceOver": "I_1_Cas", "text": "They heard of a place that could fix what they fear." },
+                { "id": 2, "name": "Castellan", "voiceOver": "I_2_Cas", "text": "They reached the tower, not knowing what was in store." },
+                { "id": 3, "name": "Castellan", "voiceOver": "I_3_Cas", "text": "If they had, the three friends might have never stepped through the door..." }
             ]
         }
       ]
@@ -274,16 +287,6 @@
       "scene": "Cutscene",
       "sequences": [
         {
-            "sequence": "Cutscene 1",
-            "lines": [
-                { "id": 0, "name": "Castellan", "voiceOver": "I_0_Cas", "text": "In search of a wish to save those they hold dear," },
-                { "id": 1, "name": "Castellan", "voiceOver": "I_1_Cas", "text": "They heard of a place that could fix what they fear." },
-                { "id": 2, "name": "Castellan", "voiceOver": "I_2_Cas", "text": "They reached the tower, not knowing what was in store." },
-                { "id": 3, "name": "Castellan", "voiceOver": "I_3_Cas", "text": "If they had, the three friends might have never stepped through the door..." }
-            ]
-        },
-        {
-          
             "sequence": "Cutscene 2",
             "lines": [
                 { "id": 0, "name": "Castellan", "voiceOver": "C2_0_Cas", "text": "Upon entering the tower gifts where bestowed," },
