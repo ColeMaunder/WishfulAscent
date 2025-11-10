@@ -121,7 +121,7 @@
                 { "id": 2, "name": "Castellan", "voiceOver": "TwoI_1_Cas", "text": "Awww, are you having fun yet?" },
                 { "id": 3, "name": "Altair", "voiceOver": "I_2_Cas", "text": "Very much no." },
                 { "id": 4, "name": "Adara", "voiceOver": "##", "text": "If you're not going to help leve us be"},
-                { "id": 5, "name": "Castellan", "voiceOver": "##", "text": "**laughs" },
+                { "id": 5, "name": "Castellan", "voiceOver": "TwoI_5_Cas", "text": "**laughs" },
                 { "id": 6, "name": "Altair", "voiceOver": "##", "text": "Is that the orb from before but its gone dark" }
                 
             ]
@@ -153,10 +153,10 @@
             ]
         },
         {
-            "sequence": "Room 2 Take Too Long",
+            "sequence": "Finish",
             "lines": [
                 { "id": 1, "name": "Altair", "voiceOver": "##", "text": "there we go the orb gone and the doar is open" },
-                { "id": 2, "name": "Castellan", "voiceOver": "##", "text": "Sounds like your having fun." },
+                { "id": 2, "name": "Castellan", "voiceOver": "TwoF_2_Cas", "text": "Sounds like your having fun." },
                 { "id": 3, "name": "Altair", "voiceOver": "##", "text": "Shut up" }
             ]
         }
@@ -198,8 +198,9 @@
             "sequence": "Complete",
             "lines": [
                 { "id": 1, "name": "Altair", "voiceOver": "##", "text": "Well that's done" },
-                { "id": 1, "name": "Altair", "voiceOver": "Sol_ID_1_LevelThreePt1", "text": "Why do I remember doing this exact thing before?" },
-                { "id": 2, "name": "Adara", "voiceOver": "##", "text": "yeah that's some craizy Déjà vu, weard" }
+                { "id": 2, "name": "Altair", "voiceOver": "Sol_ID_1_LevelThreePt1", "text": "Why do I remember doing this exact thing before?" },
+                { "id": 3, "name": "Adara", "voiceOver": "##", "text": "yeah that's some craizy Déjà vu, weard" },
+                { "id": 4, "name": "Adara", "voiceOver": "ThreeC_4_Cas", "text": "Strainge Indeed" }
             ]
         }
       ]
@@ -213,10 +214,10 @@
                 { "id": 1, "name": "Adara", "voiceOver": "Adara Line 1 Level 3.1", "text": "This room seems vaguely familiar as well..." },
                 { "id": 2, "name": "Altair", "voiceOver": "##", "text": "I agree..." },
                 { "id": 3, "name": "Castellan", "voiceOver": "BFI_2_Cas", "text": "Ah, you've fianly made it." },
-                { "id": 4, "name": "Castellan", "voiceOver": "BFI_3_Cas", "text": "it's good to see you botha gain face to face." },
+                { "id": 4, "name": "Castellan", "voiceOver": "BFI_3_Cas", "text": "it is good to see you botha gain face to face." },
                 { "id": 5, "name": "Castellan", "voiceOver": "BFI_4_Cas", "text": "and you braut me my orb I havent needed it for a while but I apecite the gesture." },
                 { "id": 6, "name": "Castellan", "voiceOver": "BFI_5_Cas", "text": "tho this energy is dilcouse." },
-                { "id": 7, "name": "Castellan", "voiceOver": "BFI_6_Cas", "text": "So I'm going to enjoy this abzorb and you cantry and stop me." }
+                { "id": 7, "name": "Castellan", "voiceOver": "BFI_6_Cas", "text": "So I'm going to enjoy this abzorb this energy and you cantry and stop me." }
                 
             ]
         } ,
