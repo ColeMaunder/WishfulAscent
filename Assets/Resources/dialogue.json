@@ -14,7 +14,7 @@
                 { "id": 6, "name": "Castellan", "voiceOver": "OneI_6_Cas", "text": "You may call me Castellan." },
                 { "id": 7, "name": "Castellan", "voiceOver": "OneI_7_Cas", "text": "Well, I should take my leave. Goodbye for now..." },
                 { "id": 8, "name": "Adara", "voiceOver": "Adara Line 3 Intro", "text": "Wait!" },
-                { "id": 9, "name": "Castellan", "voiceOver": "OneI_7_Cas", "text": "..." },
+                { "id": 9, "name": "Castellan", "voiceOver": "OneI_9_Cas", "text": "..." },
                 { "id": 10, "name": "Adara", "voiceOver": "Adara Line 4 Intro", "text": "Well, I should probably try and get out of here." },
                 { "id": 11, "name": "Adara", "voiceOver": "Adara Line 4 Intro", "text": "Wherever here is..." }
             ]
@@ -222,7 +222,7 @@
             ]
         } ,
         {
-            "sequence": "Caut",
+            "sequence": "Caught",
             "lines": [
                 { "id": 1, "name": "Castellan", "voiceOver": "BFC_1_Cas", "text": "Aaaah let me down" }
             ]
@@ -238,8 +238,8 @@
         {
           "sequence": "Hit 2",
             "lines": [
-                { "id": 3, "name": "Adara", "voiceOver": "##", "text": "How do you like that." },
-                { "id": 1, "name": "Castellan", "voiceOver": "BFH2_1_Cas", "text": "This is not how it's saposed to get back" },
+                { "id": 1, "name": "Adara", "voiceOver": "##", "text": "How do you like that." },
+                { "id": 2, "name": "Castellan", "voiceOver": "BFH2_2_Cas", "text": "This is not how it's saposed to get back" },
                 { "id": 2, "name": "Altair", "voiceOver": "##", "text": "You started this we are going to finish it" }
                 
             ]
@@ -250,7 +250,7 @@
       "scene": "Ending",
       "sequences": [
         {
-            "sequence": "Intro",
+            "sequence": "Talk",
             "lines": [
                 { "id": 1, "name": "Adara", "voiceOver": "Adara Line 1 Outro", "text": "Wait?" },
                 { "id": 2, "name": "Adara", "voiceOver": "Adara Line 2 Outro", "text": "Caelum?" },
@@ -261,8 +261,8 @@
                 { "id": 7, "name": "Altair", "voiceOver": "Sol_ID_2_Outro", "text": "Caelum, we didn't mean for this to happen" },
                 { "id": 8, "name": "Adara", "voiceOver": "Adara Line 3 Outro", "text": "We had no idea what the cost of such a wish would be..." },
                 { "id": 9, "name": "Castellan", "voiceOver": "E_9_Cas", "text": "Even if I knew I woledn't do anything diffent exept meabe be a bit nicer to you guys." },
-                { "id": 10, "name": "Castellan", "voiceOver": "E_10_Cas", "text": "and now is my time to go you are now free." },
-                { "id": 11, "name": "Castellan", "voiceOver": "E_11_Cas", "text": "Goodbye my frends go enjosy the life we faut for" },
+                { "id": 10, "name": "Castellan", "voiceOver": "E_10_Cas", "text": "and now is my time to go you tare now free." },
+                { "id": 11, "name": "Castellan", "voiceOver": "E_11_Cas", "text": "Goodbye my frends go enjosy the life we faut so hard for" },
                 { "id": 12, "name": "Adara", "voiceOver": "##", "text": "##" },
                 { "id": 13, "name": "Altair", "voiceOver": "##", "text": "##" }
                 

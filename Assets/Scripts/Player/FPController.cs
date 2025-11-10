@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class FPController : MonoBehaviour
 {
-    [SerializeField] bool swapEnabled = true;
+    public bool swapEnabled = true;
     public int currentCharacter = 0;
     public Transform[] characters;
     public Transform character;
